@@ -7,7 +7,7 @@
 #Installation
 
 1. git clone https://github.com/taiju59/Pogger.git
-2. install cocoapods and execute pod install
+2. install cocoapods and execute "pod install"
 3. get Google Maps API key and input into AppDelegate.swift  
 4. run & install
 
