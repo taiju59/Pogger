@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
 		F619436C1D0866F4000CC24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ViewController.swift */; };
-		F619436E1D086714000CC24F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F619436D1D086714000CC24F /* Info.plist */; };
 		F61943731D08673E000CC24F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F619436F1D08673E000CC24F /* LaunchScreen.storyboard */; };
 		F61943741D08673E000CC24F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61943711D08673E000CC24F /* Main.storyboard */; };
 		F619437A1D08676E000CC24F /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61943751D08676E000CC24F /* EmptyState.xib */; };
@@ -22,7 +22,6 @@
 		F61943861D0867AA000CC24F /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943801D0867AA000CC24F /* Prefix.swift */; };
 		F61943871D0867AA000CC24F /* RLMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943811D0867AA000CC24F /* RLMModel.swift */; };
 		F61943881D0867AA000CC24F /* RLMUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943821D0867AA000CC24F /* RLMUtils.swift */; };
-		F61943891D0867AA000CC24F /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943831D0867AA000CC24F /* Secret.swift */; };
 		F619438A1D0867AA000CC24F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943841D0867AA000CC24F /* Utils.swift */; };
 		F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438B1D0867C2000CC24F /* LicenseViewController.swift */; };
 		F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */; };
@@ -63,15 +62,15 @@
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
-		F6A4BA7A1D0843BA001ACBE4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A4BA791D0843BA001ACBE4 /* libPods.a */; };
 		F6ED3BF41CF204FE0002EC3E /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED3BF31CF204FE0002EC3E /* Device.framework */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
 		F6ED4C7C1CF9723F00DCA80E /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E70F2F0CB3947458B4DF62E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		E55512E11868574AC0D7F520 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.debug.xcconfig"; sourceTree = "<group>"; };
+		9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
 		F61943671D0866F4000CC24F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Pogger/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F61943681D0866F4000CC24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pogger/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F61943691D0866F4000CC24F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Pogger/ViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -87,7 +86,6 @@
 		F61943801D0867AA000CC24F /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefix.swift; path = Pogger/Prefix.swift; sourceTree = SOURCE_ROOT; };
 		F61943811D0867AA000CC24F /* RLMModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMModel.swift; path = Pogger/RLMModel.swift; sourceTree = SOURCE_ROOT; };
 		F61943821D0867AA000CC24F /* RLMUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMUtils.swift; path = Pogger/RLMUtils.swift; sourceTree = SOURCE_ROOT; };
-		F61943831D0867AA000CC24F /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = Pogger/Secret.swift; sourceTree = SOURCE_ROOT; };
 		F61943841D0867AA000CC24F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Pogger/Utils.swift; sourceTree = SOURCE_ROOT; };
 		F619438B1D0867C2000CC24F /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseViewController.swift; path = Pogger/LicenseViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewContrtoller.swift; path = Pogger/ListViewContrtoller.swift; sourceTree = SOURCE_ROOT; };
@@ -127,8 +125,8 @@
 		F61943BA1D086CC4000CC24F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		F61943BC1D086CC4000CC24F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F64BA51C1CC3698A007FD321 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		F66EECB51D0B1DF8003F4056 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6770A9A1CFD41F400B4B10E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		F6A232FF1C81792D0061A9A8 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Pogger.app; path = "/Users/taiju/Documents/Projects/Pogger/build/Debug-iphoneos/Pogger.app"; sourceTree = "<absolute>"; };
 		F6A4BA791D0843BA001ACBE4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		F6ED3BF31CF204FE0002EC3E /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
@@ -140,12 +138,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6A4BA7A1D0843BA001ACBE4 /* libPods.a in Frameworks */,
 				F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */,
 				F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */,
 				F6ED4C7C1CF9723F00DCA80E /* SwiftDate.framework in Frameworks */,
 				F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */,
 				F6ED3BF41CF204FE0002EC3E /* Device.framework in Frameworks */,
+				3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,15 +159,16 @@
 				F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */,
 				F6ED3BF31CF204FE0002EC3E /* Device.framework */,
 				F64BA51C1CC3698A007FD321 /* RealmSwift.framework */,
+				9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A66D777341DBBD6DDADE3374 /* Pods */ = {
+		F24D26920A905C163EE1EE86 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E55512E11868574AC0D7F520 /* Pods.debug.xcconfig */,
-				2E70F2F0CB3947458B4DF62E /* Pods.release.xcconfig */,
+				6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */,
+				EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -281,7 +280,6 @@
 				F61943801D0867AA000CC24F /* Prefix.swift */,
 				F61943811D0867AA000CC24F /* RLMModel.swift */,
 				F61943821D0867AA000CC24F /* RLMUtils.swift */,
-				F61943831D0867AA000CC24F /* Secret.swift */,
 				F61943841D0867AA000CC24F /* Utils.swift */,
 			);
 			name = model;
@@ -304,8 +302,9 @@
 			children = (
 				F61943961D086CC4000CC24F /* Resources */,
 				F6A233011C81792D0061A9A8 /* Pogger */,
-				A66D777341DBBD6DDADE3374 /* Pods */,
 				91295518DD142704797A9AC7 /* Frameworks */,
+				F66EECB51D0B1DF8003F4056 /* Pogger.app */,
+				F24D26920A905C163EE1EE86 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,13 +332,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6A233271C81792D0061A9A8 /* Build configuration list for PBXNativeTarget "Pogger" */;
 			buildPhases = (
-				8A7260E1543F4BE479615399 /* Check Pods Manifest.lock */,
+				FDACDB780A499AC7BF0F4124 /* [CP] Check Pods Manifest.lock */,
 				F6A232FB1C81792D0061A9A8 /* Sources */,
 				F6A232FC1C81792D0061A9A8 /* Frameworks */,
 				F6A232FD1C81792D0061A9A8 /* Resources */,
-				CCD2BD7054344170ADA56D46 /* Embed Pods Frameworks */,
-				34CAC1FCCA9677D10E56E9CD /* Copy Pods Resources */,
 				F64BA5131CC366AB007FD321 /* ShellScript */,
+				998F08EAB217FD541EB6BCDB /* [CP] Embed Pods Frameworks */,
+				3D2841ADDEB975E9A2A7888C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,7 +346,7 @@
 			);
 			name = Pogger;
 			productName = staylog;
-			productReference = F6A232FF1C81792D0061A9A8 /* Pogger.app */;
+			productReference = F66EECB51D0B1DF8003F4056 /* Pogger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -357,12 +356,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Taiju Aoki";
 				TargetAttributes = {
 					F6A232FE1C81792D0061A9A8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = G2GGZH6R2W;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -396,7 +394,6 @@
 			files = (
 				F619437A1D08676E000CC24F /* EmptyState.xib in Resources */,
 				F61943C91D086CC4000CC24F /* Icon-83.5@2x.png in Resources */,
-				F619436E1D086714000CC24F /* Info.plist in Resources */,
 				F61943DB1D086CC4000CC24F /* star.png in Resources */,
 				F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */,
 				F61943CE1D086CC4000CC24F /* Icon-Small@3x.png in Resources */,
@@ -438,49 +435,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		34CAC1FCCA9677D10E56E9CD /* Copy Pods Resources */ = {
+		3D2841ADDEB975E9A2A7888C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pogger/Pods-Pogger-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A7260E1543F4BE479615399 /* Check Pods Manifest.lock */ = {
+		998F08EAB217FD541EB6BCDB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CCD2BD7054344170ADA56D46 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pogger/Pods-Pogger-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F64BA5131CC366AB007FD321 /* ShellScript */ = {
@@ -501,6 +483,21 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		FDACDB780A499AC7BF0F4124 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -519,7 +516,6 @@
 				F61943851D0867AA000CC24F /* LocationModel.swift in Sources */,
 				F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */,
 				F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */,
-				F61943891D0867AA000CC24F /* Secret.swift in Sources */,
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
 				F61943871D0867AA000CC24F /* RLMModel.swift in Sources */,
@@ -632,11 +628,11 @@
 		};
 		F6A233281C81792D0061A9A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E55512E11868574AC0D7F520 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Taiju Aoki (NKQPU8EQT4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Taiju Aoki (NKQPU8EQT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -650,17 +646,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blue.munmun.staylog;
 				PRODUCT_NAME = Pogger;
-				PROVISIONING_PROFILE = "59ab10ac-4b7f-4893-bbd0-a889ef249a8d";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		F6A233291C81792D0061A9A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E70F2F0CB3947458B4DF62E /* Pods.release.xcconfig */;
+			baseConfigurationReference = EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Taiju Aoki (G2GGZH6R2W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Taiju Aoki (G2GGZH6R2W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -674,7 +670,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blue.munmun.staylog;
 				PRODUCT_NAME = Pogger;
-				PROVISIONING_PROFILE = "6da799f6-e50e-47cf-8e12-2fb69eda93c6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

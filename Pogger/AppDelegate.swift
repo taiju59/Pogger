@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        GMSServices.provideAPIKey(Secret.GM_API_KEY) // set your Google Map API Key
+        GMSServices.provideAPIKey("xxx") // set your Google Map API Key
         
         let navigationTitleColor = Prefix.THEMA_COLOR
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:navigationTitleColor]
