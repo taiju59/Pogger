@@ -303,7 +303,7 @@
 				F61943961D086CC4000CC24F /* Resources */,
 				F6A233011C81792D0061A9A8 /* Pogger */,
 				91295518DD142704797A9AC7 /* Frameworks */,
-				F66EECB51D0B1DF8003F4056 /* Pogger.app */,
+				F6F068B81D0B257100A63688 /* Product */,
 				F24D26920A905C163EE1EE86 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -323,6 +323,14 @@
 			);
 			name = Pogger;
 			path = staylog;
+			sourceTree = "<group>";
+		};
+		F6F068B81D0B257100A63688 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				F66EECB51D0B1DF8003F4056 /* Pogger.app */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
