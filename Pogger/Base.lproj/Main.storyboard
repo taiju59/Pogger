@@ -245,7 +245,7 @@
                                 <action selector="changePogList:" destination="BYZ-38-t0r" eventType="valueChanged" id="seT-C9-Rg5"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="OsT-Ks-bTL">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="OsT-Ks-bTL">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L5C-2K-buH">
                                 <rect key="frame" x="540" y="7" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -337,7 +337,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="設定" id="uXN-sv-Fjg">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Wf0-kT-CIA">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="Wf0-kT-CIA">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ILm-qE-alB">
                                 <rect key="frame" x="20" y="1" width="40" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
