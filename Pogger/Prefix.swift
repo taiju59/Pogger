@@ -10,7 +10,8 @@ import UIKit
 
 class Prefix {
 //    static let THEMA_COLOR = UIColor(red: 201/255, green: 43/255, blue: 124/255, alpha: 1)
-    static let THEMA_COLOR = UIColor(red: 234/255, green: 19/255, blue: 141/255, alpha: 1)
+//    static let THEMA_COLOR = UIColor(red: 234/255, green: 19/255, blue: 141/255, alpha: 1)
+    static let THEMA_COLOR = UIColor(red: 234/255, green: 84/255, blue: 136/255, alpha: 1)
     
     static let ICON_CONF = "\u{e037}"
     static let ICON_X = "\u{4d}"

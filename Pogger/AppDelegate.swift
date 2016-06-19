@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("xxx") // set your Google Map API Key
         
-        let navigationTitleColor = Prefix.THEMA_COLOR
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:navigationTitleColor]
-        UINavigationBar.appearance().tintColor = navigationTitleColor
-        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
+        // navigationBar 周りの色を調整
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = Prefix.THEMA_COLOR
         
         // 位置情報計測精度初期設定
         let userDefaults = NSUserDefaults.standardUserDefaults()

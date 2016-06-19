@@ -10,8 +10,6 @@ import UIKit
 
 class LocateQualityViewController: UITableViewController {
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRectZero)

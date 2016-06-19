@@ -228,9 +228,6 @@
                                 <rect key="frame" x="20" y="1" width="40" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ElegantIcons" family="ElegantIcons" pointSize="20"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.91764705882352937" green="0.074509803921568626" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                                 <connections>
                                     <segue destination="uFb-Ab-BPk" kind="presentation" id="SB2-db-8sy"/>
                                 </connections>
@@ -243,7 +240,7 @@
                                 <segment title="Pogs"/>
                                 <segment title="Favorites"/>
                             </segments>
-                            <color key="tintColor" red="0.91764705879999997" green="0.074509803920000006" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="changePogList:" destination="BYZ-38-t0r" eventType="valueChanged" id="seT-C9-Rg5"/>
                             </connections>
@@ -346,7 +343,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ElegantIcons" family="ElegantIcons" pointSize="25"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.91764705879999997" green="0.074509803920000006" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="AsR-46-IyM" kind="unwind" unwindAction="returnListViewForSegue:" id="B35-hW-ckZ"/>
@@ -452,7 +449,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" red="0.78823529410000004" green="0.16862745100000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.91764705879999997" green="0.3294117647" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="5CI-f0-4US" kind="unwind" unwindAction="returnSettingViewForSegue:" id="7K4-pc-jU0"/>
                                         </connections>
@@ -473,7 +470,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" red="0.78823529410000004" green="0.16862745100000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.91764705879999997" green="0.3294117647" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="5CI-f0-4US" kind="unwind" unwindAction="returnSettingViewForSegue:" id="asI-Lk-6WH"/>
                                         </connections>
@@ -494,7 +491,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" red="0.78823529410000004" green="0.16862745100000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.91764705879999997" green="0.3294117647" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="5CI-f0-4US" kind="unwind" unwindAction="returnSettingViewForSegue:" id="486-ye-Adt"/>
                                         </connections>

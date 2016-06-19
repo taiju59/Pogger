@@ -39,10 +39,4 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
         })
     }
     
-//    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool {
-//        //ここに戻る前の処理を記述
-//        print("return ListView")
-//        return true
-//    }
-    
 }
