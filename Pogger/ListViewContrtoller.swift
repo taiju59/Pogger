@@ -277,7 +277,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     func pointCell(pointCell: PointCell, select: Bool) {
         print("id: \(pointCell.id), select: \(select)")
-        RLMUtils.modFavorite(pointCell.id, select: select)
+        Point.modFavorite(pointCell.id, select: select)
     }
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
@@ -321,7 +321,8 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
                 self.setFavoriteList()
             }
             
-            self.showStreetView = try! Realm().objects(Settings).first?.showStreetView ?? true
+//            let userDefaults = NSUserDefaults.standardUserDefaults()
+//            self.showStreetView = userDefaults.boolForKey(Prefix.KEY_SHOW_STREET_VIEW)
         }
     }
     
@@ -419,22 +420,14 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     @IBAction func changeViewType(sender: UIBarButtonItem) {
         let private_queue = dispatch_queue_create("changeViewType", nil)
         dispatch_async(private_queue) {
-            let realm = try! Realm()
-            if realm.objects(Settings).count == 0 {
-                let newSetting = Settings()
-                newSetting.showStreetView = !newSetting.showStreetView
-                try! realm.write {
-                    realm.add(newSetting)
-                }
-            } else {
-                let setting = realm.objects(Settings).first!
-                try! realm.write {
-                    setting.showStreetView = !setting.showStreetView
-                    print("setting.showStreetView: \(setting.showStreetView)")
-                }
+            self.showStreetView = !self.showStreetView
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setBool(self.showStreetView, forKey: Prefix.KEY_SHOW_STREET_VIEW)
+            userDefaults.synchronize()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.refreshData()
             }
         }
-        refreshData()
     }
     
     @IBAction func didLongSelect(sender: UILongPressGestureRecognizer) {
@@ -499,49 +492,4 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
             return nib.instantiateWithOwner(nil, options: nil).first as! UIView
         }
     }
-    
-    
-}
-
-
-class FixedPoint {
-    var id: String!
-    var startDate: NSDate!
-    var endDate: NSDate!
-    var stayMin: Int =  0
-    var longitude = 0.0
-    var latitude = 0.0
-    var name: String?
-    var thoroughfare: String?
-    var subThoroughfare: String?
-    var locality: String?
-    var subLocality: String?
-    var postalCode: String?
-    var administrativeArea: String?
-    var country: String?
-    var favorite = false
-    var changed = false
-    
-    class func fixedPointFromRlm(rlm: Point) -> FixedPoint {
-        let fixedPoint = FixedPoint()
-        fixedPoint.id = rlm.id
-        fixedPoint.startDate = rlm.startDate
-        fixedPoint.endDate = rlm.endDate
-        fixedPoint.stayMin = rlm.stayMin
-        fixedPoint.longitude = rlm.longitude
-        fixedPoint.latitude = rlm.latitude
-        fixedPoint.name = rlm.name
-        fixedPoint.thoroughfare = rlm.thoroughfare
-        fixedPoint.subThoroughfare = rlm.subThoroughfare
-        fixedPoint.locality = rlm.locality
-        fixedPoint.subLocality = rlm.subLocality
-        fixedPoint.postalCode = rlm.postalCode
-        fixedPoint.administrativeArea = rlm.administrativeArea
-        fixedPoint.country = rlm.country
-        fixedPoint.favorite = rlm.favorite
-        fixedPoint.changed = rlm.changed
-        
-        return fixedPoint
-    }
-    
 }

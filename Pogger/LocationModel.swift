@@ -75,7 +75,7 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
             }
             if placemarks!.count > 0 {
                 let pm = placemarks![0] as CLPlacemark
-                RLMUtils.inputPoint(pm)
+                Point.inputPoint(pm)
                 //stop updating location to save battery life
                 //                self.lm.stopUpdatingLocation()
             } else {
@@ -89,6 +89,4 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Error")
     }
-
-
 }

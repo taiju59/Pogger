@@ -38,5 +38,4 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
                 self.headerView.alpha = self.headerView.alpha == 0 ? 1:0
         })
     }
-    
 }

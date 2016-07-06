@@ -41,6 +41,4 @@ class Utils {
         
         return dateStr + "(" + weekDayStr + ")"
     }
-    
-    
 }

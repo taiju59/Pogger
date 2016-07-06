@@ -20,8 +20,6 @@
 		F619437E1D08676E000CC24F /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943791D08676E000CC24F /* PointCell.swift */; };
 		F61943851D0867AA000CC24F /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619437F1D0867AA000CC24F /* LocationModel.swift */; };
 		F61943861D0867AA000CC24F /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943801D0867AA000CC24F /* Prefix.swift */; };
-		F61943871D0867AA000CC24F /* RLMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943811D0867AA000CC24F /* RLMModel.swift */; };
-		F61943881D0867AA000CC24F /* RLMUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943821D0867AA000CC24F /* RLMUtils.swift */; };
 		F619438A1D0867AA000CC24F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943841D0867AA000CC24F /* Utils.swift */; };
 		F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438B1D0867C2000CC24F /* LicenseViewController.swift */; };
 		F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */; };
@@ -46,6 +44,10 @@
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
+		F6DCAA451D2D474A00F9F77C /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA441D2D474A00F9F77C /* FixedPoint.swift */; };
+		F6DCAA481D2D481200F9F77C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA471D2D481200F9F77C /* Point.swift */; };
+		F6DCAA4A1D33D62700F9F77C /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA491D33D62700F9F77C /* LocationInfo.swift */; };
+		F6DCAA4C1D33D64A00F9F77C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA4B1D33D64A00F9F77C /* Favorite.swift */; };
 		F6ED3BF41CF204FE0002EC3E /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED3BF31CF204FE0002EC3E /* Device.framework */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
 		F6ED4C7C1CF9723F00DCA80E /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */; };
@@ -71,8 +73,6 @@
 		F61943791D08676E000CC24F /* PointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PointCell.swift; path = Pogger/PointCell.swift; sourceTree = SOURCE_ROOT; };
 		F619437F1D0867AA000CC24F /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationModel.swift; path = Pogger/LocationModel.swift; sourceTree = SOURCE_ROOT; };
 		F61943801D0867AA000CC24F /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefix.swift; path = Pogger/Prefix.swift; sourceTree = SOURCE_ROOT; };
-		F61943811D0867AA000CC24F /* RLMModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMModel.swift; path = Pogger/RLMModel.swift; sourceTree = SOURCE_ROOT; };
-		F61943821D0867AA000CC24F /* RLMUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMUtils.swift; path = Pogger/RLMUtils.swift; sourceTree = SOURCE_ROOT; };
 		F61943841D0867AA000CC24F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Pogger/Utils.swift; sourceTree = SOURCE_ROOT; };
 		F619438B1D0867C2000CC24F /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseViewController.swift; path = Pogger/LicenseViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewContrtoller.swift; path = Pogger/ListViewContrtoller.swift; sourceTree = SOURCE_ROOT; };
@@ -99,6 +99,10 @@
 		F66EECB51D0B1DF8003F4056 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6770A9A1CFD41F400B4B10E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		F6A4BA791D0843BA001ACBE4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		F6DCAA441D2D474A00F9F77C /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPoint.swift; sourceTree = SOURCE_ROOT; };
+		F6DCAA471D2D481200F9F77C /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = SOURCE_ROOT; };
+		F6DCAA491D33D62700F9F77C /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = SOURCE_ROOT; };
+		F6DCAA4B1D33D64A00F9F77C /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = SOURCE_ROOT; };
 		F6ED3BF31CF204FE0002EC3E /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 		F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
@@ -237,11 +241,11 @@
 		F64BA5251CC38D13007FD321 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				F6DCAA461D2D47A100F9F77C /* Realm */,
 				F619437F1D0867AA000CC24F /* LocationModel.swift */,
 				F61943801D0867AA000CC24F /* Prefix.swift */,
-				F61943811D0867AA000CC24F /* RLMModel.swift */,
-				F61943821D0867AA000CC24F /* RLMUtils.swift */,
 				F61943841D0867AA000CC24F /* Utils.swift */,
+				F6DCAA441D2D474A00F9F77C /* FixedPoint.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -284,6 +288,16 @@
 			);
 			name = Pogger;
 			path = staylog;
+			sourceTree = "<group>";
+		};
+		F6DCAA461D2D47A100F9F77C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCAA471D2D481200F9F77C /* Point.swift */,
+				F6DCAA491D33D62700F9F77C /* LocationInfo.swift */,
+				F6DCAA4B1D33D64A00F9F77C /* Favorite.swift */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		F6F068B81D0B257100A63688 /* Product */ = {
@@ -464,18 +478,20 @@
 			files = (
 				F61943D71D086CC4000CC24F /* DOFavoriteButton.swift in Sources */,
 				F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */,
+				F6DCAA4A1D33D62700F9F77C /* LocationInfo.swift in Sources */,
 				F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */,
 				F619437E1D08676E000CC24F /* PointCell.swift in Sources */,
 				F61943921D0867C2000CC24F /* LocateQualityViewController.swift in Sources */,
-				F61943881D0867AA000CC24F /* RLMUtils.swift in Sources */,
+				F6DCAA451D2D474A00F9F77C /* FixedPoint.swift in Sources */,
+				F6DCAA481D2D481200F9F77C /* Point.swift in Sources */,
 				F61943861D0867AA000CC24F /* Prefix.swift in Sources */,
 				F619436C1D0866F4000CC24F /* ViewController.swift in Sources */,
 				F61943851D0867AA000CC24F /* LocationModel.swift in Sources */,
 				F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */,
+				F6DCAA4C1D33D64A00F9F77C /* Favorite.swift in Sources */,
 				F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */,
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
-				F61943871D0867AA000CC24F /* RLMModel.swift in Sources */,
 				F619438A1D0867AA000CC24F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
