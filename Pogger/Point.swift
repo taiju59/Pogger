@@ -11,7 +11,7 @@ import CoreLocation
 import RealmSwift
 
 class Point: Object {
-    
+
     dynamic var id: String = NSUUID().UUIDString
     dynamic var startDate: NSDate!
     dynamic var endDate: NSDate!
@@ -28,18 +28,18 @@ class Point: Object {
     dynamic var country: String?
     dynamic var favorite = false
     dynamic var changed = false
-    
+
     override static func primaryKey() -> String? {
         return "id"
     }
 
     static private let pastLimitMin = 300
-    
+
     static private let minUpdateMin = 5
     static private let distanceBoundary = 10.0
-    
+
     static private let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(1)
-    
+
     static func inputPoint(placemark: CLPlacemark) {
         print("inputPoint!!!")
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
@@ -47,7 +47,7 @@ class Point: Object {
         dispatch_async(private_queue) {
             let allPoints = try! Realm().objects(Point).sorted("startDate", ascending: false)
             let allPointsCnt = allPoints.count
-            
+
             if allPointsCnt > 0 {
                 let lastPoint = allPoints[0]
                 if isSamePlace(lastPoint, newPlace: placemark) {
@@ -61,45 +61,45 @@ class Point: Object {
             dispatch_semaphore_signal(semaphore)
         }
     }
-    
+
     class func isSamePlace(oldPlace: Point, newPlace: CLPlacemark) -> Bool {
         let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
         let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
-    
+
     class func isSamePlace(oldPlace: Point, newPlace: FixedPoint) -> Bool {
         let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
         let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
-    
+
     class func calcDistance(oldPlace: Point, to newPlace: CLPlacemark) -> CLLocationDistance {
-        
+
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = newPlace.location!
         let distance = newLocation.distanceFromLocation(oldLocation)
         print("distance: \(distance)m")
-        
+
         return distance
     }
-    
+
     class func calcDistance(oldPlace: Point, to newPlace: FixedPoint) -> CLLocationDistance {
-        
+
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = CLLocation(latitude: newPlace.latitude, longitude: newPlace.longitude)
         let distance = newLocation.distanceFromLocation(oldLocation)
         print("distance: \(distance)m")
-        
+
         return distance
     }
 
     private static func updatePoint(placemark: CLPlacemark, allPoints: Results<(Point)>) {
         let lastPoint = allPoints[0]
-        
+
         let isSameMinute = lastPoint.endDate?.minute == NSDate().minute
         let isPast = lastPoint.endDate!.minute + pastLimitMin < NSDate().minute
-        
+
         if !isSameMinute && !isPast {
             print("updatePoint!!!")
             try! Realm().write {
@@ -110,11 +110,11 @@ class Point: Object {
             }
         }
     }
-    
+
     private static func addPoint(placemark: CLPlacemark, allPoints: Results<(Point)>) {
         print("addPoint!!!")
         let realm = try! Realm()
-        
+
         let point = Point()
         let now = NSDate()
         point.startDate = now
@@ -131,7 +131,7 @@ class Point: Object {
         point.postalCode = placemark.postalCode
         point.administrativeArea = placemark.administrativeArea
         point.country = placemark.country
-        
+
         do {
             try realm.write {
                 realm.add(point)
@@ -140,12 +140,12 @@ class Point: Object {
             print("RLM ERROR!!")
         }
     }
-    
+
     class func switchFavorite(id: String, select: Bool) {
         let realm = try! Realm()
         do {
             try realm.write {
-                let point = realm.objects(Point).filter("id == \"\(id)\"")[0];
+                let point = realm.objects(Point).filter("id == \"\(id)\"")[0]
                 point.favorite = select;
             }
         } catch {

@@ -17,20 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         GMSServices.provideAPIKey("xxx") // set your Google Map API Key
-        
+
+
         // navigationBar 周りの色を調整
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().barTintColor = Prefix.THEMA_COLOR
-        
+        UINavigationBar.appearance().barTintColor = Prefix.themaColor
+
         // 位置情報計測精度初期設定
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let locateQuality = userDefaults.integerForKey(Prefix.KEY_LOCATE_QUALITY) ?? 1
-        userDefaults.setInteger(locateQuality, forKey: Prefix.KEY_LOCATE_QUALITY)
+        let locateQuality = userDefaults.integerForKey(Prefix.keyLocateQuality) ?? 1
+        userDefaults.setInteger(locateQuality, forKey: Prefix.keyLocateQuality)
         userDefaults.synchronize()
-        
+
         return true
     }
 
@@ -58,4 +58,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
