@@ -1,0 +1,27 @@
+# 一行の文字列制限変更(default: 100)
+# defaultだとAppDelegateのコメントが長くて警告が出る
+line_length: 300
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - Pogger
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pogger/Resources/libs
+  - Carthage
+  - Pods
+
+opt_in_rules:
+  - empty_count
+
+disabled_rules:
+  - todo
+  - force_try
+  - force_cast
+  - valid_docs # 何故か警告が消えないため追加
+
+variable_name:
+  min_length: # only min_length
+    error: 4 # only error
+  excluded: # excluded via string array
+    - id
+    - URL

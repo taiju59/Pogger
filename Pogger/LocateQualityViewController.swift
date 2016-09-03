@@ -9,26 +9,26 @@
 import UIKit
 
 enum LocationQuality: Int {
-    case High = 0
-    case Normal = 1
-    case Low = 2
+    case High
+    case Normal
+    case Low
 }
 
 class LocateQualityViewController: UITableViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView()
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let locateQuality = userDefaults.integerForKey(Prefix.KEY_LOCATE_QUALITY)
+        let locateQuality = userDefaults.integerForKey(Prefix.keyLocateQuality)
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: locateQuality, inSection: 0))
         cell?.accessoryType = .Checkmark
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let locationQuality: LocationQuality
@@ -43,9 +43,9 @@ class LocateQualityViewController: UITableViewController {
             locationQuality = .Normal
         }
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setInteger(locationQuality.rawValue, forKey: Prefix.KEY_LOCATE_QUALITY)
+        userDefaults.setInteger(locationQuality.rawValue, forKey: Prefix.keyLocateQuality)
         userDefaults.synchronize()
-        
+
         LocationModel.sharedInstance.setAccuracy(locationQuality)
     }
 

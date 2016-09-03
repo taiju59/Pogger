@@ -9,36 +9,36 @@
 import UIKit
 
 class SettingViewController: UITableViewController {
-    
+
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var locateQualityLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "設定"
-        tableView.tableFooterView = UIView(frame: CGRectZero)
-        
-        closeButton.setTitle(Prefix.ICON_X, forState: .Normal)
+        tableView.tableFooterView = UIView()
+
+        closeButton.setTitle(Prefix.iconClose, forState: .Normal)
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let locateQuality = userDefaults.integerForKey(Prefix.KEY_LOCATE_QUALITY)
+        let locateQuality = userDefaults.integerForKey(Prefix.keyLocateQuality)
         switch locateQuality {
         case 0:
-            locateQualityLabel.text = Prefix.STR_LOCATE_QUALITY_HIGH
+            locateQualityLabel.text = Prefix.strLocateQualityHigh
         case 1:
-            locateQualityLabel.text = Prefix.STR_LOCATE_QUALITY_NORMAL
+            locateQualityLabel.text = Prefix.strLocateQualityNormal
         case 2:
-            locateQualityLabel.text = Prefix.STR_LOCATE_QUALITY_LOW
+            locateQualityLabel.text = Prefix.strLocateQualityLow
         default:
-            locateQualityLabel.text = Prefix.STR_LOCATE_QUALITY_NORMAL
+            locateQualityLabel.text = Prefix.strLocateQualityNormal
         }
     }
-    
+
     @IBAction func returnSettingViewForSegue(segue: UIStoryboardSegue) {
-        
+
     }
-    
+
 }

@@ -10,73 +10,72 @@ import CoreLocation
 
 class LocationModel: NSObject, CLLocationManagerDelegate {
 
-    private var lm: CLLocationManager! = nil
+    private var locationManager: CLLocationManager! = nil
     static let sharedInstance = LocationModel()
-    
+
     override private init() {
         super.init()
-        lm = CLLocationManager()
-        lm.delegate = self
-        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+
         //位置情報取得の可否。バックグラウンドで実行中の場合にもアプリが位置情報を利用することを許可する
-        lm.requestAlwaysAuthorization()
+        locationManager.requestAlwaysAuthorization()
         //位置情報の精度
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if let lq = LocationQuality(rawValue: userDefaults.integerForKey(Prefix.KEY_LOCATE_QUALITY)) {
+        if let lq = LocationQuality(rawValue: userDefaults.integerForKey(Prefix.keyLocateQuality)) {
             setAccuracy(lq)
         } else {
-            lm.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         }
-        lm.requestAlwaysAuthorization()
-        lm.allowsBackgroundLocationUpdates = true
+        locationManager.requestAlwaysAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
         // これを入れないと停止した場合に15分ぐらいで勝手に止まる
-        lm.pausesLocationUpdatesAutomatically = false
+        locationManager.pausesLocationUpdatesAutomatically = false
         //位置情報取得間隔(m)
-        //        lm.distanceFilter = 20
+        //        locationManager.distanceFilter = 20
     }
-    
+
     func setAccuracy(locateQuality: LocationQuality) {
         switch locateQuality {
         case .High:
-            lm.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
         case .Normal:
-            lm.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         case .Low:
-            lm.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         }
     }
 
     func startUpdatingLocation() {
-        //        lm.requestLocation()
-        lm.startUpdatingLocation()
+        //        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
-    
+
     func stopGetLocation() {
-        lm.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
     }
-    
+
     /** 位置情報取得成功時 */
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation){
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Success")
-        
+
         // get address
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
             if error != nil {
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
             }
-            if placemarks!.count > 0 {
+            if !placemarks!.isEmpty {
                 let pm = placemarks![0] as CLPlacemark
                 Point.inputPoint(pm)
                 //stop updating location to save battery life
-                //                self.lm.stopUpdatingLocation()
+                //                self.locationManager.stopUpdatingLocation()
             } else {
                 print("Problem with the data received from geocoder")
             }
         })
-        
     }
-    
+
     /** 位置情報取得失敗時 */
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Error")

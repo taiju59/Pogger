@@ -11,15 +11,15 @@ import GoogleMaps
 import CoreLocation
 
 class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
-    
+
     @IBOutlet weak var headerView: UIView!
-    
+
     var panoramaID: String?
     var coordinater: CLLocationCoordinate2D?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let panoView = GMSPanoramaView(frame: self.view.frame)
         if panoramaID != nil {
             panoView.moveToPanoramaID(panoramaID!)
@@ -30,7 +30,7 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
         panoView.delegate = self
         self.view.insertSubview(panoView, atIndex: 0)
     }
-    
+
     func panoramaView(panoramaView: GMSPanoramaView, didTap point: CGPoint) {
         UIView.animateWithDuration(
             0.1,

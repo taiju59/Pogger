@@ -9,12 +9,12 @@
 import UIKit
 
 class ListViewHeader: UIView {
-    
+
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     class func view() -> ListViewHeader {
-        
-        let nib = UINib(nibName: "ListViewHeader",  bundle:nil)
+
+        let nib = UINib(nibName: "ListViewHeader", bundle:nil)
         let view = nib.instantiateWithOwner(nil, options: nil).first as! ListViewHeader
 
         return view
