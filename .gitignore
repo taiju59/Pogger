@@ -1,4 +1,12 @@
+# OS X
 .DS_Store
-Pogger/Secret.swift
-Pods/
+
+# Xcode
 UserInterfaceState.xcuserstate
+
+# Carthage
+Carthage/build
+Carthage/checkout
+
+# Cocoapods
+Pods/
