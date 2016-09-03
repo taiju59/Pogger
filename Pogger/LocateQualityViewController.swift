@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum LocationQuality: Int {
+    case High = 0
+    case Normal = 1
+    case Low = 2
+}
+
 class LocateQualityViewController: UITableViewController {
     
     override func viewDidLoad() {
@@ -25,22 +31,22 @@ class LocateQualityViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let locateQuality: Int
+        let locationQuality: LocationQuality
         switch indexPath.row {
         case 0:
-            locateQuality = 0
+            locationQuality = .High
         case 1:
-            locateQuality = 1
+            locationQuality = .Normal
         case 2:
-            locateQuality = 2
+            locationQuality = .Low
         default:
-            locateQuality = 0
+            locationQuality = .Normal
         }
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setInteger(locateQuality, forKey: Prefix.KEY_LOCATE_QUALITY)
+        userDefaults.setInteger(locationQuality.rawValue, forKey: Prefix.KEY_LOCATE_QUALITY)
         userDefaults.synchronize()
         
-        LocationModel.sharedInstance.changeDesiredAccuracy(locateQuality)
+        LocationModel.sharedInstance.setAccuracy(locationQuality)
     }
 
 }

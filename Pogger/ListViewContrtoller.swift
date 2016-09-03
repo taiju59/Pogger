@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import CoreLocation
 import GoogleMaps
 import MapKit
 import SwiftDate
@@ -32,10 +31,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     private var token: NotificationToken?
     
     private var pogListType = 0 // 0: pog, 1: favorite
-
-    //TODO: タブ切り替え時 offset 調整
-//    private var pogListOffset = CGPointZero
-//    private var favListOffset = CGPointZero
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,46 +57,18 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         refreshData()
     }
     
-    /*
-     セクションの数を返す.
-     */
+    //MARK: - TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         let dayCnt = pointsData?.count ?? 0
         return dayCnt// > 5 ? 5:dayCnt
     }
     
-    /*
-     ⦿ ヘッダーの設定
-     */
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        guard let pd = pointsData else {
-//            return nil
-//        }
-//        guard let date = pd[section][0].startDate else {
-//            return nil
-//        }
-//        
-//        let days = Utils.daysFromDate(date)
-//        var sectionTitle: String?
-//        switch days {
-//        case 0:
-//            sectionTitle = "今日"
-//        case 1:
-//            sectionTitle = "昨日"
-//        default:
-//            sectionTitle = Utils.stringFromDate(date)
-//        }
-//        
-//        let header = ListViewHeader.view()
-//        header.titleLabel.text = sectionTitle
-//        
-//        return header
-//    }
-    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let pd = pointsData else {
+            return nil
+        }
+        if pd.count == 0 {
             return nil
         }
         guard let date = pd[section][0].startDate else {
@@ -275,34 +242,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         return mapView
     }
     
-    func pointCell(pointCell: PointCell, select: Bool) {
-        print("id: \(pointCell.id), select: \(select)")
-        Point.modFavorite(pointCell.id, select: select)
-    }
-    
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if let points = pointsData {
-            selectedPoint = points[indexPath.section][indexPath.row]
-        }
-        return indexPath
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        if segue.identifier == "toStreetView" {
-            let vc: StreetViewController = segue.destinationViewController as! StreetViewController
-            vc.panoramaID = sender!.panorama?!.panoramaID
-        } else if segue.identifier == "Cell2StreetView" && selectedPoint != nil {
-            let vc: StreetViewController = segue.destinationViewController as! StreetViewController
-            let coordinater = CLLocationCoordinate2D(latitude: selectedPoint!.latitude, longitude: selectedPoint!.longitude)
-            vc.coordinater = coordinater
-        }
-    }
-    
-    @IBAction func returnListViewForSegue(segue: UIStoryboardSegue) {
-        
-    }
-    
     func refreshData() {
         let private_queue = dispatch_queue_create("refreshData", nil)
         dispatch_async(private_queue) {
@@ -310,8 +249,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
-                    //TODO: contentOffset 調整
-//                    self.adjustContentOffset()
                 }
             }
             self.pointsData = []
@@ -337,7 +274,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         let points = allPoints.filter(predicate)
         
         for point in points {
-            let fPoint = FixedPoint.fixedPointFromRlm(point)
+            let fPoint = FixedPoint(rlm: point)
             // 1個目
             guard let lastDayPoints = self.pointsData!.last else {
                 self.pointsData!.append([fPoint])
@@ -347,13 +284,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
                 // 通らないはず
                 continue
             }
-//            let isInTime = fPoint.endDate! + self.COME_BACK_LIMIT.minutes > lastPoint.startDate!
-//            let isSamePlace = RLMModel.isSamePlace(point, newPlace: fPoint)
-//            if isInTime && isSamePlace {
-//                // 同じ記録とする
-//                self.pointsData![self.pointsData!.count-1][lastDayPoints.count-1].startDate! = fPoint.startDate!
-//                continue
-//            }
             if fPoint.startDate!.isInSameDayAsDate(lastPoint.startDate!) {
                 // 同じ日
                 self.pointsData![self.pointsData!.count - 1].append(fPoint)
@@ -376,7 +306,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         }
         
         for point in points {
-            let fPoint = FixedPoint.fixedPointFromRlm(point)
+            let fPoint = FixedPoint(rlm: point)
             // 1個目
             guard let lastDayPoints = self.pointsData!.last else {
                 self.pointsData!.append([fPoint])
@@ -399,18 +329,20 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
             }
         }
     }
-    
-//    private func adjustContentOffset() {
-//        if self.pogListType == 0 {
-//            self.favListOffset = self.tableView.contentOffset
-//            self.tableView.setContentOffset(self.pogListOffset, animated: false)
-//        } else {
-//            self.pogListOffset = self.tableView.contentOffset
-//            self.tableView.setContentOffset(self.favListOffset, animated: false)
-//        }
-//    }
-    
-    
+
+    //MARK: - Action
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if let points = pointsData {
+            selectedPoint = points[indexPath.section][indexPath.row]
+        }
+        return indexPath
+    }
+
+    func pointCell(pointCell: PointCell, didTapFavButton select: Bool) {
+        print("id: \(pointCell.id), select: \(select)")
+        Point.switchFavorite(pointCell.id, select: select)
+    }
+
     @IBAction func changePogList(sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex
         pogListType = value
@@ -429,7 +361,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
             }
         }
     }
-    
+
     @IBAction func didLongSelect(sender: UILongPressGestureRecognizer) {
         let point = sender.locationInView(tableView)
         let indexPath = tableView.indexPathForRowAtPoint(point)!
@@ -476,10 +408,28 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         let url = NSURL(string: encodedUrl)!
         UIApplication.sharedApplication().openURL(url)
     }
+
     @IBAction func didTapLogo(sender: UIButton) {
         let statusBarHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
         let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
         tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight + navBarHeight)), animated: true)
+    }
+
+    //MARK : Transition
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        if segue.identifier == "toStreetView" {
+            let vc: StreetViewController = segue.destinationViewController as! StreetViewController
+            vc.panoramaID = sender!.panorama?!.panoramaID
+        } else if segue.identifier == "Cell2StreetView" && selectedPoint != nil {
+            let vc: StreetViewController = segue.destinationViewController as! StreetViewController
+            let coordinater = CLLocationCoordinate2D(latitude: selectedPoint!.latitude, longitude: selectedPoint!.longitude)
+            vc.coordinater = coordinater
+        }
+    }
+
+    @IBAction func returnListViewForSegue(segue: UIStoryboardSegue) {
+
     }
 
     //MARK: - DZNEmptyDataSet

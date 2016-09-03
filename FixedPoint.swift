@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: struct か class か検討
 class FixedPoint {
     var id: String!
     var startDate: NSDate!
@@ -25,26 +26,23 @@ class FixedPoint {
     var country: String?
     var favorite = false
     var changed = false
-    
-    class func fixedPointFromRlm(rlm: Point) -> FixedPoint {
-        let fixedPoint = FixedPoint()
-        fixedPoint.id = rlm.id
-        fixedPoint.startDate = rlm.startDate
-        fixedPoint.endDate = rlm.endDate
-        fixedPoint.stayMin = rlm.stayMin
-        fixedPoint.longitude = rlm.longitude
-        fixedPoint.latitude = rlm.latitude
-        fixedPoint.name = rlm.name
-        fixedPoint.thoroughfare = rlm.thoroughfare
-        fixedPoint.subThoroughfare = rlm.subThoroughfare
-        fixedPoint.locality = rlm.locality
-        fixedPoint.subLocality = rlm.subLocality
-        fixedPoint.postalCode = rlm.postalCode
-        fixedPoint.administrativeArea = rlm.administrativeArea
-        fixedPoint.country = rlm.country
-        fixedPoint.favorite = rlm.favorite
-        fixedPoint.changed = rlm.changed
-        
-        return fixedPoint
+
+    init(rlm: Point) {
+        id = rlm.id
+        startDate = rlm.startDate
+        endDate = rlm.endDate
+        stayMin = rlm.stayMin
+        longitude = rlm.longitude
+        latitude = rlm.latitude
+        name = rlm.name
+        thoroughfare = rlm.thoroughfare
+        subThoroughfare = rlm.subThoroughfare
+        locality = rlm.locality
+        subLocality = rlm.subLocality
+        postalCode = rlm.postalCode
+        administrativeArea = rlm.administrativeArea
+        country = rlm.country
+        favorite = rlm.favorite
+        changed = rlm.changed
     }
 }

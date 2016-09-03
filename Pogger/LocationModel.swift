@@ -22,38 +22,30 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
         lm.requestAlwaysAuthorization()
         //位置情報の精度
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let locateQuality = userDefaults.integerForKey(Prefix.KEY_LOCATE_QUALITY)
-        switch locateQuality {
-        case 0:
-            lm.desiredAccuracy = kCLLocationAccuracyBest
-        case 1:
-            lm.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        case 2:
-            lm.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        default:
+        if let lq = LocationQuality(rawValue: userDefaults.integerForKey(Prefix.KEY_LOCATE_QUALITY)) {
+            setAccuracy(lq)
+        } else {
             lm.desiredAccuracy = kCLLocationAccuracyHundredMeters
         }
         lm.requestAlwaysAuthorization()
         lm.allowsBackgroundLocationUpdates = true
-        // これを入れないと、停止した場合に 15分ぐらいで勝手に止まる
+        // これを入れないと停止した場合に15分ぐらいで勝手に止まる
         lm.pausesLocationUpdatesAutomatically = false
         //位置情報取得間隔(m)
         //        lm.distanceFilter = 20
     }
     
-    func changeDesiredAccuracy(locateQuality: Int) {
+    func setAccuracy(locateQuality: LocationQuality) {
         switch locateQuality {
-        case 0:
+        case .High:
             lm.desiredAccuracy = kCLLocationAccuracyBest
-        case 1:
+        case .Normal:
             lm.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        case 2:
+        case .Low:
             lm.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        default:
-            lm.desiredAccuracy = kCLLocationAccuracyHundredMeters
         }
     }
-    
+
     func startUpdatingLocation() {
         //        lm.requestLocation()
         lm.startUpdatingLocation()

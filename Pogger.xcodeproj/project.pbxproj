@@ -47,7 +47,6 @@
 		F6DCAA451D2D474A00F9F77C /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA441D2D474A00F9F77C /* FixedPoint.swift */; };
 		F6DCAA481D2D481200F9F77C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA471D2D481200F9F77C /* Point.swift */; };
 		F6DCAA4A1D33D62700F9F77C /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA491D33D62700F9F77C /* LocationInfo.swift */; };
-		F6DCAA4C1D33D64A00F9F77C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCAA4B1D33D64A00F9F77C /* Favorite.swift */; };
 		F6ED3BF41CF204FE0002EC3E /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED3BF31CF204FE0002EC3E /* Device.framework */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
 		F6ED4C7C1CF9723F00DCA80E /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */; };
@@ -102,7 +101,6 @@
 		F6DCAA441D2D474A00F9F77C /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedPoint.swift; sourceTree = SOURCE_ROOT; };
 		F6DCAA471D2D481200F9F77C /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = SOURCE_ROOT; };
 		F6DCAA491D33D62700F9F77C /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = SOURCE_ROOT; };
-		F6DCAA4B1D33D64A00F9F77C /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = SOURCE_ROOT; };
 		F6ED3BF31CF204FE0002EC3E /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 		F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
@@ -226,13 +224,21 @@
 			path = other;
 			sourceTree = "<group>";
 		};
+		F6215A931D7AA6A400308567 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				F619438D1D0867C2000CC24F /* LocateQualityViewController.swift */,
+				F619438E1D0867C2000CC24F /* SettingViewController.swift */,
+			);
+			name = setting;
+			sourceTree = "<group>";
+		};
 		F64BA5221CC376BB007FD321 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6215A931D7AA6A400308567 /* setting */,
 				F619438B1D0867C2000CC24F /* LicenseViewController.swift */,
 				F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */,
-				F619438D1D0867C2000CC24F /* LocateQualityViewController.swift */,
-				F619438E1D0867C2000CC24F /* SettingViewController.swift */,
 				F619438F1D0867C2000CC24F /* StreetViewController.swift */,
 			);
 			name = controller;
@@ -243,7 +249,6 @@
 			children = (
 				F6DCAA461D2D47A100F9F77C /* Realm */,
 				F619437F1D0867AA000CC24F /* LocationModel.swift */,
-				F61943801D0867AA000CC24F /* Prefix.swift */,
 				F61943841D0867AA000CC24F /* Utils.swift */,
 				F6DCAA441D2D474A00F9F77C /* FixedPoint.swift */,
 			);
@@ -281,6 +286,7 @@
 				F64BA5221CC376BB007FD321 /* controller */,
 				F61943671D0866F4000CC24F /* AppDelegate.swift */,
 				F61943691D0866F4000CC24F /* ViewController.swift */,
+				F61943801D0867AA000CC24F /* Prefix.swift */,
 				F619436F1D08673E000CC24F /* LaunchScreen.storyboard */,
 				F61943711D08673E000CC24F /* Main.storyboard */,
 				F61943681D0866F4000CC24F /* Assets.xcassets */,
@@ -295,7 +301,6 @@
 			children = (
 				F6DCAA471D2D481200F9F77C /* Point.swift */,
 				F6DCAA491D33D62700F9F77C /* LocationInfo.swift */,
-				F6DCAA4B1D33D64A00F9F77C /* Favorite.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -488,7 +493,6 @@
 				F619436C1D0866F4000CC24F /* ViewController.swift in Sources */,
 				F61943851D0867AA000CC24F /* LocationModel.swift in Sources */,
 				F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */,
-				F6DCAA4C1D33D64A00F9F77C /* Favorite.swift in Sources */,
 				F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */,
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
@@ -604,8 +608,8 @@
 			baseConfigurationReference = 6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Taiju Aoki (NKQPU8EQT4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Taiju Aoki (NKQPU8EQT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -619,7 +623,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blue.munmun.staylog;
 				PRODUCT_NAME = Pogger;
-				PROVISIONING_PROFILE = "59ab10ac-4b7f-4893-bbd0-a889ef249a8d";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -628,8 +632,8 @@
 			baseConfigurationReference = EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Taiju Aoki (G2GGZH6R2W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Taiju Aoki (G2GGZH6R2W)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -643,7 +647,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blue.munmun.staylog;
 				PRODUCT_NAME = Pogger;
-				PROVISIONING_PROFILE = "6da799f6-e50e-47cf-8e12-2fb69eda93c6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

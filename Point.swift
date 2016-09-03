@@ -33,13 +33,11 @@ class Point: Object {
         return "id"
     }
 
-    //MARK: - Utils
     static private let pastLimitMin = 300
     
     static private let minUpdateMin = 5
     static private let distanceBoundary = 10.0
     
-    //セマフォを用意する
     static private let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(1)
     
     static func inputPoint(placemark: CLPlacemark) {
@@ -65,18 +63,18 @@ class Point: Object {
     }
     
     class func isSamePlace(oldPlace: Point, newPlace: CLPlacemark) -> Bool {
-        let isMoved = moveDistance(oldPlace, to: newPlace) > distanceBoundary
+        let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
         let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
     
     class func isSamePlace(oldPlace: Point, newPlace: FixedPoint) -> Bool {
-        let isMoved = moveDistance(oldPlace, to: newPlace) > distanceBoundary
+        let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
         let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
     
-    class func moveDistance(oldPlace: Point, to newPlace: CLPlacemark) -> CLLocationDistance {
+    class func calcDistance(oldPlace: Point, to newPlace: CLPlacemark) -> CLLocationDistance {
         
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = newPlace.location!
@@ -86,7 +84,7 @@ class Point: Object {
         return distance
     }
     
-    class func moveDistance(oldPlace: Point, to newPlace: FixedPoint) -> CLLocationDistance {
+    class func calcDistance(oldPlace: Point, to newPlace: FixedPoint) -> CLLocationDistance {
         
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = CLLocation(latitude: newPlace.latitude, longitude: newPlace.longitude)
@@ -95,8 +93,7 @@ class Point: Object {
         
         return distance
     }
-    
-    
+
     private static func updatePoint(placemark: CLPlacemark, allPoints: Results<(Point)>) {
         let lastPoint = allPoints[0]
         
@@ -144,7 +141,7 @@ class Point: Object {
         }
     }
     
-    class func modFavorite(id: String, select: Bool) {
+    class func switchFavorite(id: String, select: Bool) {
         let realm = try! Realm()
         do {
             try realm.write {

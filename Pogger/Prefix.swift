@@ -17,10 +17,6 @@ class Prefix {
     static let KEY_SHOW_STREET_VIEW = "show_street_view"
     static let KEY_LOCATE_QUALITY = "locate_quality"
     
-    static let LOCATE_QUALITY_HIGH: Int = 0
-    static let LOCATE_QUALITY_NORMAL: Int = 1
-    static let LOCATE_QUALITY_LOW: Int = 2
-
     static let STR_LOCATE_QUALITY_HIGH = "最高"
     static let STR_LOCATE_QUALITY_NORMAL = "普通"
     static let STR_LOCATE_QUALITY_LOW = "省電力"

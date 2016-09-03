@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PointCellDelegate: class {
-    func pointCell(pointCell: PointCell, select: Bool)
+    func pointCell(pointCell: PointCell, didTapFavButton select: Bool)
 }
 
 class PointCell: UITableViewCell {
@@ -38,11 +38,11 @@ class PointCell: UITableViewCell {
         if sender.selected {
             // deselect
             sender.deselect()
-            delegate?.pointCell(self, select: false)
+            delegate?.pointCell(self, didTapFavButton: false)
         } else {
             // select with animation
             sender.select()
-            delegate?.pointCell(self, select: true)
+            delegate?.pointCell(self, didTapFavButton: true)
         }
     }
 }

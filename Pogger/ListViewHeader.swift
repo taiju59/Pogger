@@ -16,7 +16,6 @@ class ListViewHeader: UIView {
         
         let nib = UINib(nibName: "ListViewHeader",  bundle:nil)
         let view = nib.instantiateWithOwner(nil, options: nil).first as! ListViewHeader
-//        view.titleLabel.layoutMargins = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
 
         return view
     }
