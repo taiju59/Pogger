@@ -146,7 +146,7 @@ class Point: Object {
         do {
             try realm.write {
                 let point = realm.objects(Point).filter("id == \"\(id)\"")[0]
-                point.favorite = select;
+                point.favorite = select
             }
         } catch {
             print("RLM ERROR!!")
