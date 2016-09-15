@@ -1,4 +1,4 @@
-github "realm/realm-cocoa"
-github "Ekhoo/Device" ~> 1.0.1
+github "realm/realm-cocoa.git" "master"
+# github "Ekhoo/Device" ~> 1.0.1
 github "dzenbot/DZNEmptyDataSet"
-github "malcommac/SwiftDate"
+# github "malcommac/SwiftDate"

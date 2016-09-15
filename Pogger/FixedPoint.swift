@@ -11,8 +11,8 @@ import Foundation
 //TODO: struct か class か検討
 class FixedPoint {
     var id: String!
-    var startDate: NSDate!
-    var endDate: NSDate!
+    var startDate: Date!
+    var endDate: Date!
     var stayMin: Int =  0
     var longitude = 0.0
     var latitude = 0.0

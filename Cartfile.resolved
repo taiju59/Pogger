@@ -1,4 +1,2 @@
 github "dzenbot/DZNEmptyDataSet" "v1.8.1"
-github "Ekhoo/Device" "1.0.3"
-github "malcommac/SwiftDate" "3.0.9"
-github "realm/realm-cocoa" "v1.0.2"
+github "realm/realm-cocoa" "188b3a9d78879385d09addaa50bcee028d7577b3"

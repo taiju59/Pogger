@@ -22,18 +22,18 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
 
         let panoView = GMSPanoramaView(frame: self.view.frame)
         if panoramaID != nil {
-            panoView.moveToPanoramaID(panoramaID!)
+            panoView.move(toPanoramaID: panoramaID!)
         }
         if coordinater != nil {
             panoView.moveNearCoordinate(coordinater!)
         }
         panoView.delegate = self
-        self.view.insertSubview(panoView, atIndex: 0)
+        self.view.insertSubview(panoView, at: 0)
     }
 
-    func panoramaView(panoramaView: GMSPanoramaView, didTap point: CGPoint) {
-        UIView.animateWithDuration(
-            0.1,
+    func panoramaView(_ panoramaView: GMSPanoramaView, didTap point: CGPoint) {
+        UIView.animate(
+            withDuration: 0.1,
             animations: {() -> Void  in
                 self.headerView.alpha = self.headerView.alpha == 0 ? 1:0
         })

@@ -11,12 +11,12 @@ import GoogleMaps
 import MapKit
 
 protocol PointCellDelegate: class {
-    func pointCell(pointCell: PointCell, didTapFavButton select: Bool)
+    func pointCell(_ pointCell: PointCell, didTapFavButton select: Bool)
 }
 
 enum PointCellType: Int {
-    case StreetView
-    case Map
+    case streetView
+    case map
 }
 
 class PointCell: UITableViewCell {
@@ -33,7 +33,7 @@ class PointCell: UITableViewCell {
     @IBOutlet weak var subThoroughfareButton: UIButton!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var favButton: DOFavoriteButton!
+//    @IBOutlet weak var favButton: DOFavoriteButton!
 
     @IBOutlet weak var comma1: UILabel!
     @IBOutlet weak var comma2: UILabel!
@@ -41,7 +41,7 @@ class PointCell: UITableViewCell {
     @IBOutlet weak var comma4: UILabel!
     @IBOutlet weak var comma5: UILabel!
 
-    func setPoint(point: FixedPoint, dispMinuteMin: Int, type: PointCellType) {
+    func setPoint(_ point: FixedPoint, dispMinuteMin: Int, type: PointCellType) {
 
         for subview in self.mainContentsView.subviews {
             subview.removeFromSuperview()
@@ -49,9 +49,9 @@ class PointCell: UITableViewCell {
 
         // 背景色
         if point.stayMin < dispMinuteMin && !point.favorite {
-            self.backgroundColor = Prefix.themaColor.colorWithAlphaComponent(0.2)
+            self.backgroundColor = Prefix.themaColor.withAlphaComponent(0.2)
         } else {
-            self.backgroundColor = UIColor.whiteColor()
+            self.backgroundColor = UIColor.white
         }
 
         // 住所
@@ -62,20 +62,20 @@ class PointCell: UITableViewCell {
 
         // お気に入り
         self.id = point.id
-        self.favButton.selected = point.favorite
+//        self.favButton.isSelected = point.favorite
 
         // ストリートビュー/マップを表示
         switch type {
-        case .StreetView:
+        case .streetView:
             let panoView = getPanoView(point)
             self.mainContentsView.addSubview(panoView)
-        case .Map:
+        case .map:
             let mapView = getMapView(point)
             self.mainContentsView.addSubview(mapView)
         }
     }
 
-    private func setAddress(point: FixedPoint) {
+    private func setAddress(_ point: FixedPoint) {
 
         let name = point.name ?? ""
         let subThoroughfare = point.subThoroughfare ?? ""
@@ -92,57 +92,57 @@ class PointCell: UITableViewCell {
         let showLocality = true && !locality.isEmpty
         let showAdministrativeArea = false && !administrativeArea.isEmpty
 
-        self.nameButton.hidden = !showName
-        self.subThoroughfareButton.hidden = !showSubThoroughfare
-        self.thoroughfareButton.hidden = !showThoroughfare
-        self.subLocalityButton.hidden = !showSubLocality
-        self.localityButton.hidden = !showLocality
-        self.administrativeAreaButton.hidden = !showAdministrativeArea
+        self.nameButton.isHidden = !showName
+        self.subThoroughfareButton.isHidden = !showSubThoroughfare
+        self.thoroughfareButton.isHidden = !showThoroughfare
+        self.subLocalityButton.isHidden = !showSubLocality
+        self.localityButton.isHidden = !showLocality
+        self.administrativeAreaButton.isHidden = !showAdministrativeArea
 
-        self.comma1.hidden = !showSubThoroughfare
-        self.comma2.hidden = !showThoroughfare
-        self.comma3.hidden = !showSubLocality
-        self.comma4.hidden = !showLocality
-        self.comma5.hidden = !showAdministrativeArea
+        self.comma1.isHidden = !showSubThoroughfare
+        self.comma2.isHidden = !showThoroughfare
+        self.comma3.isHidden = !showSubLocality
+        self.comma4.isHidden = !showLocality
+        self.comma5.isHidden = !showAdministrativeArea
 
-        self.nameButton.setTitle(name, forState: .Normal)
-        self.subThoroughfareButton.setTitle(subThoroughfare, forState: .Normal)
-        self.thoroughfareButton.setTitle(thoroughfare, forState: .Normal)
-        self.subLocalityButton.setTitle(subLocality, forState: .Normal)
-        self.localityButton.setTitle(locality, forState: .Normal)
-        self.administrativeAreaButton.setTitle(administrativeArea, forState: .Normal)
+        self.nameButton.setTitle(name, for: UIControlState())
+        self.subThoroughfareButton.setTitle(subThoroughfare, for: UIControlState())
+        self.thoroughfareButton.setTitle(thoroughfare, for: UIControlState())
+        self.subLocalityButton.setTitle(subLocality, for: UIControlState())
+        self.localityButton.setTitle(locality, for: UIControlState())
+        self.administrativeAreaButton.setTitle(administrativeArea, for: UIControlState())
     }
 
-    @IBAction func favTapped(sender: DOFavoriteButton) {
-        if sender.selected {
-            // deselect
-            sender.deselect()
-            delegate?.pointCell(self, didTapFavButton: false)
-        } else {
-            // select with animation
-            sender.select()
-            delegate?.pointCell(self, didTapFavButton: true)
-        }
-    }
+//    @IBAction func favTapped(_ sender: DOFavoriteButton) {
+//        if sender.isSelected {
+//            // deselect
+//            sender.deselect()
+//            delegate?.pointCell(self, didTapFavButton: false)
+//        } else {
+//            // select with animation
+//            sender.select()
+//            delegate?.pointCell(self, didTapFavButton: true)
+//        }
+//    }
 
-    private func getPanoView(point: FixedPoint) -> GMSPanoramaView {
+    private func getPanoView(_ point: FixedPoint) -> GMSPanoramaView {
 
         //TODO: auto layout で作成
-        let deviceWidth = UIScreen.mainScreen().bounds.width
+        let deviceWidth = UIScreen.main.bounds.width
         let rect = CGRect(x: 0, y: 0, width: deviceWidth - 16, height: 100)
         let location = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
 
-        let panoView = GMSPanoramaView.panoramaWithFrame(rect, nearCoordinate: location)
+        let panoView = GMSPanoramaView.panorama(withFrame: rect, nearCoordinate: location)
         panoView.setAllGesturesEnabled(false)
         panoView.navigationLinksHidden = true
         panoView.streetNamesHidden = true
-        panoView.userInteractionEnabled = false // タッチイベントを透過
+        panoView.isUserInteractionEnabled = false // タッチイベントを透過
         return panoView
     }
 
-    private func getMapView(point: FixedPoint) -> MKMapView {
+    private func getMapView(_ point: FixedPoint) -> MKMapView {
 
-        let deviceWidth = UIScreen.mainScreen().bounds.width
+        let deviceWidth = UIScreen.main.bounds.width
         let rect = CGRect(x: 0, y: 0, width: deviceWidth - 16, height: 100)
         let location = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
 

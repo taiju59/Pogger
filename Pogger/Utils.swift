@@ -10,12 +10,12 @@ import Foundation
 
 class Utils {
 
-    static func daysFromDate(targetDate: NSDate) -> Int {
+    static func daysFromDate(_ targetDate: Date) -> Int {
 
-        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
 
-        let today = calendar.dateBySettingHour(0, minute: 0, second: 0, ofDate: NSDate(), options: .WrapComponents)!
-        let date = calendar.dateBySettingHour(0, minute: 0, second: 0, ofDate: targetDate, options: .WrapComponents)!
+        let today = (calendar as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: Date(), options: .wrapComponents)!
+        let date = (calendar as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: targetDate, options: .wrapComponents)!
 
         let second = today.timeIntervalSince1970 - date.timeIntervalSince1970
         let days = second / 60 / 60 / 24
@@ -23,37 +23,37 @@ class Utils {
         return Int(days)
     }
 
-    static func stringFromDate(date: NSDate) -> String {
+    static func stringFromDate(_ date: Date) -> String {
 
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd"
-        let dateStr = dateFormatter.stringFromDate(date)
+        let dateStr = dateFormatter.string(from: date)
 
-        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-        let comps = calendar.components(.Weekday, fromDate: date)
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        let comps = (calendar as NSCalendar).components(.weekday, from: date)
 
-        let dateFormatter2 = NSDateFormatter()
-        dateFormatter2.locale = NSLocale(localeIdentifier: "ja")
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.locale = Locale(identifier: "ja")
 
         //comps.weekdayは 1-7の値が取得できるので-1する
-        let weekDayStr = dateFormatter2.shortWeekdaySymbols[comps.weekday-1]
+        let weekDayStr = dateFormatter2.shortWeekdaySymbols[comps.weekday!-1]
 
         return dateStr + "(" + weekDayStr + ")"
     }
 
-    static func getStayDateStr(point: FixedPoint) -> String {
+    static func getStayDateStr(_ point: FixedPoint) -> String {
 
-        let startDate = point.startDate
-        let endDate = point.endDate
+        let startDate = point.startDate!
+        let endDate = point.endDate!
         var dateText = ""
 
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd HH:mm"
 
-        let startDateStr = dateFormatter.stringFromDate(startDate)
+        let startDateStr = dateFormatter.string(from: startDate)
         dateText += startDateStr
 
-        if startDate.isEqualToDate(endDate) {
+        if startDate.isEqual(to: endDate) {
             return dateText
         }
 
@@ -62,9 +62,33 @@ class Utils {
             dateText += " - \(endDateStr)"
             return dateText
         } else {
-            let endDateStr = dateFormatter.stringFromDate(endDate)
+            let endDateStr = dateFormatter.string(from: endDate)
             dateText += " - \(endDateStr)"
             return dateText
         }
     }
+}
+
+extension Date {
+
+    var hour: Int {
+        get {
+            return Calendar(identifier: .gregorian).component(.hour, from: self)
+        }
+    }
+
+    var minute: Int {
+        get {
+            return Calendar(identifier: .gregorian).component(.minute, from: self)
+        }
+    }
+
+    func isEqual(to date: Date) -> Bool {
+        return self.timeIntervalSince(date) == 0
+    }
+
+    func isInSameDayAsDate(_ date: Date) -> Bool {
+        return Calendar(identifier: .gregorian).isDate(self, inSameDayAs: date)
+    }
+
 }

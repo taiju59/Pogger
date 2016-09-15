@@ -16,11 +16,11 @@ class LicenseViewController: UIViewController {
         super.viewDidLoad()
         textView.decelerationRate = UIScrollViewDecelerationRateNormal
 
-        let getTxtQueue = dispatch_queue_create("getTxtQueue", nil)
-        dispatch_async(getTxtQueue) {
-            let filePath = NSBundle.mainBundle().pathForResource("LICENSE", ofType: "txt")
-            let licenseStr = try! String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
-            dispatch_async(dispatch_get_main_queue()) {
+        let getTxtQueue = DispatchQueue(label: "getTxtQueue", attributes: [])
+        getTxtQueue.async {
+            let filePath = Bundle.main.path(forResource: "LICENSE", ofType: "txt")
+            let licenseStr = try! String(contentsOfFile: filePath!, encoding: String.Encoding.utf8)
+            DispatchQueue.main.async {
                 self.textView.text = licenseStr
             }
         }

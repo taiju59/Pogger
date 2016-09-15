@@ -12,7 +12,7 @@ import RealmSwift
 
 class LocationInfo: Object {
 
-    dynamic var timestamp: NSDate!
+    dynamic var timestamp: Date!
     dynamic var longitude = 0.0
     dynamic var latitude = 0.0
     dynamic var name: String?

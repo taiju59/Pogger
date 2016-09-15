@@ -12,9 +12,9 @@ import RealmSwift
 
 class Point: Object {
 
-    dynamic var id: String = NSUUID().UUIDString
-    dynamic var startDate: NSDate!
-    dynamic var endDate: NSDate!
+    dynamic var id: String = UUID().uuidString
+    dynamic var startDate: Date!
+    dynamic var endDate: Date!
     dynamic var stayMin = 0
     dynamic var longitude = 0.0
     dynamic var latitude = 0.0
@@ -38,14 +38,14 @@ class Point: Object {
     static private let minUpdateMin = 5
     static private let distanceBoundary = 10.0
 
-    static private let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(1)
+    static private let semaphore: DispatchSemaphore = DispatchSemaphore(value: 1)
 
-    static func inputPoint(placemark: CLPlacemark) {
+    static func inputPoint(_ placemark: CLPlacemark) {
         print("inputPoint!!!")
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-        let private_queue = dispatch_queue_create("inputPoint", nil)
-        dispatch_async(private_queue) {
-            let allPoints = try! Realm().objects(Point).sorted("startDate", ascending: false)
+        semaphore.wait()
+        let private_queue = DispatchQueue(label: "inputPoint", attributes: [])
+        private_queue.async {
+            let allPoints = try! Realm().allObjects(ofType: self).sorted(onProperty: "startDate", ascending: false)
             let allPointsCnt = allPoints.count
 
             if allPointsCnt > 0 {
@@ -58,52 +58,52 @@ class Point: Object {
             } else {
                 addPoint(placemark, allPoints: allPoints)
             }
-            dispatch_semaphore_signal(semaphore)
+            semaphore.signal()
         }
     }
 
-    class func isSamePlace(oldPlace: Point, newPlace: CLPlacemark) -> Bool {
+    class func isSamePlace(_ oldPlace: Point, newPlace: CLPlacemark) -> Bool {
         let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
         let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
 
-    class func isSamePlace(oldPlace: Point, newPlace: FixedPoint) -> Bool {
+    class func isSamePlace(_ oldPlace: Point, newPlace: FixedPoint) -> Bool {
         let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
         let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
 
-    class func calcDistance(oldPlace: Point, to newPlace: CLPlacemark) -> CLLocationDistance {
+    class func calcDistance(_ oldPlace: Point, to newPlace: CLPlacemark) -> CLLocationDistance {
 
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = newPlace.location!
-        let distance = newLocation.distanceFromLocation(oldLocation)
+        let distance = newLocation.distance(from: oldLocation)
         print("distance: \(distance)m")
 
         return distance
     }
 
-    class func calcDistance(oldPlace: Point, to newPlace: FixedPoint) -> CLLocationDistance {
+    class func calcDistance(_ oldPlace: Point, to newPlace: FixedPoint) -> CLLocationDistance {
 
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = CLLocation(latitude: newPlace.latitude, longitude: newPlace.longitude)
-        let distance = newLocation.distanceFromLocation(oldLocation)
+        let distance = newLocation.distance(from: oldLocation)
         print("distance: \(distance)m")
 
         return distance
     }
 
-    private static func updatePoint(placemark: CLPlacemark, allPoints: Results<(Point)>) {
+     static private func updatePoint(_ placemark: CLPlacemark, allPoints: Results<(Point)>) {
         let lastPoint = allPoints[0]
 
-        let isSameMinute = lastPoint.endDate?.minute == NSDate().minute
-        let isPast = lastPoint.endDate!.minute + pastLimitMin < NSDate().minute
+        let isSameMinute = lastPoint.endDate?.minute == Date().minute
+        let isPast = lastPoint.endDate!.minute + pastLimitMin < Date().minute
 
         if !isSameMinute && !isPast {
             print("updatePoint!!!")
             try! Realm().write {
-                let now = NSDate()
+                let now = Date()
                 let stayMin = now.minute - lastPoint.startDate!.minute
                 lastPoint.endDate = now
                 lastPoint.stayMin = stayMin
@@ -111,12 +111,12 @@ class Point: Object {
         }
     }
 
-    private static func addPoint(placemark: CLPlacemark, allPoints: Results<(Point)>) {
+    static private func addPoint(_ placemark: CLPlacemark, allPoints: Results<(Point)>) {
         print("addPoint!!!")
         let realm = try! Realm()
 
         let point = Point()
-        let now = NSDate()
+        let now = Date()
         point.startDate = now
         point.endDate = now
         if let location = placemark.location {
@@ -141,11 +141,11 @@ class Point: Object {
         }
     }
 
-    class func switchFavorite(id: String, select: Bool) {
+    class func switchFavorite(_ id: String, select: Bool) {
         let realm = try! Realm()
         do {
             try realm.write {
-                let point = realm.objects(Point).filter("id == \"\(id)\"")[0]
+                let point = realm.allObjects(ofType: self).filter(using: "id == \"\(id)\"")[0]
                 point.favorite = select
             }
         } catch {

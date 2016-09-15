@@ -9,9 +9,9 @@
 import UIKit
 
 enum LocationQuality: Int {
-    case High
-    case Normal
-    case Low
+    case high
+    case normal
+    case low
 }
 
 class LocateQualityViewController: UITableViewController {
@@ -21,29 +21,29 @@ class LocateQualityViewController: UITableViewController {
         tableView.tableFooterView = UIView()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let locateQuality = userDefaults.integerForKey(Prefix.keyLocateQuality)
-        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: locateQuality, inSection: 0))
-        cell?.accessoryType = .Checkmark
+        let userDefaults = UserDefaults.standard
+        let locateQuality = userDefaults.integer(forKey: Prefix.keyLocateQuality)
+        let cell = tableView.cellForRow(at: IndexPath(row: locateQuality, section: 0))
+        cell?.accessoryType = .checkmark
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let locationQuality: LocationQuality
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0:
-            locationQuality = .High
+            locationQuality = .high
         case 1:
-            locationQuality = .Normal
+            locationQuality = .normal
         case 2:
-            locationQuality = .Low
+            locationQuality = .low
         default:
-            locationQuality = .Normal
+            locationQuality = .normal
         }
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setInteger(locationQuality.rawValue, forKey: Prefix.keyLocateQuality)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(locationQuality.rawValue, forKey: Prefix.keyLocateQuality)
         userDefaults.synchronize()
 
         LocationModel.sharedInstance.setAccuracy(locationQuality)

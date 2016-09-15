@@ -21,8 +21,8 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
         //位置情報取得の可否。バックグラウンドで実行中の場合にもアプリが位置情報を利用することを許可する
         locationManager.requestAlwaysAuthorization()
         //位置情報の精度
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if let lq = LocationQuality(rawValue: userDefaults.integerForKey(Prefix.keyLocateQuality)) {
+        let userDefaults = UserDefaults.standard
+        if let lq = LocationQuality(rawValue: userDefaults.integer(forKey: Prefix.keyLocateQuality)) {
             setAccuracy(lq)
         } else {
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -35,13 +35,13 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
         //        locationManager.distanceFilter = 20
     }
 
-    func setAccuracy(locateQuality: LocationQuality) {
+    func setAccuracy(_ locateQuality: LocationQuality) {
         switch locateQuality {
-        case .High:
+        case .high:
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        case .Normal:
+        case .normal:
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        case .Low:
+        case .low:
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         }
     }
@@ -56,7 +56,7 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
     }
 
     /** 位置情報取得成功時 */
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Success")
 
         // get address
@@ -77,7 +77,7 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
     }
 
     /** 位置情報取得失敗時 */
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error")
     }
 }

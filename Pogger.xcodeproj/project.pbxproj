@@ -32,20 +32,13 @@
 		F61943D41D086CC4000CC24F /* pug_g.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B11D086CC4000CC24F /* pug_g.png */; };
 		F61943D51D086CC4000CC24F /* pug_r.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B21D086CC4000CC24F /* pug_r.png */; };
 		F61943D61D086CC4000CC24F /* pug_w.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B31D086CC4000CC24F /* pug_w.png */; };
-		F61943D71D086CC4000CC24F /* DOFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943B61D086CC4000CC24F /* DOFavoriteButton.swift */; };
-		F61943D81D086CC4000CC24F /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B71D086CC4000CC24F /* heart.png */; };
-		F61943D91D086CC4000CC24F /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B81D086CC4000CC24F /* like.png */; };
-		F61943DA1D086CC4000CC24F /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B91D086CC4000CC24F /* smile.png */; };
-		F61943DB1D086CC4000CC24F /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943BA1D086CC4000CC24F /* star.png */; };
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
 		F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */; };
 		F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2C1D7B0C0700255790 /* Point.swift */; };
 		F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */; };
-		F6ED3BF41CF204FE0002EC3E /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED3BF31CF204FE0002EC3E /* Device.framework */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
-		F6ED4C7C1CF9723F00DCA80E /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */; };
 		F6F3332F1D167C8F007DBC19 /* pug_r.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6F3332E1D167C8F007DBC19 /* pug_r.pdf */; };
 /* End PBXBuildFile section */
 
@@ -78,11 +71,6 @@
 		F61943B11D086CC4000CC24F /* pug_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_g.png; sourceTree = "<group>"; };
 		F61943B21D086CC4000CC24F /* pug_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_r.png; sourceTree = "<group>"; };
 		F61943B31D086CC4000CC24F /* pug_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_w.png; sourceTree = "<group>"; };
-		F61943B61D086CC4000CC24F /* DOFavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOFavoriteButton.swift; sourceTree = "<group>"; };
-		F61943B71D086CC4000CC24F /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
-		F61943B81D086CC4000CC24F /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
-		F61943B91D086CC4000CC24F /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
-		F61943BA1D086CC4000CC24F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		F61943BC1D086CC4000CC24F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F64BA51C1CC3698A007FD321 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		F66EECB51D0B1DF8003F4056 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,9 +79,7 @@
 		F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = Pogger/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2C1D7B0C0700255790 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Pogger/Point.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedPoint.swift; path = Pogger/FixedPoint.swift; sourceTree = SOURCE_ROOT; };
-		F6ED3BF31CF204FE0002EC3E /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
-		F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		F6F3332E1D167C8F007DBC19 /* pug_r.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pug_r.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,9 +90,7 @@
 			files = (
 				F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */,
 				F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */,
-				F6ED4C7C1CF9723F00DCA80E /* SwiftDate.framework in Frameworks */,
 				F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */,
-				F6ED3BF41CF204FE0002EC3E /* Device.framework in Frameworks */,
 				3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,9 +103,7 @@
 			children = (
 				F6A4BA791D0843BA001ACBE4 /* libPods.a */,
 				F6770A9A1CFD41F400B4B10E /* Realm.framework */,
-				F6ED4C7B1CF9723F00DCA80E /* SwiftDate.framework */,
 				F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */,
-				F6ED3BF31CF204FE0002EC3E /* Device.framework */,
 				F64BA51C1CC3698A007FD321 /* RealmSwift.framework */,
 				9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */,
 			);
@@ -173,21 +155,8 @@
 		F61943B41D086CC4000CC24F /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				F61943B51D086CC4000CC24F /* DOFavoriteButton */,
 			);
 			path = libs;
-			sourceTree = "<group>";
-		};
-		F61943B51D086CC4000CC24F /* DOFavoriteButton */ = {
-			isa = PBXGroup;
-			children = (
-				F61943B61D086CC4000CC24F /* DOFavoriteButton.swift */,
-				F61943B71D086CC4000CC24F /* heart.png */,
-				F61943B81D086CC4000CC24F /* like.png */,
-				F61943B91D086CC4000CC24F /* smile.png */,
-				F61943BA1D086CC4000CC24F /* star.png */,
-			);
-			path = DOFavoriteButton;
 			sourceTree = "<group>";
 		};
 		F61943BB1D086CC4000CC24F /* other */ = {
@@ -324,6 +293,8 @@
 					F6A232FE1C81792D0061A9A8 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = G2GGZH6R2W;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -356,14 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F619437A1D08676E000CC24F /* EmptyState.xib in Resources */,
-				F61943DB1D086CC4000CC24F /* star.png in Resources */,
 				F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */,
 				F61943741D08673E000CC24F /* Main.storyboard in Resources */,
 				F61943BE1D086CC4000CC24F /* ElegantIcons.ttf in Resources */,
-				F61943DA1D086CC4000CC24F /* smile.png in Resources */,
-				F61943D91D086CC4000CC24F /* like.png in Resources */,
 				F61943D61D086CC4000CC24F /* pug_w.png in Resources */,
-				F61943D81D086CC4000CC24F /* heart.png in Resources */,
 				F61943D11D086CC4000CC24F /* headerShadow.png in Resources */,
 				F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */,
 				F61943BD1D086CC4000CC24F /* config.ttf in Resources */,
@@ -416,9 +383,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Device.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DZNEmptyDataSet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
 			outputPaths = (
@@ -450,7 +415,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */,
-				F61943D71D086CC4000CC24F /* DOFavoriteButton.swift in Sources */,
 				F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */,
 				F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */,
 				F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */,
@@ -578,6 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G2GGZH6R2W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -592,6 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = blue.munmun.staylog;
 				PRODUCT_NAME = Pogger;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -601,7 +567,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = G2GGZH6R2W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -616,6 +583,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = blue.munmun.staylog;
 				PRODUCT_NAME = Pogger;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

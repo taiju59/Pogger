@@ -18,13 +18,13 @@ class SettingViewController: UITableViewController {
         self.title = "設定"
         tableView.tableFooterView = UIView()
 
-        closeButton.setTitle(Prefix.iconClose, forState: .Normal)
+        closeButton.setTitle(Prefix.iconClose, for: UIControlState())
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let locateQuality = userDefaults.integerForKey(Prefix.keyLocateQuality)
+        let userDefaults = UserDefaults.standard
+        let locateQuality = userDefaults.integer(forKey: Prefix.keyLocateQuality)
         switch locateQuality {
         case 0:
             locateQualityLabel.text = Prefix.strLocateQualityHigh
@@ -37,7 +37,7 @@ class SettingViewController: UITableViewController {
         }
     }
 
-    @IBAction func returnSettingViewForSegue(segue: UIStoryboardSegue) {
+    @IBAction func returnSettingViewForSegue(_ segue: UIStoryboardSegue) {
 
     }
 

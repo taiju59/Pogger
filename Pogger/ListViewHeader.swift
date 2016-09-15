@@ -15,7 +15,7 @@ class ListViewHeader: UIView {
     class func view() -> ListViewHeader {
 
         let nib = UINib(nibName: "ListViewHeader", bundle:nil)
-        let view = nib.instantiateWithOwner(nil, options: nil).first as! ListViewHeader
+        let view = nib.instantiate(withOwner: nil, options: nil).first as! ListViewHeader
 
         return view
     }

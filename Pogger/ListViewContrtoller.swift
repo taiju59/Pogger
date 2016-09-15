@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 import GoogleMaps
-import SwiftDate
 import DZNEmptyDataSet
 
 class ListViewController: ViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
@@ -23,7 +22,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
 
     private var pointsData: [[FixedPoint]]?
     private var selectedPoint: FixedPoint?
-    private var pointCellType: PointCellType = .StreetView
+    private var pointCellType: PointCellType = .streetView
 
     private var refreshControl = UIRefreshControl()
 
@@ -34,15 +33,15 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        refreshControl.addTarget(self, action: #selector(refreshData), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        tableView.sendSubviewToBack(refreshControl)
+        tableView.sendSubview(toBack: refreshControl)
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
 
         LocationModel.sharedInstance.startUpdatingLocation()
 
-        configButton.setTitle(Prefix.iconConf, forState: .Normal)
+        configButton.setTitle(Prefix.iconConf, for: UIControlState())
 
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
@@ -51,19 +50,19 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshData()
     }
 
     //MARK: - TableView
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
 
         let dayCnt = pointsData?.count ?? 0
         return dayCnt// > 5 ? 5:dayCnt
     }
 
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let pd = pointsData else {
             return nil
         }
@@ -87,17 +86,17 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         return sectionTitle
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pointsData?[section].count ?? 0
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let section = indexPath.section
-        let row = indexPath.row
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         let point = pointsData![section][row]
 
-        let cell: PointCell = tableView.dequeueReusableCellWithIdentifier("PointCell") as! PointCell
+        let cell: PointCell = tableView.dequeueReusableCell(withIdentifier: "PointCell") as! PointCell
         cell.delegate = self
         cell.setPoint(point, dispMinuteMin: dispMinuteMin, type: self.pointCellType)
 
@@ -105,10 +104,10 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     }
 
     func refreshData() {
-        let private_queue = dispatch_queue_create("refreshData", nil)
-        dispatch_async(private_queue) {
+        let private_queue = DispatchQueue(label: "refreshData", attributes: [])
+        private_queue.async {
             defer {
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
@@ -123,14 +122,14 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     }
 
     private func setPogList() {
-        let allPoints = try! Realm().objects(Point).sorted("startDate", ascending: false)
+        let allPoints = try! Realm().allObjects(ofType: Point.self).sorted(onProperty: "startDate", ascending: false)
         if allPoints.isEmpty {
             return
         }
         let lastPointDate = allPoints[0].startDate!
 
-        let predicate = NSPredicate(format: "stayMin >= %d OR startDate = %@", self.dispMinuteMin, lastPointDate)
-        let points = allPoints.filter(predicate)
+        let predicate = NSPredicate(format: "stayMin >= %d OR startDate = %@", self.dispMinuteMin, lastPointDate as CVarArg)
+        let points = allPoints.filter(using: predicate)
 
         for point in points {
             let fPoint = FixedPoint(rlm: point)
@@ -159,7 +158,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
 
     private func setFavoriteList() {
         let predicate = NSPredicate(format: "favorite = true")
-        let points = try! Realm().objects(Point).sorted("startDate", ascending: false).filter(predicate)
+        let points = try! Realm().allObjects(ofType: Point.self).sorted(onProperty: "startDate", ascending: false).filter(using: predicate)
         if points.isEmpty {
             return
         }
@@ -190,120 +189,120 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     }
 
     //MARK: - Action
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let points = pointsData {
-            selectedPoint = points[indexPath.section][indexPath.row]
+            selectedPoint = points[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         }
         return indexPath
     }
 
-    func pointCell(pointCell: PointCell, didTapFavButton select: Bool) {
+    func pointCell(_ pointCell: PointCell, didTapFavButton select: Bool) {
         print("id: \(pointCell.id), select: \(select)")
         Point.switchFavorite(pointCell.id, select: select)
     }
 
-    @IBAction func changePogList(sender: UISegmentedControl) {
+    @IBAction func changePogList(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex
         pogListType = value
         refreshData()
     }
 
-    @IBAction func changeViewType(sender: UIBarButtonItem) {
-        let private_queue = dispatch_queue_create("changeViewType", nil)
-        dispatch_async(private_queue) {
+    @IBAction func changeViewType(_ sender: UIBarButtonItem) {
+        let private_queue = DispatchQueue(label: "changeViewType", attributes: [])
+        private_queue.async {
             switch self.pointCellType {
-            case .StreetView:
-                self.pointCellType = .Map
-            case .Map:
-                self.pointCellType = .StreetView
+            case .streetView:
+                self.pointCellType = .map
+            case .map:
+                self.pointCellType = .streetView
             }
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            userDefaults.setInteger(self.pointCellType.rawValue, forKey: Prefix.keypointCellType)
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(self.pointCellType.rawValue, forKey: Prefix.keypointCellType)
             userDefaults.synchronize()
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.refreshData()
             }
         }
     }
 
-    @IBAction func didLongSelect(sender: UILongPressGestureRecognizer) {
-        let point = sender.locationInView(tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(point)!
+    @IBAction func didLongSelect(_ sender: UILongPressGestureRecognizer) {
+        let point = sender.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)!
 
-        if sender.state == .Began {
-            let point = pointsData![indexPath.section][indexPath.row]
+        if sender.state == .began {
+            let point = pointsData![(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 
-            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-            let copyAction = UIAlertAction(title: "住所をコピー", style: .Default, handler: {
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let copyAction = UIAlertAction(title: "住所をコピー", style: .default, handler: {
                 action in self.copyAddress(point)
             })
-            let mapOpenAction = UIAlertAction(title: "マップで見る", style: .Default, handler: {
+            let mapOpenAction = UIAlertAction(title: "マップで見る", style: .default, handler: {
                 action in self.shouldOpenMap(point)
             })
-            let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             actionSheet.addAction(copyAction)
             actionSheet.addAction(mapOpenAction)
             actionSheet.addAction(cancelAction)
-            self.presentViewController(actionSheet, animated: true, completion: nil)
+            self.present(actionSheet, animated: true, completion: nil)
         }
     }
 
-    private func copyAddress(point: FixedPoint) {
+    private func copyAddress(_ point: FixedPoint) {
         let name = point.name ?? ""
         let locality = point.locality ?? ""
         let address = "\(name),\(locality)"
-        let board = UIPasteboard.generalPasteboard()
+        let board = UIPasteboard.general
         board.setValue(address, forPasteboardType: "public.text")
     }
 
-    private func shouldOpenMap(point: FixedPoint) {
+    private func shouldOpenMap(_ point: FixedPoint) {
         let ll = String(format: "%f,%f", point.latitude, point.longitude)
         let name = point.name ?? ""
         let locality = point.locality ?? ""
         let q = "\(name),\(locality)"
 
         let urlString: String
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "comgooglemaps://")!) {
+        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
             urlString = "comgooglemaps://?center=\(ll)&q=\(q)"
         } else {
             urlString = "http://maps.apple.com/?ll=\(ll)&q=\(q)"
         }
-        let encodedUrl = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        let url = NSURL(string: encodedUrl)!
-        UIApplication.sharedApplication().openURL(url)
+        let encodedUrl = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let url = URL(string: encodedUrl)!
+        UIApplication.shared.openURL(url)
     }
 
-    @IBAction func didTapLogo(sender: UIButton) {
-        let statusBarHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+    @IBAction func didTapLogo(_ sender: UIButton) {
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
         let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
         tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight + navBarHeight)), animated: true)
     }
 
     //MARK : Transition
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "toStreetView" {
-            let vc = segue.destinationViewController as! StreetViewController
-            vc.panoramaID = sender!.panorama?!.panoramaID
+            let vc = segue.destination as! StreetViewController
+            vc.panoramaID = (sender! as AnyObject).panorama?!.panoramaID
         } else if segue.identifier == "Cell2StreetView" && selectedPoint != nil {
-            let vc: StreetViewController = segue.destinationViewController as! StreetViewController
+            let vc: StreetViewController = segue.destination as! StreetViewController
             let coordinater = CLLocationCoordinate2D(latitude: selectedPoint!.latitude, longitude: selectedPoint!.longitude)
             vc.coordinater = coordinater
         }
     }
 
-    @IBAction func returnListViewForSegue(segue: UIStoryboardSegue) {
+    @IBAction func returnListViewForSegue(_ segue: UIStoryboardSegue) {
 
     }
 
     //MARK: - DZNEmptyDataSet
-    func customViewForEmptyDataSet(scrollView: UIScrollView!) -> UIView! {
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
         if pogListType == 0 {
             let nib = UINib(nibName: "EmptyState", bundle:nil)
-            return nib.instantiateWithOwner(nil, options: nil).first as! UIView
+            return nib.instantiate(withOwner: nil, options: nil).first as! UIView
         } else {
             let nib = UINib(nibName: "FavoriteEmptyState", bundle:nil)
-            return nib.instantiateWithOwner(nil, options: nil).first as! UIView
+            return nib.instantiate(withOwner: nil, options: nil).first as! UIView
         }
     }
 }
