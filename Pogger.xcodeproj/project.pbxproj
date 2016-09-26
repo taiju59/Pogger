@@ -18,7 +18,7 @@
 		F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943771D08676E000CC24F /* ListViewHeader.swift */; };
 		F619437D1D08676E000CC24F /* ListViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61943781D08676E000CC24F /* ListViewHeader.xib */; };
 		F619437E1D08676E000CC24F /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943791D08676E000CC24F /* PointCell.swift */; };
-		F61943851D0867AA000CC24F /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619437F1D0867AA000CC24F /* LocationModel.swift */; };
+		F61943851D0867AA000CC24F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619437F1D0867AA000CC24F /* LocationService.swift */; };
 		F61943861D0867AA000CC24F /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943801D0867AA000CC24F /* Prefix.swift */; };
 		F619438A1D0867AA000CC24F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943841D0867AA000CC24F /* Utils.swift */; };
 		F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438B1D0867C2000CC24F /* LicenseViewController.swift */; };
@@ -57,7 +57,7 @@
 		F61943771D08676E000CC24F /* ListViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewHeader.swift; path = Pogger/ListViewHeader.swift; sourceTree = SOURCE_ROOT; };
 		F61943781D08676E000CC24F /* ListViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListViewHeader.xib; path = Pogger/ListViewHeader.xib; sourceTree = SOURCE_ROOT; };
 		F61943791D08676E000CC24F /* PointCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PointCell.swift; path = Pogger/PointCell.swift; sourceTree = SOURCE_ROOT; };
-		F619437F1D0867AA000CC24F /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationModel.swift; path = Pogger/LocationModel.swift; sourceTree = SOURCE_ROOT; };
+		F619437F1D0867AA000CC24F /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Pogger/LocationService.swift; sourceTree = SOURCE_ROOT; };
 		F61943801D0867AA000CC24F /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefix.swift; path = Pogger/Prefix.swift; sourceTree = SOURCE_ROOT; };
 		F61943841D0867AA000CC24F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Pogger/Utils.swift; sourceTree = SOURCE_ROOT; };
 		F619438B1D0867C2000CC24F /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseViewController.swift; path = Pogger/LicenseViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F6DCAA461D2D47A100F9F77C /* Realm */,
-				F619437F1D0867AA000CC24F /* LocationModel.swift */,
+				F619437F1D0867AA000CC24F /* LocationService.swift */,
 				F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */,
 				F61943841D0867AA000CC24F /* Utils.swift */,
 			);
@@ -292,7 +292,6 @@
 				TargetAttributes = {
 					F6A232FE1C81792D0061A9A8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = G2GGZH6R2W;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -422,7 +421,7 @@
 				F61943921D0867C2000CC24F /* LocateQualityViewController.swift in Sources */,
 				F61943861D0867AA000CC24F /* Prefix.swift in Sources */,
 				F619436C1D0866F4000CC24F /* ViewController.swift in Sources */,
-				F61943851D0867AA000CC24F /* LocationModel.swift in Sources */,
+				F61943851D0867AA000CC24F /* LocationService.swift in Sources */,
 				F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */,
 				F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */,
 				F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */,
@@ -542,7 +541,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = G2GGZH6R2W;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -568,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = G2GGZH6R2W;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

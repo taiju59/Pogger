@@ -1,5 +1,5 @@
 //
-//  LocationModel.swift
+//  LocationService.swift
 //  Pogger
 //
 //  Created by Taiju Aoki on 2016/04/17.
@@ -8,10 +8,10 @@
 
 import CoreLocation
 
-class LocationModel: NSObject, CLLocationManagerDelegate {
+class LocationService: NSObject, CLLocationManagerDelegate {
 
     private var locationManager: CLLocationManager! = nil
-    static let sharedInstance = LocationModel()
+    static let sharedInstance = LocationService()
 
     override private init() {
         super.init()
@@ -31,8 +31,6 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
         locationManager.allowsBackgroundLocationUpdates = true
         // これを入れないと停止した場合に15分ぐらいで勝手に止まる
         locationManager.pausesLocationUpdatesAutomatically = false
-        //位置情報取得間隔(m)
-        //        locationManager.distanceFilter = 20
     }
 
     func setAccuracy(_ locateQuality: LocationQuality) {
@@ -47,7 +45,6 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
     }
 
     func startUpdatingLocation() {
-        //        locationManager.requestLocation()
         locationManager.startUpdatingLocation()
     }
 
@@ -68,8 +65,6 @@ class LocationModel: NSObject, CLLocationManagerDelegate {
             if !placemarks!.isEmpty {
                 let pm = placemarks![0] as CLPlacemark
                 Point.inputPoint(pm)
-                //stop updating location to save battery life
-                //                self.locationManager.stopUpdatingLocation()
             } else {
                 print("Problem with the data received from geocoder")
             }

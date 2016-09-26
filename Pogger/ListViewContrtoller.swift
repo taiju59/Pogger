@@ -39,7 +39,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
 
-        LocationModel.sharedInstance.startUpdatingLocation()
+        LocationService.sharedInstance.startUpdatingLocation()
 
         configButton.setTitle(Prefix.iconConf, for: UIControlState())
 
