@@ -45,7 +45,7 @@ class Point: Object {
         semaphore.wait()
         let private_queue = DispatchQueue(label: "inputPoint", attributes: [])
         private_queue.async {
-            let allPoints = try! Realm().allObjects(ofType: self).sorted(onProperty: "startDate", ascending: false)
+            let allPoints = try! Realm().objects(self).sorted(byProperty: "startDate", ascending: false)
             let allPointsCnt = allPoints.count
 
             if allPointsCnt > 0 {
@@ -145,7 +145,7 @@ class Point: Object {
         let realm = try! Realm()
         do {
             try realm.write {
-                let point = realm.allObjects(ofType: self).filter(using: "id == \"\(id)\"")[0]
+                let point = realm.objects(self).filter("id == \"\(id)\"")[0]
                 point.favorite = select
             }
         } catch {

@@ -122,14 +122,14 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     }
 
     private func setPogList() {
-        let allPoints = try! Realm().allObjects(ofType: Point.self).sorted(onProperty: "startDate", ascending: false)
+        let allPoints = try! Realm().objects(Point.self).sorted(byProperty: "startDate", ascending: false)
         if allPoints.isEmpty {
             return
         }
         let lastPointDate = allPoints[0].startDate!
 
         let predicate = NSPredicate(format: "stayMin >= %d OR startDate = %@", self.dispMinuteMin, lastPointDate as CVarArg)
-        let points = allPoints.filter(using: predicate)
+        let points = allPoints.filter(predicate)
 
         for point in points {
             let fPoint = FixedPoint(rlm: point)
@@ -158,7 +158,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
 
     private func setFavoriteList() {
         let predicate = NSPredicate(format: "favorite = true")
-        let points = try! Realm().allObjects(ofType: Point.self).sorted(onProperty: "startDate", ascending: false).filter(using: predicate)
+        let points = try! Realm().objects(Point.self).sorted(byProperty: "startDate", ascending: false).filter(predicate)
         if points.isEmpty {
             return
         }
