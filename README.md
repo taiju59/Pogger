@@ -8,9 +8,10 @@
 
 1. `$ git clone https://github.com/taiju59/Pogger.git`
 2. install cocoapods and `$ pod install`
-3. install carthage, e.g. `$ brew install carthage`
-4. get Google Maps API key and input into AppDelegate.swift
-5. run & install
+3. `$ brew install carthage` and `$ carthage update --platform iOS`
+4. `$ brew install swiftlint`
+5. get Google Maps API key and input into AppDelegate.swift
+6. run & install
 
 or
 
