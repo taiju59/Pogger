@@ -13,6 +13,12 @@ class Prefix {
 
     static let iconConf = "\u{e037}"
     static let iconClose = "\u{4d}"
+    //favarite icon
+    static let iconFavorite = "\u{e08a}"
+    //share icon
+    static let iconShare = "\u{e05a}"
+    //option icon
+    static let iconOption = "\u{e603}"
 
     static let keypointCellType = "show_street_view"
     static let keyLocateQuality = "locate_quality"

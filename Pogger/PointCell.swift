@@ -34,6 +34,9 @@ class PointCell: UITableViewCell {
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
 //    @IBOutlet weak var favButton: DOFavoriteButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var optionButton: UIButton!
 
     @IBOutlet weak var comma1: UILabel!
     @IBOutlet weak var comma2: UILabel!
@@ -62,7 +65,9 @@ class PointCell: UITableViewCell {
 
         // お気に入り
         self.id = point.id
-//        self.favButton.isSelected = point.favorite
+        //self.favButton.isSelected = point.favorite
+        // fav,share,option Button add
+        setButtons()
 
         // ストリートビュー/マップを表示
         switch type {
@@ -112,7 +117,11 @@ class PointCell: UITableViewCell {
         self.localityButton.setTitle(locality, for: UIControlState())
         self.administrativeAreaButton.setTitle(administrativeArea, for: UIControlState())
     }
-
+    private func setButtons() {
+        self.favoriteButton.setTitle(Prefix.iconFavorite, for: UIControlState())
+        self.shareButton.setTitle(Prefix.iconShare, for: UIControlState())
+        self.optionButton.setTitle(Prefix.iconOption, for: UIControlState())
+    }
 //    @IBAction func favTapped(_ sender: DOFavoriteButton) {
 //        if sender.isSelected {
 //            // deselect
@@ -129,7 +138,7 @@ class PointCell: UITableViewCell {
 
         //TODO: auto layout で作成
         let deviceWidth = UIScreen.main.bounds.width
-        let rect = CGRect(x: 0, y: 0, width: deviceWidth - 16, height: 100)
+        let rect = CGRect(x: 0, y: 0, width: deviceWidth, height: 150)
         let location = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
 
         let panoView = GMSPanoramaView.panorama(withFrame: rect, nearCoordinate: location)

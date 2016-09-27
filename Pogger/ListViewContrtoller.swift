@@ -42,7 +42,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         LocationService.sharedInstance.startUpdatingLocation()
 
         configButton.setTitle(Prefix.iconConf, for: UIControlState())
-
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
                 self.refreshData()
@@ -72,7 +71,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         guard let date = pd[section][0].startDate else {
             return nil
         }
-
         let days = Utils.daysFromDate(date)
         var sectionTitle: String?
         switch days {
