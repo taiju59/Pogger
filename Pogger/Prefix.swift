@@ -13,8 +13,7 @@ class Prefix {
 
     static let iconConf = "\u{e037}"
     static let iconClose = "\u{4d}"
-    //favarite icon
-    static let iconFavorite = "\u{e08a}"
+
     //share icon
     static let iconShare = "\u{e05a}"
     //option icon
