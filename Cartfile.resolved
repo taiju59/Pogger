@@ -1,2 +1,3 @@
 github "dzenbot/DZNEmptyDataSet" "v1.8.1"
-github "realm/realm-cocoa" "v1.1.0"
+github "SVGKit/SVGKit" "fb1b3d2f32f64b57a9db1afd4b6acf8973d384eb"
+github "realm/realm-cocoa" "v2.0.0"
