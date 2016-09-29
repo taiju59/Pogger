@@ -48,7 +48,7 @@ class Utils {
         var dateText = ""
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd HH:mm"
+        dateFormatter.dateFormat = "HH:mm"
 
         let startDateStr = dateFormatter.string(from: startDate)
         dateText += startDateStr
