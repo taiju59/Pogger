@@ -11,8 +11,8 @@ import UIKit
 class Prefix {
     static let themaColor = UIColor(red: 234/255, green: 84/255, blue: 136/255, alpha: 1)
 
-    static let iconConf = "\u{e037}"
-    static let iconClose = "\u{4d}"
+    static let iconConf = "\u{e09a}"
+    static let iconClose = "\u{e082}"
 
     //share icon
     static let iconShare = "\u{e05a}"

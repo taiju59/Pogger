@@ -88,8 +88,8 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         return pointsData?[section].count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = (indexPath as NSIndexPath).section
         let row = (indexPath as NSIndexPath).row
         let point = pointsData![section][row]
