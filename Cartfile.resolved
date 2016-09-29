@@ -1,2 +1,2 @@
 github "dzenbot/DZNEmptyDataSet" "v1.8.1"
-github "realm/realm-cocoa" "v1.1.0"
+github "realm/realm-cocoa" "v2.0.0"

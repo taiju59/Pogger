@@ -22,7 +22,6 @@ enum PointCellType: Int {
 class PointCell: UITableViewCell {
 
     var delegate: PointCellDelegate?
-
     var id: String!
 
     @IBOutlet weak var mainContentsView: UIView!
@@ -33,7 +32,6 @@ class PointCell: UITableViewCell {
     @IBOutlet weak var subThoroughfareButton: UIButton!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
-//    @IBOutlet weak var favButton: DOFavoriteButton!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var optionButton: UIButton!
@@ -65,7 +63,9 @@ class PointCell: UITableViewCell {
 
         // お気に入り
         self.id = point.id
-        //self.favButton.isSelected = point.favorite
+        self.favoriteButton.isSelected = point.favorite
+
+
         // fav,share,option Button add
         setButtons()
 
@@ -117,22 +117,38 @@ class PointCell: UITableViewCell {
         self.localityButton.setTitle(locality, for: UIControlState())
         self.administrativeAreaButton.setTitle(administrativeArea, for: UIControlState())
     }
+
+    //stackViewのButtonの画像を設定
     private func setButtons() {
-        self.favoriteButton.setTitle(Prefix.iconFavorite, for: UIControlState())
+        if favoriteButton.isSelected == true {
+            print(favoriteButton.isSelected)
+            let image = #imageLiteral(resourceName: "tappedheart")
+            favoriteButton.setImage(image, for: UIControlState.normal)
+        } else {
+            print(favoriteButton.isSelected)
+            let image = #imageLiteral(resourceName: "heart")
+            favoriteButton.setImage(image, for: UIControlState.normal)
+        }
         self.shareButton.setTitle(Prefix.iconShare, for: UIControlState())
         self.optionButton.setTitle(Prefix.iconOption, for: UIControlState())
     }
-//    @IBAction func favTapped(_ sender: DOFavoriteButton) {
-//        if sender.isSelected {
-//            // deselect
-//            sender.deselect()
-//            delegate?.pointCell(self, didTapFavButton: false)
-//        } else {
-//            // select with animation
-//            sender.select()
-//            delegate?.pointCell(self, didTapFavButton: true)
-//        }
-//    }
+
+    //お気に入りボタンが押された時の処理
+    @IBAction func favTapped(_ sender: UIButton) {
+        if sender.isSelected == true {
+            print(sender.isSelected)
+            delegate?.pointCell(self, didTapFavButton: true)
+            let image = #imageLiteral(resourceName: "tappedheart")
+            sender.setImage(image, for: UIControlState.normal)
+        } else {
+            print(sender.isSelected)
+            delegate?.pointCell(self, didTapFavButton: false)
+            let image = #imageLiteral(resourceName: "heart")
+            sender.setImage(image, for: UIControlState.normal)
+        }
+        sender.isSelected = !sender.isSelected
+
+    }
 
     private func getPanoView(_ point: FixedPoint) -> GMSPanoramaView {
 
