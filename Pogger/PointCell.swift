@@ -122,11 +122,11 @@ class PointCell: UITableViewCell {
     private func setButtons() {
         if favoriteButton.isSelected == true {
             print(favoriteButton.isSelected)
-            let image = UIImage(named: "tappedheart")
+            let image = #imageLiteral(resourceName: "tappedheart")
             favoriteButton.setImage(image, for: UIControlState.normal)
         } else {
             print(favoriteButton.isSelected)
-            let image = UIImage(named: "heart")
+            let image = #imageLiteral(resourceName: "heart")
             favoriteButton.setImage(image, for: UIControlState.normal)
         }
         self.shareButton.setTitle(Prefix.iconShare, for: UIControlState())
@@ -138,28 +138,17 @@ class PointCell: UITableViewCell {
         if sender.isSelected == true {
             print(sender.isSelected)
             delegate?.pointCell(self, didTapFavButton: true)
-            let image = UIImage(named: "tappedheart")
+            let image = #imageLiteral(resourceName: "tappedheart")
             sender.setImage(image, for: UIControlState.normal)
         } else {
             print(sender.isSelected)
             delegate?.pointCell(self, didTapFavButton: false)
-            let image = UIImage(named: "heart")
+            let image = #imageLiteral(resourceName: "heart")
             sender.setImage(image, for: UIControlState.normal)
         }
         sender.isSelected = !sender.isSelected
 
     }
-//    @IBAction func favTapped(_ sender: DOFavoriteButton) {
-//        if sender.isSelected {
-//            // deselect
-//            sender.deselect()
-//            delegate?.pointCell(self, didTapFavButton: false)
-//        } else {
-//            // select with animation
-//            sender.select()
-//            delegate?.pointCell(self, didTapFavButton: true)
-//        }
-//    }
 
     private func getPanoView(_ point: FixedPoint) -> GMSPanoramaView {
 
