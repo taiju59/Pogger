@@ -29,7 +29,7 @@
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PointCell" rowHeight="272" id="yrG-TF-nTI" customClass="PointCell" customModule="Pogger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="1000" height="272"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="272"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yrG-TF-nTI" id="icH-2s-89L">
                                             <frame key="frameInset" width="375" height="271"/>
@@ -212,6 +212,9 @@
                                 <rect key="frame" x="16" y="1" width="40" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="uFb-Ab-BPk" kind="presentation" id="SB2-db-8sy"/>
                                 </connections>
@@ -530,7 +533,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rzu-aT-d4Q" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kmx-5l-PMz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Kmx-5l-PMz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -548,7 +551,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uFb-Ab-BPk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IRt-lV-FTI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IRt-lV-FTI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
