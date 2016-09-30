@@ -31,10 +31,10 @@ class PointCell: UITableViewCell {
     @IBOutlet weak var thoroughfareButton: UIButton!
     @IBOutlet weak var subThoroughfareButton: UIButton!
     @IBOutlet weak var nameButton: UIButton!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var optionButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
 
     @IBOutlet weak var comma1: UILabel!
     @IBOutlet weak var comma2: UILabel!
@@ -130,7 +130,7 @@ class PointCell: UITableViewCell {
             favoriteButton.setImage(image, for: UIControlState.normal)
         }
         self.shareButton.setTitle(Prefix.iconShare, for: UIControlState())
-        self.optionButton.setTitle(Prefix.iconOption, for: UIControlState())
+        self.optionButton.setTitle("\u{e603}", for: UIControlState())
     }
 
     //お気に入りボタンが押された時の処理
