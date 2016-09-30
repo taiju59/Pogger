@@ -9,7 +9,7 @@
 import UIKit
 
 class Prefix {
-    static let themaColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+    static let themaColor = UIColor(red: 234/255, green: 84/255, blue: 136/255, alpha: 1)
 
     static let iconConf = "\u{e09a}"
     static let iconClose = "\u{e082}"

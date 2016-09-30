@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // navigationBar 周りの色を調整
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = Prefix.themaColor
 
         // 位置情報計測精度初期設定
         let userDefaults = UserDefaults.standard
