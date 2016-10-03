@@ -14,6 +14,7 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
 
     @IBOutlet weak var headerView: UIView!
 
+
     var panoramaID: String?
     var coordinater: CLLocationCoordinate2D?
 
@@ -38,4 +39,8 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
                 self.headerView.alpha = self.headerView.alpha == 0 ? 1:0
         })
     }
+    @IBAction func closeButton(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
 }

@@ -287,9 +287,9 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         }
     }
 
-    @IBAction func returnListViewForSegue(_ segue: UIStoryboardSegue) {
+    /*@IBAction func returnListViewForSegue(_ segue: UIStoryboardSegue) {
 
-    }
+    }*/
 
     //MARK: - DZNEmptyDataSet
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
