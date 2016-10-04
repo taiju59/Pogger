@@ -321,7 +321,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-O8-tnN">
-                                                            <frame key="frameInset" minX="26" minY="10" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -334,7 +334,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-FL-G4q">
-                                                            <frame key="frameInset" minX="100" minY="10" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -347,7 +347,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-2e-Tmv">
-                                                            <frame key="frameInset" minX="162" minY="10" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -511,6 +511,16 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="372" y="295.50224887556226"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="sr4-hu-bh8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="rpI-Eq-6kk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bQk-qR-R2u"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q55-lf-Dbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087" y="8"/>
         </scene>
         <!--Pogs-->
         <scene sceneID="IJw-Qq-P7z">
@@ -758,6 +768,7 @@
                     <connections>
                         <segue destination="Dh1-0t-NmE" kind="relationship" relationship="viewControllers" id="ysN-Iz-WCU"/>
                         <segue destination="oRz-hx-Zbp" kind="relationship" relationship="viewControllers" id="nVo-Pn-I4m"/>
+                        <segue destination="rpI-Eq-6kk" kind="relationship" relationship="viewControllers" id="TvS-zw-tDN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NU-dU-e9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -792,7 +803,7 @@
         <image name="headerShadow.png" width="375" height="116"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="XLN-3n-KCj"/>
         <segue reference="HA4-cN-1A4"/>
-        <segue reference="NJj-XU-xrJ"/>
     </inferredMetricsTieBreakers>
 </document>

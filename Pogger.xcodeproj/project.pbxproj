@@ -10,6 +10,10 @@
 		3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */; };
 		596529881D9D191400FCB8EF /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596529871D9D191300FCB8EF /* FavoriteListViewController.swift */; };
 		598D39FB1D9A56B60038D7F4 /* Simple-Line-Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598D39FA1D9A44ED0038D7F4 /* Simple-Line-Icons.ttf */; };
+		598F8DC21DA2566800F1E242 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598F8DC11DA2566800F1E242 /* Map.storyboard */; };
+		598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598F8DC51DA2589800F1E242 /* MapViewController.swift */; };
+		598F8DC81DA3636F00F1E242 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC71DA3636F00F1E242 /* CoreLocation.framework */; };
+		598F8DCA1DA3675E00F1E242 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC91DA3675D00F1E242 /* MapKit.framework */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
 		F619436C1D0866F4000CC24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ViewController.swift */; };
@@ -35,7 +39,7 @@
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
-		F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */; };
+		F6CDBC2D1D7B0C0700255790 /* calcDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* calcDistance.swift */; };
 		F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2C1D7B0C0700255790 /* Point.swift */; };
 		F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
@@ -45,6 +49,10 @@
 /* Begin PBXFileReference section */
 		596529871D9D191300FCB8EF /* FavoriteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = SOURCE_ROOT; };
 		598D39FA1D9A44ED0038D7F4 /* Simple-Line-Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Simple-Line-Icons.ttf"; sourceTree = "<group>"; };
+		598F8DC11DA2566800F1E242 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = SOURCE_ROOT; };
+		598F8DC51DA2589800F1E242 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = SOURCE_ROOT; };
+		598F8DC71DA3636F00F1E242 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		598F8DC91DA3675D00F1E242 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.debug.xcconfig"; sourceTree = "<group>"; };
 		9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +84,7 @@
 		F66EECB51D0B1DF8003F4056 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6770A9A1CFD41F400B4B10E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		F6A4BA791D0843BA001ACBE4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = Pogger/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
+		F6CDBC2B1D7B0C0700255790 /* calcDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = calcDistance.swift; path = Pogger/calcDistance.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2C1D7B0C0700255790 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Pogger/Point.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedPoint.swift; path = Pogger/FixedPoint.swift; sourceTree = SOURCE_ROOT; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
@@ -88,9 +96,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				598F8DC81DA3636F00F1E242 /* CoreLocation.framework in Frameworks */,
 				F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */,
 				F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */,
 				F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */,
+				598F8DCA1DA3675E00F1E242 /* MapKit.framework in Frameworks */,
 				3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +111,8 @@
 		91295518DD142704797A9AC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				598F8DC91DA3675D00F1E242 /* MapKit.framework */,
+				598F8DC71DA3636F00F1E242 /* CoreLocation.framework */,
 				F6A4BA791D0843BA001ACBE4 /* libPods.a */,
 				F6770A9A1CFD41F400B4B10E /* Realm.framework */,
 				F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */,
@@ -183,6 +195,7 @@
 				F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */,
 				F619438F1D0867C2000CC24F /* StreetViewController.swift */,
 				596529871D9D191300FCB8EF /* FavoriteListViewController.swift */,
+				598F8DC51DA2589800F1E242 /* MapViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -232,6 +245,7 @@
 				F61943801D0867AA000CC24F /* Prefix.swift */,
 				F619436F1D08673E000CC24F /* LaunchScreen.storyboard */,
 				F61943711D08673E000CC24F /* Main.storyboard */,
+				598F8DC11DA2566800F1E242 /* Map.storyboard */,
 				F61943681D0866F4000CC24F /* Assets.xcassets */,
 				F619436D1D086714000CC24F /* Info.plist */,
 			);
@@ -242,7 +256,7 @@
 		F6DCAA461D2D47A100F9F77C /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */,
+				F6CDBC2B1D7B0C0700255790 /* calcDistance.swift */,
 				F6CDBC2C1D7B0C0700255790 /* Point.swift */,
 			);
 			name = Realm;
@@ -298,6 +312,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
 						};
 					};
 				};
@@ -326,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F619437A1D08676E000CC24F /* EmptyState.xib in Resources */,
+				598F8DC21DA2566800F1E242 /* Map.storyboard in Resources */,
 				F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */,
 				F61943741D08673E000CC24F /* Main.storyboard in Resources */,
 				598D39FB1D9A56B60038D7F4 /* Simple-Line-Icons.ttf in Resources */,
@@ -413,7 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */,
-				F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */,
+				F6CDBC2D1D7B0C0700255790 /* calcDistance.swift in Sources */,
 				F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */,
 				F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */,
 				F619437E1D08676E000CC24F /* PointCell.swift in Sources */,
@@ -428,6 +446,7 @@
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
 				F619438A1D0867AA000CC24F /* Utils.swift in Sources */,
+				598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
