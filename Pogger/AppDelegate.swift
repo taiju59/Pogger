@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("xxx") // set your Google Map API Key
 
-        // navigationBar 周りの色を調整
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
-        UINavigationBar.appearance().tintColor = UIColor.black
-
         // 位置情報計測精度初期設定
         let userDefaults = UserDefaults.standard
         let locateQuality = userDefaults.integer(forKey: Prefix.keyLocateQuality)

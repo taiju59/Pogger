@@ -222,25 +222,25 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
      */
 
     @IBAction func didLongSelect(_ sender: UILongPressGestureRecognizer) {
-            let point = sender.location(in: tableView)
-            let indexPath = tableView.indexPathForRow(at: point)!
+        let point = sender.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)!
 
-            if sender.state == .began {
-                let point = pointsData![(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+        if sender.state == .began {
+            let point = pointsData![(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 
-                let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                let copyAction = UIAlertAction(title: "住所をコピー", style: .default, handler: {
-                    action in self.copyAddress(point)
-                })
-                let mapOpenAction = UIAlertAction(title: "マップで見る", style: .default, handler: {
-                    action in self.shouldOpenMap(point)
-                })
-                let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-                actionSheet.addAction(copyAction)
-                actionSheet.addAction(mapOpenAction)
-                actionSheet.addAction(cancelAction)
-                self.present(actionSheet, animated: true, completion: nil)
-            }
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let copyAction = UIAlertAction(title: "住所をコピー", style: .default, handler: {
+                action in self.copyAddress(point)
+            })
+            let mapOpenAction = UIAlertAction(title: "マップで見る", style: .default, handler: {
+                action in self.shouldOpenMap(point)
+            })
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            actionSheet.addAction(copyAction)
+            actionSheet.addAction(mapOpenAction)
+            actionSheet.addAction(cancelAction)
+            self.present(actionSheet, animated: true, completion: nil)
+        }
     }
 
     private func copyAddress(_ point: FixedPoint) {
@@ -286,10 +286,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
             vc.coordinater = coordinater
         }
     }
-
-    /*@IBAction func returnListViewForSegue(_ segue: UIStoryboardSegue) {
-
-    }*/
 
     //MARK: - DZNEmptyDataSet
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {

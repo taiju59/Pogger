@@ -39,8 +39,8 @@ class StreetViewController: UIViewController, GMSPanoramaViewDelegate {
                 self.headerView.alpha = self.headerView.alpha == 0 ? 1:0
         })
     }
-    @IBAction func closeButton(_ sender: AnyObject) {
+
+    @IBAction func didTapCloseButton(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
-
 }
