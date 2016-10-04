@@ -1,8 +1,8 @@
 //
-//  ListViewContrtoller.swift
+//  FavoriteListViewController.swift
 //  Pogger
 //
-//  Created by Taiju Aoki on 2016/04/17.
+//  Created by natsuyama on 2016/09/29.
 //  Copyright © 2016年 Taiju Aoki. All rights reserved.
 //
 
@@ -11,12 +11,11 @@ import RealmSwift
 import GoogleMaps
 import DZNEmptyDataSet
 
-class ListViewController: ViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
+class FavoriteListViewController: ViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
-
-    @IBOutlet weak var configButton: UIButton!
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var configButton: UIButton!
 
     private let dispMinuteMin = 10
     private let comeBackLimit = 60
@@ -37,9 +36,12 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         tableView.addSubview(refreshControl)
         tableView.sendSubview(toBack: refreshControl)
         tableView.tableFooterView = UIView()
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.emptyDataSetSource = self
 
         LocationService.sharedInstance.startUpdatingLocation()
+
         configButton.setTitle(Prefix.iconConf, for: UIControlState())
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
@@ -110,7 +112,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
                 }
             }
             self.pointsData = []
-            self.setPogList()
+            self.setFavoriteList()
         }
     }
 
@@ -195,12 +197,12 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     }
 
     /*
-    @IBAction func changePogList(_ sender: UISegmentedControl) {
-        let value = sender.selectedSegmentIndex
-        pogListType = value
-        refreshData()
-    }
-    */
+     @IBAction func changePogList(_ sender: UISegmentedControl) {
+     let value = sender.selectedSegmentIndex
+     pogListType = value
+     refreshData()
+     }
+     */
     /*
     @IBAction func changeViewType(_ sender: UIBarButtonItem) {
         let private_queue = DispatchQueue(label: "changeViewType", attributes: [])
@@ -219,7 +221,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
             }
         }
     }
-     */
+    */
 
     @IBAction func didLongSelect(_ sender: UILongPressGestureRecognizer) {
         let point = sender.location(in: tableView)
@@ -268,11 +270,13 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         UIApplication.shared.openURL(url)
     }
 
+    /*
     @IBAction func didTapLogo(_ sender: UIButton) {
         let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
         let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
         tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight + navBarHeight)), animated: true)
     }
+    */
 
     //MARK : Transition
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -286,10 +290,14 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
             vc.coordinater = coordinater
         }
     }
+    /*
+    @IBAction func returnListViewForSegue(_ segue: UIStoryboardSegue) {
+
+    }*/
 
     //MARK: - DZNEmptyDataSet
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-            let nib = UINib(nibName: "EmptyState", bundle:nil)
-            return nib.instantiate(withOwner: nil, options: nil).first as! UIView
+        let nib = UINib(nibName: "FavoriteEmptyState", bundle:nil)
+        return nib.instantiate(withOwner: nil, options: nil).first as! UIView
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class SettingViewController: UITableViewController {
 
+
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var locateQualityLabel: UILabel!
 
@@ -37,8 +38,7 @@ class SettingViewController: UITableViewController {
         }
     }
 
-    @IBAction func returnSettingViewForSegue(_ segue: UIStoryboardSegue) {
-
+    @IBAction func didTapCloseButon(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
-
 }
