@@ -14,6 +14,7 @@
 		598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598F8DC51DA2589800F1E242 /* MapViewController.swift */; };
 		598F8DC81DA3636F00F1E242 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC71DA3636F00F1E242 /* CoreLocation.framework */; };
 		598F8DCA1DA3675E00F1E242 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC91DA3675D00F1E242 /* MapKit.framework */; };
+		5999D20D1DA4C43B002CF98D /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999D20C1DA4C43B002CF98D /* SelectViewController.swift */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
 		F619436C1D0866F4000CC24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		598F8DC51DA2589800F1E242 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		598F8DC71DA3636F00F1E242 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		598F8DC91DA3675D00F1E242 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5999D20C1DA4C43B002CF98D /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = SOURCE_ROOT; };
 		6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.debug.xcconfig"; sourceTree = "<group>"; };
 		9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				F619438D1D0867C2000CC24F /* LocateQualityViewController.swift */,
 				F619438E1D0867C2000CC24F /* SettingViewController.swift */,
+				5999D20C1DA4C43B002CF98D /* SelectViewController.swift */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
 				F619438A1D0867AA000CC24F /* Utils.swift in Sources */,
+				5999D20D1DA4C43B002CF98D /* SelectViewController.swift in Sources */,
 				598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

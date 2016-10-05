@@ -14,6 +14,8 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     @IBOutlet weak var MapView: MKMapView!
+    let now = NSDate()
+    var receiveValue: Int = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +26,16 @@ class MapViewController: UIViewController {
     }
 
     func setPin() {
-        //listviewcontrollerに表示されているのと同じ
         let realm = try! Realm()
         let dispMinuteMin = 10
+        let timeInterval = -60*60*24*receiveValue
         let allPoints = realm.objects(Point.self)
-        let lastPointDate = allPoints[0].startDate!
-        let predicate = NSPredicate(format: "stayMin >= %d OR startDate = %@",
-                                    dispMinuteMin, lastPointDate as CVarArg)
+        let week = NSDate(timeInterval: TimeInterval(timeInterval), since: now as Date)
+        let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@",dispMinuteMin,week as CVarArg)
         let points = allPoints.filter(predicate)
 
         //地図にピンを立てる。
         for point in points {
-            //print(point.latitude)
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
             MapView.addAnnotation(annotation)
