@@ -13,6 +13,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager! = nil
     static let sharedInstance = LocationService()
 
+    var newestLocation = CLLocation()
+
     override private init() {
         super.init()
         locationManager = CLLocationManager()
@@ -55,6 +57,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     /** 位置情報取得成功時 */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Success")
+
+        //最新の位置情報取得
+        newestLocation = manager.location!
 
         // get address
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
