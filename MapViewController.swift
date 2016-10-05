@@ -12,45 +12,20 @@ import RealmSwift
 import CoreLocation
 
 
-class MapViewController: UIViewController, CLLocationManagerDelegate{
+class MapViewController: UIViewController {
     @IBOutlet weak var MapView: MKMapView!
-
-    let realm = try! Realm()
-    var myLocationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let status = CLLocationManager.authorizationStatus()
-        if status == CLAuthorizationStatus.restricted || status == CLAuthorizationStatus.denied {
-            return
-        }
-
-        myLocationManager = CLLocationManager()
-        myLocationManager.delegate = self
-
-        if status == CLAuthorizationStatus.notDetermined {
-            myLocationManager.requestWhenInUseAuthorization()
-        }
-
-        if !CLLocationManager.locationServicesEnabled() {
-            return
-        }
-        myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-        myLocationManager.distanceFilter = kCLDistanceFilterNone
 
         setMap()
         setPin()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func setPin() {
         //listviewcontrollerに表示されているのと同じ
+        let realm = try! Realm()
         let dispMinuteMin = 10
         let allPoints = realm.objects(Point.self)
         let lastPointDate = allPoints[0].startDate!
@@ -73,8 +48,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
         let longitude = LocationService.sharedInstance.newestLocation.coordinate.longitude
 
         //中心座標
-        let center = CLLocationCoordinate2DMake(latitude, longitude
-        )
+        let center = CLLocationCoordinate2DMake(latitude, longitude)
 
         //表示範囲
         let span = MKCoordinateSpanMake(0.1, 0.1)

@@ -13,7 +13,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     private var locationManager: CLLocationManager! = nil
     static let sharedInstance = LocationService()
 
-    //SharedInstanceで利用する
     var newestLocation = CLLocation()
 
     override private init() {

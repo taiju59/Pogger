@@ -39,7 +39,7 @@
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
-		F6CDBC2D1D7B0C0700255790 /* calcDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* calcDistance.swift */; };
+		F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */; };
 		F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2C1D7B0C0700255790 /* Point.swift */; };
 		F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
@@ -84,7 +84,7 @@
 		F66EECB51D0B1DF8003F4056 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6770A9A1CFD41F400B4B10E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		F6A4BA791D0843BA001ACBE4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		F6CDBC2B1D7B0C0700255790 /* calcDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = calcDistance.swift; path = Pogger/calcDistance.swift; sourceTree = SOURCE_ROOT; };
+		F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = Pogger/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2C1D7B0C0700255790 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Pogger/Point.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedPoint.swift; path = Pogger/FixedPoint.swift; sourceTree = SOURCE_ROOT; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		F6DCAA461D2D47A100F9F77C /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				F6CDBC2B1D7B0C0700255790 /* calcDistance.swift */,
+				F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */,
 				F6CDBC2C1D7B0C0700255790 /* Point.swift */,
 			);
 			name = Realm;
@@ -431,7 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */,
-				F6CDBC2D1D7B0C0700255790 /* calcDistance.swift in Sources */,
+				F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */,
 				F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */,
 				F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */,
 				F619437E1D08676E000CC24F /* PointCell.swift in Sources */,
