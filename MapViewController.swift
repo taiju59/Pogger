@@ -63,7 +63,7 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
         setPin(radius: radius)
     }
 
-    func setPin(radius: Double) {
+    private func setPin(radius: Double) {
         let now = Date()
         let realm = try! Realm()
         let dispMinuteMin = 10
