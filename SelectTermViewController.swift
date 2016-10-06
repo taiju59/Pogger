@@ -9,13 +9,13 @@
 import UIKit
 
 protocol SelectTermViewControllerDelegate: class {
-    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, selectTerm title: String?)
+    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, title: String?)
 }
 
 class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     private var sendTermValue = 7
-    private var selectTermTitle: String?
+    private var selectTermTitle = "１週間"
     private var selectArray = ["１週間", "１か月", "３か月", "１年", "すべて"]
     weak var delegate: SelectTermViewControllerDelegate?
 
@@ -24,7 +24,7 @@ class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
     @IBAction func didTapSaveButton(_ sender: UIBarButtonItem) {
-        delegate?.selectTermViewController(self, selectTerm: sendTermValue, selectTerm: selectTermTitle)
+        delegate?.selectTermViewController(self, selectTerm: sendTermValue, title: selectTermTitle)
         self.dismiss(animated: true, completion: nil)
     }
 

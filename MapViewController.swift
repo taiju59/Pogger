@@ -36,7 +36,7 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
         }
     }
 
-    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, selectTerm title: String?) {
+    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, title: String?) {
         receiveTermValue = value
         selectTermButton.title = title
     }
