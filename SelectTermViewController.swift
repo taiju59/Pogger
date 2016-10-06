@@ -1,5 +1,5 @@
 //
-//  SelectViewController.swift
+//  SelectTermViewController.swift
 //  Pogger
 //
 //  Created by natsuyama on 2016/10/05.
@@ -8,10 +8,15 @@
 
 import UIKit
 
-class SelectViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+protocol SelectTermViewControllerDelegate: class {
+    func selectTerm(_ selectTerm: SelectTermViewController, sendValue value: Int)
+}
 
-    var sendValue = 1
-    var array = ["１日前","2日前","3日前","１週間前","1か月","3か月","半年前","１年前"]
+class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    private var sendValue = 7
+    private var selectArray = ["１週間", "１か月", "３か月", "１年", "すべて"]
+    weak var delegate: SelectTermViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +25,9 @@ class SelectViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
         self.dismiss(animated: true, completion: nil)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let mapViewController = segue.destination as! MapViewController
-        mapViewController.receiveValue = sendValue
+    @IBAction func didTapSaveButton(_ sender: UIBarButtonItem) {
+        delegate?.selectTerm(self,sendValue: sendValue)
+        self.dismiss(animated: true, completion: nil)
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -30,31 +35,25 @@ class SelectViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDa
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return array.count
+        return selectArray.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return array[row]
+        return selectArray[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
-            return sendValue = 1
+            sendValue = 7
         case 1:
-            return sendValue = 2
+            sendValue = 30
         case 2:
-            return sendValue = 3
+            sendValue = 90
         case 3:
-            return sendValue = 7
+            sendValue = 365
         case 4:
-            return sendValue = 30
-        case 5:
-            return sendValue = 90
-        case 6:
-            return sendValue = 182
-        case 7:
-            return sendValue = 365
+            sendValue = 36500
         default: break
         }
     }

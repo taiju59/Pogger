@@ -23,7 +23,7 @@
                                     <navigationItem title="Map" id="TNH-vb-b0B">
                                         <barButtonItem key="leftBarButtonItem" title="Item" id="G4R-Xx-Wd1">
                                             <connections>
-                                                <segue destination="LqY-1U-0Tc" kind="show" id="PkO-QV-z4A"/>
+                                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectView" id="PkO-QV-z4A"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="193.85307346326837"/>
         </scene>
-        <!--Select View Controller-->
+        <!--Select Term View Controller-->
         <scene sceneID="ngE-m4-gka">
             <objects>
-                <viewController id="LqY-1U-0Tc" customClass="SelectViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LqY-1U-0Tc" customClass="SelectTermViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nN0-lt-Juz"/>
                         <viewControllerLayoutGuide type="bottom" id="WAM-D8-pWM"/>
@@ -74,7 +74,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="sxu-BA-XzO">
                                             <connections>
-                                                <segue destination="Zp9-uP-idS" kind="show" id="7tX-ac-kBC"/>
+                                                <action selector="didTapSaveButton:" destination="LqY-1U-0Tc" id="Wwn-ZL-1qn"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -82,8 +82,8 @@
                             </navigationBar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-7f-P47">
                                 <connections>
-                                    <outlet property="dataSource" destination="LqY-1U-0Tc" id="Frx-a9-3rE"/>
-                                    <outlet property="delegate" destination="LqY-1U-0Tc" id="7Ba-ja-osZ"/>
+                                    <outlet property="dataSource" destination="LqY-1U-0Tc" id="GgN-Ls-SK4"/>
+                                    <outlet property="delegate" destination="LqY-1U-0Tc" id="7Bu-QP-cNW"/>
                                 </connections>
                             </pickerView>
                         </subviews>
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFt-ui-Xn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789.60000000000002" y="193.85307346326837"/>
+            <point key="canvasLocation" x="879" y="194"/>
         </scene>
     </scenes>
 </document>

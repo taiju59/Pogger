@@ -11,27 +11,40 @@ import MapKit
 import RealmSwift
 import CoreLocation
 
-
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, SelectTermViewControllerDelegate {
     @IBOutlet weak var MapView: MKMapView!
-    let now = NSDate()
-    var receiveValue: Int = 1
+    private let now = Date()
+    private var receiveValue = 7
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setMap()
-        setPin()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setPin()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "toSelectView" {
+            let vc = segue.destination as! SelectTermViewController
+            vc.delegate = self
+        }
+    }
+
+    func selectTerm(_ selectTerm: SelectTermViewController, sendValue value: Int) {
+        receiveValue = value
     }
 
     func setPin() {
         let realm = try! Realm()
         let dispMinuteMin = 10
-        let timeInterval = -60*60*24*receiveValue
+        let timeInterval = -60 * 60 * 24  * receiveValue
         let allPoints = realm.objects(Point.self)
-        let week = NSDate(timeInterval: TimeInterval(timeInterval), since: now as Date)
-        let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@",dispMinuteMin,week as CVarArg)
+        let term = Date(timeInterval: TimeInterval(timeInterval), since: now as Date)
+        let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
         let points = allPoints.filter(predicate)
 
         //地図にピンを立てる。
