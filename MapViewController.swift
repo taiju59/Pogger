@@ -41,10 +41,6 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
         selectTermButton.title = title
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.default
-    }
-
     func setPin() {
         let now = Date()
         let realm = try! Realm()
