@@ -49,8 +49,8 @@
                     <navigationItem key="navigationItem" title="Title" id="LiT-RU-BCL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="MapView" destination="NFM-xa-3l5" id="jWz-Lc-8n5"/>
                         <outlet property="SelectTermButton" destination="G4R-Xx-Wd1" id="UuD-dJ-jeS"/>
+                        <outlet property="mapView" destination="NFM-xa-3l5" id="Cui-7i-pJn"/>
                         <outlet property="selectTermButton" destination="G4R-Xx-Wd1" id="KlQ-Lt-Fb8"/>
                     </connections>
                 </viewController>

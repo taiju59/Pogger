@@ -12,7 +12,7 @@ import RealmSwift
 import CoreLocation
 
 class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKMapViewDelegate {
-    @IBOutlet weak var MapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectTermButton: UIBarButtonItem!
 
     private var receiveTermValue = 7
@@ -49,17 +49,21 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
 
         //中心座標と表示範囲をマップに登録する。
         let region = MKCoordinateRegionMake(center, span)
-        MapView.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)
     }
 
     //Mapが更新されるたびに呼び出される
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        let mRect = MapView.visibleMapRect
+        let mRect = mapView.visibleMapRect
         //Map画面上の中心座標
         let topMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect))
         //Map画面下の中心座表
         let bottomMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect))
         let radius = MKMetersBetweenMapPoints(topMapPoint, bottomMapPoint) / 2
+        setPin(radius: radius)
+    }
+
+    func setPin(radius: Double) {
         let now = Date()
         let realm = try! Realm()
         let dispMinuteMin = 10
@@ -69,18 +73,18 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
         let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
         let points = allPoints.filter(predicate)
         //地図上のピンを削除
-        MapView.removeAnnotations(MapView.annotations)
+        mapView.removeAnnotations(mapView.annotations)
         //地図にピンを立てる。
         for point in points {
             //中心座標取得
-            let centerPoint = CLLocation(latitude: MapView.centerCoordinate.latitude, longitude: MapView.centerCoordinate.longitude)
+            let centerPoint = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
             //一つ一つのピンの座標を取得
             let pinPoint = CLLocation(latitude: point.latitude, longitude: point.longitude)
             let distance = centerPoint.distance(from: pinPoint)
             let annotation = MKPointAnnotation()
             if radius > distance {
                 annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
-                MapView.addAnnotation(annotation)
+                mapView.addAnnotation(annotation)
             }
         }
     }
