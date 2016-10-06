@@ -21,24 +21,24 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-CY-bbF">
                                 <items>
                                     <navigationItem title="Map" id="TNH-vb-b0B">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="G4R-Xx-Wd1">
+                                        <barButtonItem key="leftBarButtonItem" id="G4R-Xx-Wd1">
                                             <connections>
-                                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectView" id="PkO-QV-z4A"/>
+                                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectTermView" id="PkO-QV-z4A"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NfF-CY-bbF" firstAttribute="top" secondItem="a2g-8H-kve" secondAttribute="bottom" id="71r-Nq-DdK"/>
-                            <constraint firstAttribute="trailing" secondItem="NFM-xa-3l5" secondAttribute="trailing" id="8hC-ft-pE8"/>
-                            <constraint firstItem="NfF-CY-bbF" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="T74-wm-U9J"/>
-                            <constraint firstAttribute="trailing" secondItem="NfF-CY-bbF" secondAttribute="trailing" id="awg-qi-10J"/>
-                            <constraint firstItem="vnu-bR-zL2" firstAttribute="top" secondItem="NFM-xa-3l5" secondAttribute="bottom" id="qXV-tE-WgU"/>
-                            <constraint firstItem="NFM-xa-3l5" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="stA-5Y-uEQ"/>
-                            <constraint firstItem="NFM-xa-3l5" firstAttribute="top" secondItem="NfF-CY-bbF" secondAttribute="bottom" constant="1" id="xNQ-0b-DMn"/>
+                            <constraint firstAttribute="trailing" secondItem="NFM-xa-3l5" secondAttribute="trailing" id="5qx-UD-Rjy"/>
+                            <constraint firstItem="vnu-bR-zL2" firstAttribute="top" secondItem="NFM-xa-3l5" secondAttribute="bottom" id="AAT-n7-zIO"/>
+                            <constraint firstAttribute="trailing" secondItem="NfF-CY-bbF" secondAttribute="trailing" id="Maf-XC-4nJ"/>
+                            <constraint firstItem="NFM-xa-3l5" firstAttribute="top" secondItem="NfF-CY-bbF" secondAttribute="bottom" id="Qp9-rS-4kV"/>
+                            <constraint firstItem="NfF-CY-bbF" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="ZGP-5x-Iaz"/>
+                            <constraint firstItem="NFM-xa-3l5" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="dLN-Se-BAd"/>
+                            <constraint firstItem="NfF-CY-bbF" firstAttribute="top" secondItem="a2g-8H-kve" secondAttribute="bottom" id="mYo-oa-Hpq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item3" id="9Wo-Jb-RCZ"/>
@@ -46,6 +46,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="MapView" destination="NFM-xa-3l5" id="jWz-Lc-8n5"/>
+                        <outlet property="SelectTermButton" destination="G4R-Xx-Wd1" id="UuD-dJ-jeS"/>
+                        <outlet property="selectTermButton" destination="G4R-Xx-Wd1" id="KlQ-Lt-Fb8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuv-f1-DNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,6 +66,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-7f-P47">
+                                <connections>
+                                    <outlet property="dataSource" destination="LqY-1U-0Tc" id="GgN-Ls-SK4"/>
+                                    <outlet property="delegate" destination="LqY-1U-0Tc" id="7Bu-QP-cNW"/>
+                                </connections>
+                            </pickerView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4U-S8-Fn1">
                                 <items>
                                     <navigationItem title="表示期間" id="Iss-hi-5rr">
@@ -80,20 +88,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-7f-P47">
-                                <connections>
-                                    <outlet property="dataSource" destination="LqY-1U-0Tc" id="GgN-Ls-SK4"/>
-                                    <outlet property="delegate" destination="LqY-1U-0Tc" id="7Bu-QP-cNW"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="k4U-S8-Fn1" secondAttribute="bottom" id="2Hv-AL-doe"/>
-                            <constraint firstItem="k4U-S8-Fn1" firstAttribute="top" secondItem="nN0-lt-Juz" secondAttribute="bottom" id="4f1-ib-vup"/>
-                            <constraint firstItem="k4U-S8-Fn1" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="4qU-BZ-hg7"/>
+                            <constraint firstItem="k4U-S8-Fn1" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="4Us-e7-UPd"/>
                             <constraint firstItem="tgk-7f-P47" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="Gtq-k3-haD"/>
-                            <constraint firstAttribute="trailing" secondItem="k4U-S8-Fn1" secondAttribute="trailing" id="bxz-u4-bIG"/>
+                            <constraint firstAttribute="trailing" secondItem="k4U-S8-Fn1" secondAttribute="trailing" id="HRA-xh-cuW"/>
+                            <constraint firstItem="k4U-S8-Fn1" firstAttribute="top" secondItem="4U4-sY-REk" secondAttribute="top" constant="20" id="e4E-25-IdH"/>
+                            <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="k4U-S8-Fn1" secondAttribute="bottom" id="etY-67-hDY"/>
                             <constraint firstAttribute="trailing" secondItem="tgk-7f-P47" secondAttribute="trailing" id="pqd-Kv-Smy"/>
                         </constraints>
                     </view>

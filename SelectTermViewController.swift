@@ -9,25 +9,27 @@
 import UIKit
 
 protocol SelectTermViewControllerDelegate: class {
-    func selectTerm(_ selectTerm: SelectTermViewController, sendValue value: Int)
+    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, selectTerm title: String?)
 }
 
 class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    private var sendValue = 7
+    private var sendTermValue = 7
+    private var selectTermTitle: String?
     private var selectArray = ["１週間", "１か月", "３か月", "１年", "すべて"]
     weak var delegate: SelectTermViewControllerDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     @IBAction func didTapCloseButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func didTapSaveButton(_ sender: UIBarButtonItem) {
-        delegate?.selectTerm(self,sendValue: sendValue)
+        delegate?.selectTermViewController(self, selectTerm: sendTermValue, selectTerm: selectTermTitle)
         self.dismiss(animated: true, completion: nil)
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.default
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -45,17 +47,18 @@ class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
-            sendValue = 7
+            sendTermValue = 7
         case 1:
-            sendValue = 30
+            sendTermValue = 30
         case 2:
-            sendValue = 90
+            sendTermValue = 90
         case 3:
-            sendValue = 365
+            sendTermValue = 365
         case 4:
-            sendValue = 36500
+            sendTermValue = 36500
         default:
-            sendValue = 7
+            sendTermValue = 7
         }
+        selectTermTitle = selectArray[row]
     }
 }

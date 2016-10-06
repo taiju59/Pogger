@@ -13,11 +13,13 @@ import CoreLocation
 
 class MapViewController: UIViewController, SelectTermViewControllerDelegate {
     @IBOutlet weak var MapView: MKMapView!
-    private let now = Date()
-    private var receiveValue = 7
+    @IBOutlet weak var selectTermButton: UIBarButtonItem!
+
+    private var receiveTermValue = 7
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectTermButton.title = "1週間"
         setMap()
     }
 
@@ -28,22 +30,28 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.identifier == "toSelectView" {
+        if segue.identifier == "toSelectTermView" {
             let vc = segue.destination as! SelectTermViewController
             vc.delegate = self
         }
     }
 
-    func selectTerm(_ selectTerm: SelectTermViewController, sendValue value: Int) {
-        receiveValue = value
+    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, selectTerm title: String?) {
+        receiveTermValue = value
+        selectTermButton.title = title
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.default
     }
 
     func setPin() {
+        let now = Date()
         let realm = try! Realm()
         let dispMinuteMin = 10
-        let timeInterval = -60 * 60 * 24  * receiveValue
+        let timeInterval = -60 * 60 * 24  * receiveTermValue
         let allPoints = realm.objects(Point.self)
-        let term = Date(timeInterval: TimeInterval(timeInterval), since: now as Date)
+        let term = Date(timeInterval: TimeInterval(timeInterval), since: now)
         let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
         let points = allPoints.filter(predicate)
 
@@ -68,7 +76,7 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
 
         //中心座標と表示範囲をマップに登録する。
         let region = MKCoordinateRegionMake(center, span)
-        MapView.setRegion(region, animated:true)
+        MapView.setRegion(region, animated: true)
     }
 }
 
