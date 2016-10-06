@@ -803,7 +803,6 @@
         <image name="headerShadow.png" width="375" height="116"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XLN-3n-KCj"/>
         <segue reference="HA4-cN-1A4"/>
     </inferredMetricsTieBreakers>
 </document>
