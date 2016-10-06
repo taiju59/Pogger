@@ -54,7 +54,8 @@ class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPicker
             sendValue = 365
         case 4:
             sendValue = 36500
-        default: break
+        default:
+            sendValue = 7
         }
     }
 }
