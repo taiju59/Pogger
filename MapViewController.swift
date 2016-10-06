@@ -11,7 +11,7 @@ import MapKit
 import RealmSwift
 import CoreLocation
 
-class MapViewController: UIViewController, SelectTermViewControllerDelegate {
+class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKMapViewDelegate {
     @IBOutlet weak var MapView: MKMapView!
     @IBOutlet weak var selectTermButton: UIBarButtonItem!
 
@@ -21,11 +21,6 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
         super.viewDidLoad()
         selectTermButton.title = "1週間"
         setMap()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setPin()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,24 +34,6 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
     func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, title: String?) {
         receiveTermValue = value
         selectTermButton.title = title
-    }
-
-    func setPin() {
-        let now = Date()
-        let realm = try! Realm()
-        let dispMinuteMin = 10
-        let timeInterval = -60 * 60 * 24  * receiveTermValue
-        let allPoints = realm.objects(Point.self)
-        let term = Date(timeInterval: TimeInterval(timeInterval), since: now)
-        let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
-        let points = allPoints.filter(predicate)
-
-        //地図にピンを立てる。
-        for point in points {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
-            MapView.addAnnotation(annotation)
-        }
     }
 
     func setMap() {
@@ -73,6 +50,39 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate {
         //中心座標と表示範囲をマップに登録する。
         let region = MKCoordinateRegionMake(center, span)
         MapView.setRegion(region, animated: true)
+    }
+
+    //Mapが更新されるたびに呼び出される
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let mRect = MapView.visibleMapRect
+        //Map画面上の中心座標
+        let topMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect))
+        //Map画面下の中心座表
+        let bottomMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect))
+        let radius = MKMetersBetweenMapPoints(topMapPoint, bottomMapPoint) / 2
+        let now = Date()
+        let realm = try! Realm()
+        let dispMinuteMin = 10
+        let timeInterval = -60 * 60 * 24  * receiveTermValue
+        let allPoints = realm.objects(Point.self)
+        let term = Date(timeInterval: TimeInterval(timeInterval), since: now)
+        let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
+        let points = allPoints.filter(predicate)
+        //地図上のピンを削除
+        MapView.removeAnnotations(MapView.annotations)
+        //地図にピンを立てる。
+        for point in points {
+            //中心座標取得
+            let centerPoint = CLLocation(latitude: MapView.centerCoordinate.latitude, longitude: MapView.centerCoordinate.longitude)
+            //一つ一つのピンの座標を取得
+            let pinPoint = CLLocation(latitude: point.latitude, longitude: point.longitude)
+            let distance = centerPoint.distance(from: pinPoint)
+            let annotation = MKPointAnnotation()
+            if radius > distance {
+                annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
+                MapView.addAnnotation(annotation)
+            }
+        }
     }
 }
 
