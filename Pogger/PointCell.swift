@@ -116,11 +116,7 @@ class PointCell: UITableViewCell {
 
     //お気に入りボタンが押された時の処理
     @IBAction func favTapped(_ sender: UIButton) {
-        if sender.isSelected == true {
-            delegate?.pointCell(self, didTapFavButton: true)
-        } else {
-            delegate?.pointCell(self, didTapFavButton: false)
-        }
+        delegate?.pointCell(self, didTapFavButton: sender.isSelected)
         sender.isSelected = !sender.isSelected
     }
 
