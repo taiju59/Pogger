@@ -22,31 +22,23 @@
                                     <outlet property="delegate" destination="Zp9-uP-idS" id="aeI-Rt-JGI"/>
                                 </connections>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfF-CY-bbF">
-                                <items>
-                                    <navigationItem title="Map" id="TNH-vb-b0B">
-                                        <barButtonItem key="leftBarButtonItem" id="G4R-Xx-Wd1">
-                                            <connections>
-                                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectTermView" id="PkO-QV-z4A"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NFM-xa-3l5" secondAttribute="trailing" id="5qx-UD-Rjy"/>
                             <constraint firstItem="vnu-bR-zL2" firstAttribute="top" secondItem="NFM-xa-3l5" secondAttribute="bottom" id="AAT-n7-zIO"/>
-                            <constraint firstAttribute="trailing" secondItem="NfF-CY-bbF" secondAttribute="trailing" id="Maf-XC-4nJ"/>
-                            <constraint firstItem="NFM-xa-3l5" firstAttribute="top" secondItem="NfF-CY-bbF" secondAttribute="bottom" id="Qp9-rS-4kV"/>
-                            <constraint firstItem="NfF-CY-bbF" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="ZGP-5x-Iaz"/>
+                            <constraint firstItem="NFM-xa-3l5" firstAttribute="top" secondItem="Agx-6l-zde" secondAttribute="top" id="RJC-QQ-mMm"/>
                             <constraint firstItem="NFM-xa-3l5" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="dLN-Se-BAd"/>
-                            <constraint firstItem="NfF-CY-bbF" firstAttribute="top" secondItem="a2g-8H-kve" secondAttribute="bottom" id="mYo-oa-Hpq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="9Wo-Jb-RCZ"/>
-                    <navigationItem key="navigationItem" title="Title" id="LiT-RU-BCL"/>
+                    <navigationItem key="navigationItem" title="Map" id="LiT-RU-BCL">
+                        <barButtonItem key="rightBarButtonItem" id="G4R-Xx-Wd1">
+                            <connections>
+                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectTermView" id="PkO-QV-z4A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="SelectTermButton" destination="G4R-Xx-Wd1" id="UuD-dJ-jeS"/>
