@@ -16,10 +16,7 @@ class SettingViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "設定"
         tableView.tableFooterView = UIView()
-
-        closeButton.setTitle(Prefix.iconClose, for: UIControlState())
     }
 
     override func viewWillAppear(_ animated: Bool) {

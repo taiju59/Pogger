@@ -9,9 +9,7 @@
 import UIKit
 
 class Prefix {
-    static let themaColor = UIColor(red: 234/255, green: 84/255, blue: 136/255, alpha: 1)
-
-    static let iconClose = "\u{e082}"
+    static let themaColor = #colorLiteral(red: 0.9960784314, green: 0.2941176471, blue: 0.3921568627, alpha: 1)
 
     static let keypointCellType = "show_street_view"
     static let keyLocateQuality = "locate_quality"
