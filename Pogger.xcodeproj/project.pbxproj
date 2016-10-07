@@ -15,6 +15,7 @@
 		ED2497BE1DA7ED9700660AFC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BB1DA7ED9700660AFC /* MapViewController.swift */; };
 		ED2497BF1DA7ED9700660AFC /* SelectTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */; };
 		ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED7AF38F1DA76B5500373E73 /* pogger.ttf */; };
+		ED82EE971DA80E5F00EBC2CD /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED82EE961DA80E5F00EBC2CD /* Setting.storyboard */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
 		F619436C1D0866F4000CC24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		ED2497BB1DA7ED9700660AFC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Pogger/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTermViewController.swift; path = Pogger/SelectTermViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED7AF38F1DA76B5500373E73 /* pogger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pogger.ttf; sourceTree = "<group>"; };
+		ED82EE961DA80E5F00EBC2CD /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = Pogger/Setting.storyboard; sourceTree = SOURCE_ROOT; };
 		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
 		F61943671D0866F4000CC24F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Pogger/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F61943681D0866F4000CC24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pogger/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -246,6 +248,7 @@
 				F619436F1D08673E000CC24F /* LaunchScreen.storyboard */,
 				F61943711D08673E000CC24F /* Main.storyboard */,
 				ED2497B81DA7ED8300660AFC /* Map.storyboard */,
+				ED82EE961DA80E5F00EBC2CD /* Setting.storyboard */,
 				F61943681D0866F4000CC24F /* Assets.xcassets */,
 				F619436D1D086714000CC24F /* Info.plist */,
 			);
@@ -351,6 +354,7 @@
 				F61943D11D086CC4000CC24F /* headerShadow.png in Resources */,
 				F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */,
 				F619437D1D08676E000CC24F /* ListViewHeader.xib in Resources */,
+				ED82EE971DA80E5F00EBC2CD /* Setting.storyboard in Resources */,
 				F61943731D08673E000CC24F /* LaunchScreen.storyboard in Resources */,
 				F619437B1D08676E000CC24F /* FavoriteEmptyState.xib in Resources */,
 				F6F3332F1D167C8F007DBC19 /* pug_r.pdf in Resources */,
