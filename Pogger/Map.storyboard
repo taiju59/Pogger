@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp9-uP-idS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8wW-Z4-R74">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -8,7 +8,7 @@
         <!--Map-->
         <scene sceneID="A6x-OW-o3a">
             <objects>
-                <viewController id="Zp9-uP-idS" userLabel="Map" customClass="MapViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zp9-uP-idS" customClass="MapViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a2g-8H-kve"/>
                         <viewControllerLayoutGuide type="bottom" id="vnu-bR-zL2"/>
@@ -27,30 +27,28 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NFM-xa-3l5" secondAttribute="trailing" id="5qx-UD-Rjy"/>
                             <constraint firstItem="vnu-bR-zL2" firstAttribute="top" secondItem="NFM-xa-3l5" secondAttribute="bottom" id="AAT-n7-zIO"/>
-                            <constraint firstItem="NFM-xa-3l5" firstAttribute="top" secondItem="Agx-6l-zde" secondAttribute="top" id="RJC-QQ-mMm"/>
+                            <constraint firstItem="NFM-xa-3l5" firstAttribute="top" secondItem="a2g-8H-kve" secondAttribute="bottom" id="Q2c-Jc-rtn"/>
                             <constraint firstItem="NFM-xa-3l5" firstAttribute="leading" secondItem="Agx-6l-zde" secondAttribute="leading" id="dLN-Se-BAd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="9Wo-Jb-RCZ"/>
-                    <navigationItem key="navigationItem" title="Map" id="LiT-RU-BCL">
-                        <barButtonItem key="rightBarButtonItem" title="1週間" id="G4R-Xx-Wd1">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Map" id="Ccu-Sr-fAS">
+                        <barButtonItem key="rightBarButtonItem" title="1週間" id="mbY-jq-lKd">
                             <connections>
-                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectTermView" id="PkO-QV-z4A"/>
+                                <segue destination="DgR-i8-lvK" kind="presentation" id="Wt7-kE-1Vd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="SelectTermButton" destination="G4R-Xx-Wd1" id="UuD-dJ-jeS"/>
                         <outlet property="mapView" destination="NFM-xa-3l5" id="Cui-7i-pJn"/>
-                        <outlet property="selectTermButton" destination="G4R-Xx-Wd1" id="KlQ-Lt-Fb8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuv-f1-DNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="193.85307346326837"/>
+            <point key="canvasLocation" x="2711.1999999999998" y="193.85307346326837"/>
         </scene>
-        <!--Select Term View Controller-->
+        <!--表示期間-->
         <scene sceneID="ngE-m4-gka">
             <objects>
                 <viewController id="LqY-1U-0Tc" customClass="SelectTermViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,38 +66,70 @@
                                     <outlet property="delegate" destination="LqY-1U-0Tc" id="7Bu-QP-cNW"/>
                                 </connections>
                             </pickerView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4U-S8-Fn1">
-                                <items>
-                                    <navigationItem title="表示期間" id="Iss-hi-5rr">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="QbS-3I-OpI">
-                                            <connections>
-                                                <action selector="didTapCloseButton:" destination="LqY-1U-0Tc" id="pGf-zC-WMp"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="sxu-BA-XzO">
-                                            <connections>
-                                                <action selector="didTapSaveButton:" destination="LqY-1U-0Tc" id="Wwn-ZL-1qn"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="k4U-S8-Fn1" secondAttribute="bottom" id="2Hv-AL-doe"/>
-                            <constraint firstItem="k4U-S8-Fn1" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="4Us-e7-UPd"/>
+                            <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="nN0-lt-Juz" secondAttribute="bottom" id="Gr8-kO-FKX"/>
                             <constraint firstItem="tgk-7f-P47" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="Gtq-k3-haD"/>
-                            <constraint firstAttribute="trailing" secondItem="k4U-S8-Fn1" secondAttribute="trailing" id="HRA-xh-cuW"/>
-                            <constraint firstItem="k4U-S8-Fn1" firstAttribute="top" secondItem="4U4-sY-REk" secondAttribute="top" constant="20" id="e4E-25-IdH"/>
-                            <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="k4U-S8-Fn1" secondAttribute="bottom" id="etY-67-hDY"/>
                             <constraint firstAttribute="trailing" secondItem="tgk-7f-P47" secondAttribute="trailing" id="pqd-Kv-Smy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="表示期間" id="lgG-WD-9wS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="QbS-3I-OpI">
+                            <connections>
+                                <action selector="didTapCloseButton:" destination="LqY-1U-0Tc" id="pGf-zC-WMp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sxu-BA-XzO">
+                            <connections>
+                                <action selector="didTapSaveButton:" destination="LqY-1U-0Tc" id="Wwn-ZL-1qn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFt-ui-Xn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="194"/>
+            <point key="canvasLocation" x="4431.1999999999998" y="193.85307346326837"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lUf-Z4-Tr1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DgR-i8-lvK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z9X-Hz-zBN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LqY-1U-0Tc" kind="relationship" relationship="rootViewController" id="Qzp-Pg-qxx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YdN-Kj-vsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3604" y="193.85307346326837"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="NpL-Zp-W5o">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8wW-Z4-R74" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="mOc-Wb-l8T"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="adw-8S-rro">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zp9-uP-idS" kind="relationship" relationship="rootViewController" id="YVl-YR-Qpd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnr-ZK-tUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="193.85307346326837"/>
         </scene>
     </scenes>
     <resources>
