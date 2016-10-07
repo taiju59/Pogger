@@ -38,4 +38,7 @@ class SettingViewController: UITableViewController {
     @IBAction func didTapCloseButon(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func returnSettingViewForSegue(_ segue: UIStoryboardSegue) {
+    }
 }
