@@ -42,7 +42,6 @@ class FavoriteListViewController: ViewController, UITableViewDataSource, UITable
 
         LocationService.sharedInstance.startUpdatingLocation()
 
-        configButton.setTitle(Prefix.iconConf, for: UIControlState())
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
                 self.refreshData()

@@ -15,6 +15,7 @@
 		598F8DC81DA3636F00F1E242 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC71DA3636F00F1E242 /* CoreLocation.framework */; };
 		598F8DCA1DA3675E00F1E242 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC91DA3675D00F1E242 /* MapKit.framework */; };
 		5999D20D1DA4C43B002CF98D /* SelectTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999D20C1DA4C43B002CF98D /* SelectTermViewController.swift */; };
+		ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED7AF38F1DA76B5500373E73 /* pogger.ttf */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
 		F619436C1D0866F4000CC24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ViewController.swift */; };
@@ -35,7 +36,6 @@
 		F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438F1D0867C2000CC24F /* StreetViewController.swift */; };
 		F61943D11D086CC4000CC24F /* headerShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943AE1D086CC4000CC24F /* headerShadow.png */; };
 		F61943D41D086CC4000CC24F /* pug_g.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B11D086CC4000CC24F /* pug_g.png */; };
-		F61943D51D086CC4000CC24F /* pug_r.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B21D086CC4000CC24F /* pug_r.png */; };
 		F61943D61D086CC4000CC24F /* pug_w.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B31D086CC4000CC24F /* pug_w.png */; };
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -57,6 +57,7 @@
 		5999D20C1DA4C43B002CF98D /* SelectTermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTermViewController.swift; sourceTree = SOURCE_ROOT; };
 		6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.debug.xcconfig"; sourceTree = "<group>"; };
 		9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED7AF38F1DA76B5500373E73 /* pogger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pogger.ttf; sourceTree = "<group>"; };
 		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
 		F61943671D0866F4000CC24F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Pogger/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F61943681D0866F4000CC24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pogger/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -79,7 +80,6 @@
 		F619438F1D0867C2000CC24F /* StreetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreetViewController.swift; path = Pogger/StreetViewController.swift; sourceTree = SOURCE_ROOT; };
 		F61943AE1D086CC4000CC24F /* headerShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerShadow.png; sourceTree = "<group>"; };
 		F61943B11D086CC4000CC24F /* pug_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_g.png; sourceTree = "<group>"; };
-		F61943B21D086CC4000CC24F /* pug_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_r.png; sourceTree = "<group>"; };
 		F61943B31D086CC4000CC24F /* pug_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_w.png; sourceTree = "<group>"; };
 		F61943BC1D086CC4000CC24F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F64BA51C1CC3698A007FD321 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 		F61943971D086CC4000CC24F /* font */ = {
 			isa = PBXGroup;
 			children = (
+				ED7AF38F1DA76B5500373E73 /* pogger.ttf */,
 				598D39FA1D9A44ED0038D7F4 /* Simple-Line-Icons.ttf */,
 			);
 			path = font;
@@ -159,7 +160,6 @@
 				F61943AE1D086CC4000CC24F /* headerShadow.png */,
 				F61943B11D086CC4000CC24F /* pug_g.png */,
 				F6F3332E1D167C8F007DBC19 /* pug_r.pdf */,
-				F61943B21D086CC4000CC24F /* pug_r.png */,
 				F61943B31D086CC4000CC24F /* pug_w.png */,
 			);
 			path = image;
@@ -351,11 +351,11 @@
 				F61943741D08673E000CC24F /* Main.storyboard in Resources */,
 				598D39FB1D9A56B60038D7F4 /* Simple-Line-Icons.ttf in Resources */,
 				F61943D61D086CC4000CC24F /* pug_w.png in Resources */,
+				ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */,
 				F61943D11D086CC4000CC24F /* headerShadow.png in Resources */,
 				F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */,
 				F619437D1D08676E000CC24F /* ListViewHeader.xib in Resources */,
 				F61943731D08673E000CC24F /* LaunchScreen.storyboard in Resources */,
-				F61943D51D086CC4000CC24F /* pug_r.png in Resources */,
 				F619437B1D08676E000CC24F /* FavoriteEmptyState.xib in Resources */,
 				F6F3332F1D167C8F007DBC19 /* pug_r.pdf in Resources */,
 				F61943D41D086CC4000CC24F /* pug_g.png in Resources */,

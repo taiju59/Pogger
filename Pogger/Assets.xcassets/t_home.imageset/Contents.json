@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "e-commerce-like-heart.png",
+      "filename" : "home.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "home-1.png",
       "scale" : "2x"
     },
     {

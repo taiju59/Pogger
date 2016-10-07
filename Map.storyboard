@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp9-uP-idS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zp9-uP-idS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +45,7 @@
                             <constraint firstItem="NfF-CY-bbF" firstAttribute="top" secondItem="a2g-8H-kve" secondAttribute="bottom" id="mYo-oa-Hpq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item3" id="9Wo-Jb-RCZ"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="t_map" id="9Wo-Jb-RCZ"/>
                     <navigationItem key="navigationItem" title="Title" id="LiT-RU-BCL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -110,4 +110,7 @@
             <point key="canvasLocation" x="879" y="194"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="t_map" width="30" height="26"/>
+    </resources>
 </document>
