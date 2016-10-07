@@ -65,10 +65,6 @@ class PointCell: UITableViewCell {
         self.id = point.id
         self.favoriteButton.isSelected = point.favorite
 
-
-        // fav,share,option Button add
-        setButtons()
-
         // ストリートビュー/マップを表示
         switch type {
         case .streetView:
@@ -118,36 +114,14 @@ class PointCell: UITableViewCell {
         self.administrativeAreaButton.setTitle(administrativeArea, for: UIControlState())
     }
 
-    //stackViewのButtonの画像を設定
-    private func setButtons() {
-        if favoriteButton.isSelected == true {
-            print(favoriteButton.isSelected)
-            let image = #imageLiteral(resourceName: "tappedheart")
-            favoriteButton.setImage(image, for: UIControlState.normal)
-        } else {
-            print(favoriteButton.isSelected)
-            let image = #imageLiteral(resourceName: "heart")
-            favoriteButton.setImage(image, for: UIControlState.normal)
-        }
-        self.shareButton.setTitle(Prefix.iconShare, for: UIControlState())
-        self.optionButton.setTitle(Prefix.iconOption, for: UIControlState())
-    }
-
     //お気に入りボタンが押された時の処理
     @IBAction func favTapped(_ sender: UIButton) {
         if sender.isSelected == true {
-            print(sender.isSelected)
             delegate?.pointCell(self, didTapFavButton: true)
-            let image = #imageLiteral(resourceName: "tappedheart")
-            sender.setImage(image, for: UIControlState.normal)
         } else {
-            print(sender.isSelected)
             delegate?.pointCell(self, didTapFavButton: false)
-            let image = #imageLiteral(resourceName: "heart")
-            sender.setImage(image, for: UIControlState.normal)
         }
         sender.isSelected = !sender.isSelected
-
     }
 
     private func getPanoView(_ point: FixedPoint) -> GMSPanoramaView {

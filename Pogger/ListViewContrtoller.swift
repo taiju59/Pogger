@@ -40,7 +40,6 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
         tableView.emptyDataSetSource = self
 
         LocationService.sharedInstance.startUpdatingLocation()
-        configButton.setTitle(Prefix.iconConf, for: UIControlState())
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
                 self.refreshData()

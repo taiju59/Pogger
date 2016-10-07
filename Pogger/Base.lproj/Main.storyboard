@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IL0-6g-ly6">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IL0-6g-ly6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
@@ -8,6 +8,9 @@
     <customFonts key="customFonts">
         <array key="Simple-Line-Icons.ttf">
             <string>simple-line-icons</string>
+        </array>
+        <array key="pogger.ttf">
+            <string>pogger</string>
         </array>
     </customFonts>
     <scenes>
@@ -321,7 +324,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-O8-tnN">
-                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="10" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -334,7 +337,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-FL-G4q">
-                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="10" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -347,7 +350,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-2e-Tmv">
-                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="10" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -400,20 +403,26 @@
                                                                 <constraint firstAttribute="height" constant="26" id="03b-vd-907"/>
                                                                 <constraint firstAttribute="width" constant="26" id="0wA-Nf-tH0"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
+                                                            <state key="normal" title="a">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <state key="selected" title="a">
+                                                                <color key="titleColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="favTapped:" destination="1Ey-Om-ks0" eventType="touchUpInside" id="uDh-mq-2xa"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-n0-nRY" userLabel="ShareButton">
-                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
-                                                            <state key="normal">
-                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
+                                                            <state key="normal" title="b">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-ri-fKX" userLabel="Option Button">
-                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
-                                                            <state key="normal">
+                                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
+                                                            <state key="normal" title="c">
                                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             </state>
                                                         </button>
@@ -470,11 +479,11 @@
                                     <navigationItem title="Favorite" id="6z8-Ne-RGD">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="9BR-Y1-6LN">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PqA-9e-tFT">
-                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                                <rect key="frame" x="16" y="7" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="26"/>
+                                                <state key="normal" title="k">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="uFb-Ab-BPk" kind="presentation" id="NJj-XU-xrJ"/>
@@ -496,7 +505,7 @@
                             <constraint firstItem="zau-jy-vlS" firstAttribute="top" secondItem="aPK-4y-sbs" secondAttribute="bottom" id="nqs-L8-3P8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="6i1-fe-q6t"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="t_heart" id="6i1-fe-q6t"/>
                     <connections>
                         <outlet property="configButton" destination="PqA-9e-tFT" id="jPo-PX-WAJ"/>
                         <outlet property="tableView" destination="aPK-4y-sbs" id="5Wk-Qr-14G"/>
@@ -516,7 +525,7 @@
         <scene sceneID="sr4-hu-bh8">
             <objects>
                 <viewControllerPlaceholder storyboardName="Map" id="rpI-Eq-6kk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bQk-qR-R2u"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="t_map" id="bQk-qR-R2u"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q55-lf-Dbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -561,7 +570,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-mV-0ZA">
-                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="10" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -574,7 +583,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20j-oj-Vhf">
-                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="10" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -587,7 +596,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-wh-elh">
-                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="10" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -640,21 +649,27 @@
                                                                 <constraint firstAttribute="width" constant="26" id="IgA-7a-Hdf"/>
                                                                 <constraint firstAttribute="height" constant="26" id="V7b-Zv-t9M"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
+                                                            <state key="normal" title="a">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <state key="selected" title="a">
+                                                                <color key="titleColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="favTapped:" destination="kQf-KH-S9b" eventType="touchUpInside" id="Ese-u3-xvC"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qL-sj-zEa" userLabel="ShareButton">
-                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
-                                                            <state key="normal">
-                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
+                                                            <state key="normal" title="b">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xic-lg-Oi6" userLabel="Option Button">
-                                                            <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
-                                                            <state key="normal">
-                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
+                                                            <state key="normal" title="c">
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
                                                     </subviews>
@@ -711,20 +726,29 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWa-Nh-MsE">
                                 <items>
-                                    <navigationItem title="Pogs" id="qZL-zW-mHX">
+                                    <navigationItem id="qZL-zW-mHX">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="Ckc-MI-m5S">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Csf-f3-SLp">
-                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                                <rect key="frame" x="16" y="7" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="simple-line-icons" family="simple-line-icons" pointSize="26"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="26"/>
+                                                <state key="normal" title="k">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="uFb-Ab-BPk" kind="presentation" id="XLN-3n-KCj"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KaA-d2-PfO">
+                                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="30"/>
+                                            <state key="normal" title="p">
+                                                <color key="titleColor" red="0.99607843137254903" green="0.29411764705882354" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -740,7 +764,7 @@
                             <constraint firstItem="OWa-Nh-MsE" firstAttribute="leading" secondItem="LT6-We-axs" secondAttribute="leading" id="y31-6v-mtc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="ueN-N3-Rbb"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="t_home" id="ueN-N3-Rbb"/>
                     <connections>
                         <outlet property="configButton" destination="Csf-f3-SLp" id="DiY-iy-ozN"/>
                         <outlet property="tableView" destination="obU-7g-Klc" id="jWg-6A-aw2"/>
@@ -763,7 +787,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pBe-tM-Eei">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Dh1-0t-NmE" kind="relationship" relationship="viewControllers" id="ysN-Iz-WCU"/>
@@ -801,8 +826,12 @@
     </scenes>
     <resources>
         <image name="headerShadow.png" width="375" height="116"/>
+        <image name="t_heart" width="30" height="26"/>
+        <image name="t_home" width="30" height="26"/>
+        <image name="t_map" width="30" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HA4-cN-1A4"/>
+        <segue reference="XLN-3n-KCj"/>
+        <segue reference="pmn-6n-2fE"/>
     </inferredMetricsTieBreakers>
 </document>
