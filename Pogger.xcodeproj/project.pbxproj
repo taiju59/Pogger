@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */; };
-		596529881D9D191400FCB8EF /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596529871D9D191300FCB8EF /* FavoriteListViewController.swift */; };
-		598F8DC21DA2566800F1E242 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598F8DC11DA2566800F1E242 /* Map.storyboard */; };
-		598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598F8DC51DA2589800F1E242 /* MapViewController.swift */; };
 		598F8DC81DA3636F00F1E242 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC71DA3636F00F1E242 /* CoreLocation.framework */; };
 		598F8DCA1DA3675E00F1E242 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC91DA3675D00F1E242 /* MapKit.framework */; };
-		5999D20D1DA4C43B002CF98D /* SelectTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999D20C1DA4C43B002CF98D /* SelectTermViewController.swift */; };
+		ED2497B91DA7ED8300660AFC /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2497B81DA7ED8300660AFC /* Map.storyboard */; };
+		ED2497BD1DA7ED9700660AFC /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BA1DA7ED9700660AFC /* FavoriteListViewController.swift */; };
+		ED2497BE1DA7ED9700660AFC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BB1DA7ED9700660AFC /* MapViewController.swift */; };
+		ED2497BF1DA7ED9700660AFC /* SelectTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */; };
 		ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED7AF38F1DA76B5500373E73 /* pogger.ttf */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
@@ -47,14 +47,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		596529871D9D191300FCB8EF /* FavoriteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = SOURCE_ROOT; };
-		598F8DC11DA2566800F1E242 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = SOURCE_ROOT; };
-		598F8DC51DA2589800F1E242 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		598F8DC71DA3636F00F1E242 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		598F8DC91DA3675D00F1E242 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		5999D20C1DA4C43B002CF98D /* SelectTermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTermViewController.swift; sourceTree = SOURCE_ROOT; };
 		6FFC4563D2923539F067DC54 /* Pods-Pogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.debug.xcconfig"; sourceTree = "<group>"; };
 		9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pogger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2497B81DA7ED8300660AFC /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Pogger/Map.storyboard; sourceTree = SOURCE_ROOT; };
+		ED2497BA1DA7ED9700660AFC /* FavoriteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteListViewController.swift; path = Pogger/FavoriteListViewController.swift; sourceTree = SOURCE_ROOT; };
+		ED2497BB1DA7ED9700660AFC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Pogger/MapViewController.swift; sourceTree = SOURCE_ROOT; };
+		ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTermViewController.swift; path = Pogger/SelectTermViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED7AF38F1DA76B5500373E73 /* pogger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pogger.ttf; sourceTree = "<group>"; };
 		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
 		F61943671D0866F4000CC24F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Pogger/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -193,9 +193,9 @@
 				F619438B1D0867C2000CC24F /* LicenseViewController.swift */,
 				F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */,
 				F619438F1D0867C2000CC24F /* StreetViewController.swift */,
-				5999D20C1DA4C43B002CF98D /* SelectTermViewController.swift */,
-				596529871D9D191300FCB8EF /* FavoriteListViewController.swift */,
-				598F8DC51DA2589800F1E242 /* MapViewController.swift */,
+				ED2497BA1DA7ED9700660AFC /* FavoriteListViewController.swift */,
+				ED2497BB1DA7ED9700660AFC /* MapViewController.swift */,
+				ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				F61943801D0867AA000CC24F /* Prefix.swift */,
 				F619436F1D08673E000CC24F /* LaunchScreen.storyboard */,
 				F61943711D08673E000CC24F /* Main.storyboard */,
-				598F8DC11DA2566800F1E242 /* Map.storyboard */,
+				ED2497B81DA7ED8300660AFC /* Map.storyboard */,
 				F61943681D0866F4000CC24F /* Assets.xcassets */,
 				F619436D1D086714000CC24F /* Info.plist */,
 			);
@@ -343,7 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F619437A1D08676E000CC24F /* EmptyState.xib in Resources */,
-				598F8DC21DA2566800F1E242 /* Map.storyboard in Resources */,
+				ED2497B91DA7ED8300660AFC /* Map.storyboard in Resources */,
 				F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */,
 				F61943741D08673E000CC24F /* Main.storyboard in Resources */,
 				F61943D61D086CC4000CC24F /* pug_w.png in Resources */,
@@ -432,21 +432,21 @@
 				F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */,
 				F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */,
 				F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */,
+				ED2497BE1DA7ED9700660AFC /* MapViewController.swift in Sources */,
+				ED2497BF1DA7ED9700660AFC /* SelectTermViewController.swift in Sources */,
 				F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */,
 				F619437E1D08676E000CC24F /* PointCell.swift in Sources */,
 				F61943921D0867C2000CC24F /* LocateQualityViewController.swift in Sources */,
+				ED2497BD1DA7ED9700660AFC /* FavoriteListViewController.swift in Sources */,
 				F61943861D0867AA000CC24F /* Prefix.swift in Sources */,
 				F619436C1D0866F4000CC24F /* ViewController.swift in Sources */,
 				F61943851D0867AA000CC24F /* LocationService.swift in Sources */,
 				F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */,
 				F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */,
 				F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */,
-				596529881D9D191400FCB8EF /* FavoriteListViewController.swift in Sources */,
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
 				F619438A1D0867AA000CC24F /* Utils.swift in Sources */,
-				5999D20D1DA4C43B002CF98D /* SelectTermViewController.swift in Sources */,
-				598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
