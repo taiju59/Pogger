@@ -19,7 +19,6 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectTermButton.title = "1週間"
         setMap()
     }
 
@@ -89,4 +88,3 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
         }
     }
 }
-

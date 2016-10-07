@@ -10,12 +10,12 @@ import Foundation
 
 class Utils {
 
-    static func daysFromDate(_ targetDate: Date) -> Int {
+    static func getDayCnt(to date: Date) -> Int {
 
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
 
         let today = (calendar as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: Date(), options: .wrapComponents)!
-        let date = (calendar as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: targetDate, options: .wrapComponents)!
+        let date = (calendar as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: date, options: .wrapComponents)!
 
         let second = today.timeIntervalSince1970 - date.timeIntervalSince1970
         let days = second / 60 / 60 / 24
@@ -23,7 +23,7 @@ class Utils {
         return Int(days)
     }
 
-    static func stringFromDate(_ date: Date) -> String {
+    static func getDateString(for date: Date) -> String {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd"

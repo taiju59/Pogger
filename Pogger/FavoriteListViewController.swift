@@ -13,7 +13,6 @@ import DZNEmptyDataSet
 
 class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var configButton: UIButton!
 
@@ -37,8 +36,6 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
         tableView.sendSubview(toBack: refreshControl)
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
-
-        LocationService.sharedInstance.startUpdatingLocation()
 
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
@@ -70,7 +67,7 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
         guard let date = pd[section][0].startDate else {
             return nil
         }
-        let days = Utils.daysFromDate(date)
+        let days = Utils.getDayCnt(to: date)
         var sectionTitle: String?
         switch days {
         case 0:
@@ -78,7 +75,7 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
         case 1:
             sectionTitle = "昨日"
         default:
-            sectionTitle = Utils.stringFromDate(date)
+            sectionTitle = Utils.getDateString(for: date)
         }
         return sectionTitle
     }
@@ -190,7 +187,6 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
     }
 
     func pointCell(_ pointCell: PointCell, didTapFavButton select: Bool) {
-        print("id: \(pointCell.id), select: \(select)")
         Point.switchFavorite(pointCell.id, select: select)
     }
 
@@ -202,6 +198,7 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
             let point = pointsData![(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            actionSheet.view.tintColor = Prefix.themaColor
             let copyAction = UIAlertAction(title: "住所をコピー", style: .default, handler: {
                 action in self.copyAddress(point)
             })

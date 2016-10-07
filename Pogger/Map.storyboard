@@ -33,7 +33,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="9Wo-Jb-RCZ"/>
                     <navigationItem key="navigationItem" title="Map" id="LiT-RU-BCL">
-                        <barButtonItem key="rightBarButtonItem" id="G4R-Xx-Wd1">
+                        <barButtonItem key="rightBarButtonItem" title="1週間" id="G4R-Xx-Wd1">
                             <connections>
                                 <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectTermView" id="PkO-QV-z4A"/>
                             </connections>

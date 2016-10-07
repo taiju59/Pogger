@@ -37,7 +37,6 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
 
-        LocationService.sharedInstance.startUpdatingLocation()
         self.token = try! Realm().addNotificationBlock { note, realm in
             if self.pointsData == nil || self.pointsData!.isEmpty {
                 self.refreshData()
@@ -68,7 +67,7 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
         guard let date = pd[section][0].startDate else {
             return nil
         }
-        let days = Utils.daysFromDate(date)
+        let days = Utils.getDayCnt(to: date)
         var sectionTitle: String?
         switch days {
         case 0:
@@ -76,7 +75,7 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
         case 1:
             sectionTitle = "昨日"
         default:
-            sectionTitle = Utils.stringFromDate(date)
+            sectionTitle = Utils.getDateString(for: date)
         }
         return sectionTitle
     }
@@ -188,7 +187,6 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
     }
 
     func pointCell(_ pointCell: PointCell, didTapFavButton select: Bool) {
-        print("id: \(pointCell.id), select: \(select)")
         Point.switchFavorite(pointCell.id, select: select)
     }
 
@@ -200,6 +198,7 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
             let point = pointsData![(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
 
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            actionSheet.view.tintColor = Prefix.themaColor
             let copyAction = UIAlertAction(title: "住所をコピー", style: .default, handler: {
                 action in self.copyAddress(point)
             })
