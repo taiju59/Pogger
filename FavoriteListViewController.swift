@@ -273,7 +273,9 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
     }
 
     private func scrollToTop() {
-        tableView.setContentOffset(CGPoint.zero, animated: true)
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+        let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
+        tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight/2 + navBarHeight)), animated: true)
     }
     
     //MARK : Transition
