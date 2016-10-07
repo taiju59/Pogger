@@ -11,7 +11,7 @@ import RealmSwift
 import GoogleMaps
 import DZNEmptyDataSet
 
-class FavoriteListViewController: ViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
+class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
 
     @IBOutlet weak var tableView: UITableView!
@@ -36,8 +36,6 @@ class FavoriteListViewController: ViewController, UITableViewDataSource, UITable
         tableView.addSubview(refreshControl)
         tableView.sendSubview(toBack: refreshControl)
         tableView.tableFooterView = UIView()
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.emptyDataSetSource = self
 
         LocationService.sharedInstance.startUpdatingLocation()
@@ -51,6 +49,7 @@ class FavoriteListViewController: ViewController, UITableViewDataSource, UITable
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController!.delegate = self
         refreshData()
     }
 
@@ -269,14 +268,14 @@ class FavoriteListViewController: ViewController, UITableViewDataSource, UITable
         UIApplication.shared.openURL(url)
     }
 
-    /*
-    @IBAction func didTapLogo(_ sender: UIButton) {
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-        let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
-        tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight + navBarHeight)), animated: true)
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        scrollToTop()
     }
-    */
 
+    private func scrollToTop() {
+        tableView.setContentOffset(CGPoint.zero, animated: true)
+    }
+    
     //MARK : Transition
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

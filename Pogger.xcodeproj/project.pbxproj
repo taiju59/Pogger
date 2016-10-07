@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3589A22319FE01CE63E20C73 /* libPods-Pogger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8963B006E5E1EF65BD752E /* libPods-Pogger.a */; };
 		596529881D9D191400FCB8EF /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596529871D9D191300FCB8EF /* FavoriteListViewController.swift */; };
-		598D39FB1D9A56B60038D7F4 /* Simple-Line-Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 598D39FA1D9A44ED0038D7F4 /* Simple-Line-Icons.ttf */; };
 		598F8DC21DA2566800F1E242 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598F8DC11DA2566800F1E242 /* Map.storyboard */; };
 		598F8DC61DA2589800F1E242 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598F8DC51DA2589800F1E242 /* MapViewController.swift */; };
 		598F8DC81DA3636F00F1E242 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598F8DC71DA3636F00F1E242 /* CoreLocation.framework */; };
@@ -49,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		596529871D9D191300FCB8EF /* FavoriteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = SOURCE_ROOT; };
-		598D39FA1D9A44ED0038D7F4 /* Simple-Line-Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Simple-Line-Icons.ttf"; sourceTree = "<group>"; };
 		598F8DC11DA2566800F1E242 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = SOURCE_ROOT; };
 		598F8DC51DA2589800F1E242 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		598F8DC71DA3636F00F1E242 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				ED7AF38F1DA76B5500373E73 /* pogger.ttf */,
-				598D39FA1D9A44ED0038D7F4 /* Simple-Line-Icons.ttf */,
 			);
 			path = font;
 			sourceTree = "<group>";
@@ -349,7 +346,6 @@
 				598F8DC21DA2566800F1E242 /* Map.storyboard in Resources */,
 				F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */,
 				F61943741D08673E000CC24F /* Main.storyboard in Resources */,
-				598D39FB1D9A56B60038D7F4 /* Simple-Line-Icons.ttf in Resources */,
 				F61943D61D086CC4000CC24F /* pug_w.png in Resources */,
 				ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */,
 				F61943D11D086CC4000CC24F /* headerShadow.png in Resources */,
