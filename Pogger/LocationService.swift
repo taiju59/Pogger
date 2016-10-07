@@ -56,11 +56,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 
     /** 位置情報取得成功時 */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Success")
-
-        //最新の位置情報取得
+        //最新の位置情報保持
         newestLocation = manager.location!
-
         // get address
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
             if error != nil {
@@ -78,6 +75,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 
     /** 位置情報取得失敗時 */
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error")
+        print("didFailWithError: " + error.localizedDescription)
     }
 }

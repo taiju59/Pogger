@@ -41,7 +41,6 @@ class Point: Object {
     static private let semaphore: DispatchSemaphore = DispatchSemaphore(value: 1)
 
     static func inputPoint(_ placemark: CLPlacemark) {
-        print("inputPoint!!!")
         semaphore.wait()
         let private_queue = DispatchQueue(label: "inputPoint", attributes: [])
         private_queue.async {
@@ -79,7 +78,6 @@ class Point: Object {
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = newPlace.location!
         let distance = newLocation.distance(from: oldLocation)
-        print("distance: \(distance)m")
 
         return distance
     }
@@ -89,7 +87,6 @@ class Point: Object {
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = CLLocation(latitude: newPlace.latitude, longitude: newPlace.longitude)
         let distance = newLocation.distance(from: oldLocation)
-        print("distance: \(distance)m")
 
         return distance
     }
@@ -101,7 +98,6 @@ class Point: Object {
         let isPast = lastPoint.endDate!.minute + pastLimitMin < Date().minute
 
         if !isSameMinute && !isPast {
-            print("updatePoint!!!")
             try! Realm().write {
                 let now = Date()
                 let stayMin = now.minute - lastPoint.startDate!.minute
@@ -112,7 +108,6 @@ class Point: Object {
     }
 
     static private func addPoint(_ placemark: CLPlacemark, allPoints: Results<(Point)>) {
-        print("addPoint!!!")
         let realm = try! Realm()
 
         let point = Point()

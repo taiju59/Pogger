@@ -194,33 +194,6 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
         Point.switchFavorite(pointCell.id, select: select)
     }
 
-    /*
-     @IBAction func changePogList(_ sender: UISegmentedControl) {
-     let value = sender.selectedSegmentIndex
-     pogListType = value
-     refreshData()
-     }
-     */
-    /*
-    @IBAction func changeViewType(_ sender: UIBarButtonItem) {
-        let private_queue = DispatchQueue(label: "changeViewType", attributes: [])
-        private_queue.async {
-            switch self.pointCellType {
-            case .streetView:
-                self.pointCellType = .map
-            case .map:
-                self.pointCellType = .streetView
-            }
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(self.pointCellType.rawValue, forKey: Prefix.keypointCellType)
-            userDefaults.synchronize()
-            DispatchQueue.main.async {
-                self.refreshData()
-            }
-        }
-    }
-    */
-
     @IBAction func didLongSelect(_ sender: UILongPressGestureRecognizer) {
         let point = sender.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)!
@@ -290,10 +263,6 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
             vc.coordinater = coordinater
         }
     }
-    /*
-    @IBAction func returnListViewForSegue(_ segue: UIStoryboardSegue) {
-
-    }*/
 
     //MARK: - DZNEmptyDataSet
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
