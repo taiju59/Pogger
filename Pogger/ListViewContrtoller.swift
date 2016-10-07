@@ -248,9 +248,7 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
     }
 
     private func scrollToTop() {
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-        let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
-        tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight/2 + navBarHeight)), animated: true)
+        tableView.setContentOffset(CGPoint(x: 0, y: -tableView.contentInset.top), animated: true)
     }
 
     //MARK : Transition
