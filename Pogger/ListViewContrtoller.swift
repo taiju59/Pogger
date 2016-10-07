@@ -11,11 +11,9 @@ import RealmSwift
 import GoogleMaps
 import DZNEmptyDataSet
 
-class ListViewController: ViewController, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
-
+class ListViewController: ViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
     @IBOutlet weak var configButton: UIButton!
-
     @IBOutlet weak var tableView: UITableView!
 
     private let dispMinuteMin = 10
@@ -49,6 +47,7 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController!.delegate = self
         refreshData()
     }
 
@@ -268,9 +267,15 @@ class ListViewController: ViewController, UITableViewDataSource, UITableViewDele
     }
 
     @IBAction func didTapLogo(_ sender: UIButton) {
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-        let navBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0
-        tableView.setContentOffset(CGPoint(x: 0, y: -(statusBarHeight + navBarHeight)), animated: true)
+        scrollToTop()
+    }
+
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        scrollToTop()
+    }
+
+    private func scrollToTop() {
+        tableView.setContentOffset(CGPoint.zero, animated: true)
     }
 
     //MARK : Transition

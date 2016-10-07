@@ -321,7 +321,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-O8-tnN">
-                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="10" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -334,7 +334,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-FL-G4q">
-                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="10" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -347,7 +347,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-2e-Tmv">
-                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="10" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -502,7 +502,7 @@
                             <constraint firstItem="zau-jy-vlS" firstAttribute="top" secondItem="aPK-4y-sbs" secondAttribute="bottom" id="nqs-L8-3P8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="t_heart" id="6i1-fe-q6t"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Favorites" image="t_heart" id="6i1-fe-q6t"/>
                     <connections>
                         <outlet property="configButton" destination="PqA-9e-tFT" id="jPo-PX-WAJ"/>
                         <outlet property="tableView" destination="aPK-4y-sbs" id="5Wk-Qr-14G"/>
@@ -522,7 +522,7 @@
         <scene sceneID="sr4-hu-bh8">
             <objects>
                 <viewControllerPlaceholder storyboardName="Map" id="rpI-Eq-6kk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="t_map" id="bQk-qR-R2u"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="bQk-qR-R2u"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q55-lf-Dbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -567,7 +567,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-mV-0ZA">
-                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="10" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -580,7 +580,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20j-oj-Vhf">
-                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="10" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -593,7 +593,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-wh-elh">
-                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="10" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -725,13 +725,16 @@
                                 <items>
                                     <navigationItem id="qZL-zW-mHX">
                                         <nil key="title"/>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KaA-d2-PfO">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KaA-d2-PfO">
                                             <rect key="frame" x="113" y="7" width="150" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="30"/>
                                             <state key="normal" title="p">
                                                 <color key="titleColor" red="0.99607843137254903" green="0.29411764705882354" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didTapLogo:" destination="Dh1-0t-NmE" eventType="touchUpInside" id="pDE-RZ-LAk"/>
+                                            </connections>
                                         </button>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="Ckc-MI-m5S">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Csf-f3-SLp">
@@ -761,7 +764,7 @@
                             <constraint firstItem="OWa-Nh-MsE" firstAttribute="leading" secondItem="LT6-We-axs" secondAttribute="leading" id="y31-6v-mtc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="t_home" id="ueN-N3-Rbb"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="t_home" id="ueN-N3-Rbb"/>
                     <connections>
                         <outlet property="configButton" destination="Csf-f3-SLp" id="DiY-iy-ozN"/>
                         <outlet property="tableView" destination="obU-7g-Klc" id="jWg-6A-aw2"/>
@@ -829,7 +832,7 @@
         <image name="t_map" width="30" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NJj-XU-xrJ"/>
-        <segue reference="HA4-cN-1A4"/>
+        <segue reference="pmn-6n-2fE"/>
+        <segue reference="XLN-3n-KCj"/>
     </inferredMetricsTieBreakers>
 </document>

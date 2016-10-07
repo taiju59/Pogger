@@ -45,7 +45,7 @@
                             <constraint firstItem="NfF-CY-bbF" firstAttribute="top" secondItem="a2g-8H-kve" secondAttribute="bottom" id="mYo-oa-Hpq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="t_map" id="9Wo-Jb-RCZ"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="9Wo-Jb-RCZ"/>
                     <navigationItem key="navigationItem" title="Title" id="LiT-RU-BCL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
