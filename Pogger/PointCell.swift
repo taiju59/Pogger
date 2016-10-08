@@ -12,6 +12,8 @@ import MapKit
 
 protocol PointCellDelegate: class {
     func pointCell(_ pointCell: PointCell, didTapFavButton select: Bool)
+    func didTapShareButton(_ pointCell: PointCell)
+    func didTapOptionButton(_ pointCell: PointCell)
 }
 
 enum PointCellType: Int {
@@ -115,9 +117,17 @@ class PointCell: UITableViewCell {
     }
 
     //お気に入りボタンが押された時の処理
-    @IBAction func favTapped(_ sender: UIButton) {
+    @IBAction func didTapFav(_ sender: UIButton) {
         delegate?.pointCell(self, didTapFavButton: sender.isSelected)
         sender.isSelected = !sender.isSelected
+    }
+
+    @IBAction func didTapShare(_ sender: UIButton) {
+        delegate?.didTapShareButton(self)
+    }
+
+    @IBAction func didTapOption(_ sender: UIButton) {
+        delegate?.didTapOptionButton(self)
     }
 
     private func getPanoView(_ point: FixedPoint) -> GMSPanoramaView {

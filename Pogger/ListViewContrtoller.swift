@@ -190,6 +190,12 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
         Point.switchFavorite(pointCell.id, select: select)
     }
 
+    func didTapShareButton(_ pointCell: PointCell) {
+    }
+
+    func didTapOptionButton(_ pointCell: PointCell) {
+    }
+
     @IBAction func didLongSelect(_ sender: UILongPressGestureRecognizer) {
         let point = sender.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)!

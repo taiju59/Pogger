@@ -193,7 +193,7 @@
                                                                 <color key="titleColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="favTapped:" destination="1Ey-Om-ks0" eventType="touchUpInside" id="uDh-mq-2xa"/>
+                                                                <action selector="didTapFav:" destination="1Ey-Om-ks0" eventType="touchUpInside" id="yL4-zP-yCx"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-n0-nRY" userLabel="ShareButton">
@@ -201,12 +201,18 @@
                                                             <state key="normal" title="b">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapShare:" destination="1Ey-Om-ks0" eventType="touchUpInside" id="pZy-Pc-ro7"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-ri-fKX" userLabel="Option Button">
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="c">
                                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOption:" destination="1Ey-Om-ks0" eventType="touchUpInside" id="gGh-Ca-WXb"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -440,7 +446,7 @@
                                                                 <color key="titleColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="favTapped:" destination="kQf-KH-S9b" eventType="touchUpInside" id="Ese-u3-xvC"/>
+                                                                <action selector="didTapFav:" destination="kQf-KH-S9b" eventType="touchUpInside" id="TjX-VR-0hy"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qL-sj-zEa" userLabel="ShareButton">
@@ -448,12 +454,18 @@
                                                             <state key="normal" title="b">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapShare:" destination="kQf-KH-S9b" eventType="touchUpInside" id="cFT-Ht-kOD"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xic-lg-Oi6" userLabel="Option Button">
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="c">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapOption:" destination="kQf-KH-S9b" eventType="touchUpInside" id="ce8-D4-IIA"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
