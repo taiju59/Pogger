@@ -35,23 +35,24 @@
                     <navigationItem key="navigationItem" title="Map" id="Ccu-Sr-fAS">
                         <barButtonItem key="rightBarButtonItem" title="1週間" id="mbY-jq-lKd">
                             <connections>
-                                <segue destination="DgR-i8-lvK" kind="presentation" id="Wt7-kE-1Vd"/>
+                                <segue destination="LqY-1U-0Tc" kind="presentation" identifier="toSelectTermView" id="fcr-dk-RwB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="NFM-xa-3l5" id="Cui-7i-pJn"/>
+                        <outlet property="selectTermButton" destination="mbY-jq-lKd" id="RHh-9x-zs2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuv-f1-DNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2711.1999999999998" y="193.85307346326837"/>
         </scene>
-        <!--表示期間-->
+        <!--Select Term View Controller-->
         <scene sceneID="ngE-m4-gka">
             <objects>
-                <viewController id="LqY-1U-0Tc" customClass="SelectTermViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectTermViewController" id="LqY-1U-0Tc" customClass="SelectTermViewController" customModule="Pogger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nN0-lt-Juz"/>
                         <viewControllerLayoutGuide type="bottom" id="WAM-D8-pWM"/>
@@ -60,6 +61,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-vp-7vo">
+                                <color key="tintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="表示期間" id="bj7-kr-kIw">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TPd-NE-AOr">
+                                            <connections>
+                                                <action selector="didTapCancelButton:" destination="LqY-1U-0Tc" id="TR6-Uw-oqb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="rlS-RA-YBo">
+                                            <connections>
+                                                <action selector="didTapSaveButton:" destination="LqY-1U-0Tc" id="EnM-DL-f3o"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="LqY-1U-0Tc" id="vIL-cd-Wpt"/>
+                                </connections>
+                            </navigationBar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-7f-P47">
                                 <connections>
                                     <outlet property="dataSource" destination="LqY-1U-0Tc" id="GgN-Ls-SK4"/>
@@ -69,46 +90,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="nN0-lt-Juz" secondAttribute="bottom" id="Gr8-kO-FKX"/>
+                            <constraint firstItem="pGh-vp-7vo" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="4JK-H9-NnO"/>
+                            <constraint firstItem="pGh-vp-7vo" firstAttribute="top" secondItem="nN0-lt-Juz" secondAttribute="bottom" id="Grv-nD-aIv"/>
                             <constraint firstItem="tgk-7f-P47" firstAttribute="leading" secondItem="4U4-sY-REk" secondAttribute="leading" id="Gtq-k3-haD"/>
+                            <constraint firstItem="tgk-7f-P47" firstAttribute="top" secondItem="pGh-vp-7vo" secondAttribute="bottom" id="Rtl-71-2e4"/>
+                            <constraint firstAttribute="trailing" secondItem="pGh-vp-7vo" secondAttribute="trailing" id="cSU-QA-H4v"/>
                             <constraint firstAttribute="trailing" secondItem="tgk-7f-P47" secondAttribute="trailing" id="pqd-Kv-Smy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="表示期間" id="lgG-WD-9wS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="QbS-3I-OpI">
-                            <connections>
-                                <action selector="didTapCloseButton:" destination="LqY-1U-0Tc" id="pGf-zC-WMp"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sxu-BA-XzO">
-                            <connections>
-                                <action selector="didTapSaveButton:" destination="LqY-1U-0Tc" id="Wwn-ZL-1qn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFt-ui-Xn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4431.1999999999998" y="193.85307346326837"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lUf-Z4-Tr1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DgR-i8-lvK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z9X-Hz-zBN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LqY-1U-0Tc" kind="relationship" relationship="rootViewController" id="Qzp-Pg-qxx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YdN-Kj-vsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3604" y="193.85307346326837"/>
+            <point key="canvasLocation" x="3694" y="194"/>
         </scene>
         <!--Map-->
         <scene sceneID="NpL-Zp-W5o">
@@ -117,7 +110,7 @@
                     <tabBarItem key="tabBarItem" tag="3" title="Map" image="t_map" id="mOc-Wb-l8T"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="adw-8S-rro">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="adw-8S-rro">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.99607843139999996" green="0.29411764709999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

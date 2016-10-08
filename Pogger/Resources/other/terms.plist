@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>1週間</string>
+		<key>value</key>
+		<integer>7</integer>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>1ヶ月</string>
+		<key>value</key>
+		<integer>30</integer>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>3ヶ月</string>
+		<key>value</key>
+		<integer>90</integer>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>1年</string>
+		<key>value</key>
+		<integer>365</integer>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>すべて</string>
+		<key>value</key>
+		<integer>0</integer>
+	</dict>
+</array>
+</plist>

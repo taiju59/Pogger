@@ -9,27 +9,25 @@
 import UIKit
 
 protocol SelectTermViewControllerDelegate: class {
-    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, title: String?)
+    func selectTermViewController(_ selectTermViewController: SelectTermViewController, didSelectTerm termValue: Int, title: String)
 }
 
-class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIBarPositioningDelegate {
 
-    private var sendTermValue = 7
-    private var selectTermTitle = "１週間"
-    private var selectArray = ["１週間", "１か月", "３か月", "１年", "すべて"]
     weak var delegate: SelectTermViewControllerDelegate?
 
-    @IBAction func didTapCloseButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    private var selectedRow = 0
+    private var termsArray = [[String: AnyObject!]]()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let filePath = Bundle.main.path(forResource: "terms", ofType: "plist")!
+        termsArray = NSArray(contentsOfFile: filePath) as! [[String: AnyObject]]
     }
 
-    @IBAction func didTapSaveButton(_ sender: UIBarButtonItem) {
-        delegate?.selectTermViewController(self, selectTerm: sendTermValue, title: selectTermTitle)
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.default
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        // NavigationBar の見た目を NavigationController 使用時と同じにする
+        return .topAttached
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -37,28 +35,26 @@ class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return selectArray.count
+        return termsArray.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return selectArray[row]
+        return termsArray[row]["title"] as! String?
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
-            sendTermValue = 7
-        case 1:
-            sendTermValue = 30
-        case 2:
-            sendTermValue = 90
-        case 3:
-            sendTermValue = 365
-        case 4:
-            sendTermValue = 36500
-        default:
-            sendTermValue = 7
-        }
-        selectTermTitle = selectArray[row]
+        selectedRow = row
     }
+
+    @IBAction func didTapCancelButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func didTapSaveButton(_ sender: UIBarButtonItem) {
+        let termValue = termsArray[selectedRow]["value"] as! Int
+        let termTitle = termsArray[selectedRow]["title"] as! String
+        delegate?.selectTermViewController(self, didSelectTerm: termValue, title: termTitle)
+        dismiss(animated: true, completion: nil)
+    }
+
 }

@@ -15,27 +15,19 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectTermButton: UIBarButtonItem!
 
-    private var receiveTermValue = 7
+    private var termValue = 7
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setMap()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "toSelectTermView" {
-            let vc = segue.destination as! SelectTermViewController
-            vc.delegate = self
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setPins()
     }
 
-    func selectTermViewController(_ selectTermViewController: SelectTermViewController, selectTerm value: Int, title: String?) {
-        receiveTermValue = value
-        selectTermButton.title = title
-    }
-
-    func setMap() {
+    private func setMap() {
         //sharedInstanceによる値渡し(経度緯度)
         let latitude = LocationService.sharedInstance.newestLocation.coordinate.latitude
         let longitude = LocationService.sharedInstance.newestLocation.coordinate.longitude
@@ -51,26 +43,30 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
         mapView.setRegion(region, animated: true)
     }
 
-    //Mapが更新されるたびに呼び出される
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    private func setPins() {
+        let dispMinuteMin = 10 //TODO: 設定値として他画面と共通して管理する
+        let predicate: NSPredicate
+        if termValue == 0 {
+            // 表示期間「すべて」の場合
+            predicate = NSPredicate(format: "stayMin >= %d", dispMinuteMin)
+        } else {
+            let timeInterval = -60 * 60 * 24  * termValue
+            let term = Date(timeInterval: TimeInterval(timeInterval), since: Date())
+            predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
+        }
+        let points = try! Realm().objects(Point.self).filter(predicate)
+
         let mRect = mapView.visibleMapRect
         //Map画面上の中心座標
         let topMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect))
         //Map画面下の中心座表
         let bottomMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect))
         let radius = MKMetersBetweenMapPoints(topMapPoint, bottomMapPoint) / 2
-        setPin(radius: radius)
+
+        updatePins(for: points, radius: radius)
     }
 
-    private func setPin(radius: Double) {
-        let now = Date()
-        let realm = try! Realm()
-        let dispMinuteMin = 10
-        let timeInterval = -60 * 60 * 24  * receiveTermValue
-        let allPoints = realm.objects(Point.self)
-        let term = Date(timeInterval: TimeInterval(timeInterval), since: now)
-        let predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
-        let points = allPoints.filter(predicate)
+    private func updatePins(for points: RealmSwift.Results<Point>, radius: CLLocationDistance) {
         //地図上のピンを削除
         mapView.removeAnnotations(mapView.annotations)
         //地図にピンを立てる。
@@ -85,6 +81,26 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
                 annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
                 mapView.addAnnotation(annotation)
             }
+        }
+    }
+
+    //MARK: - Action
+    //Mapが更新されるたびに呼び出される
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        setPins()
+    }
+
+    func selectTermViewController(_ selectTermViewController: SelectTermViewController, didSelectTerm value: Int, title: String) {
+        termValue = value
+        selectTermButton.title = title
+    }
+
+    //MARK: - Transition
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "toSelectTermView" {
+            let vc = segue.destination as! SelectTermViewController
+            vc.delegate = self
         }
     }
 }
