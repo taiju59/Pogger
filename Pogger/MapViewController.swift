@@ -11,7 +11,7 @@ import MapKit
 import RealmSwift
 import CoreLocation
 
-class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTermViewControllerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectTermButton: UIBarButtonItem!
 
@@ -24,6 +24,7 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController!.delegate = self
         setPins()
     }
 
@@ -36,7 +37,7 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
         let center = CLLocationCoordinate2DMake(latitude, longitude)
 
         //表示範囲
-        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let span = MKCoordinateSpanMake(0.03, 0.03)
 
         //中心座標と表示範囲をマップに登録する。
         let region = MKCoordinateRegionMake(center, span)
@@ -93,6 +94,10 @@ class MapViewController: UIViewController, SelectTermViewControllerDelegate, MKM
     func selectTermViewController(_ selectTermViewController: SelectTermViewController, didSelectTerm value: Int, title: String) {
         termValue = value
         selectTermButton.title = title
+    }
+
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        setMap()
     }
 
     //MARK: - Transition
