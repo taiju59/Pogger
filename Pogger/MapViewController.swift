@@ -97,7 +97,9 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        setMap()
+        if tabBarController.selectedIndex == 2 {
+            setMap()
+        }
     }
 
     //MARK: - Transition

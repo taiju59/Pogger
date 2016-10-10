@@ -245,7 +245,9 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        scrollToTop()
+        if tabBarController.selectedIndex == 1 {
+            scrollToTop()
+        }
     }
 
     private func scrollToTop() {

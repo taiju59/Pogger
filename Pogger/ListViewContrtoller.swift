@@ -249,7 +249,9 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        scrollToTop()
+        if tabBarController.selectedIndex == 0 {
+            scrollToTop()
+        }
     }
 
     private func scrollToTop() {
