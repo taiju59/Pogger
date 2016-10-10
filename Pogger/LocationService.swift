@@ -56,9 +56,17 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 
     /** 位置情報取得成功時 */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //最新の位置情報保持
+
+        // 情報の有用性を検証
+        if !filteringLocation(manager.location!) {
+            print("bad")
+            return
+        }
+        print("good")
+
+        //最新の位置情報を保持
         newestLocation = manager.location!
-        // get address
+
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
             if error != nil {
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
@@ -76,5 +84,20 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     /** 位置情報取得失敗時 */
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("didFailWithError: " + error.localizedDescription)
+    }
+
+    private func filteringLocation(_ location: CLLocation) -> Bool {
+
+        let age = -location.timestamp.timeIntervalSinceNow
+        if age > 10 {
+            return false
+        }
+        if location.horizontalAccuracy < 0 {
+            return false
+        }
+        if location.horizontalAccuracy > 100 {
+            return false
+        }
+        return true
     }
 }
