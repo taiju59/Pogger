@@ -59,10 +59,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 
         // 情報の有用性を検証
         if !filteringLocation(manager.location!) {
-            print("bad")
             return
         }
-        print("good")
 
         //最新の位置情報を保持
         newestLocation = manager.location!

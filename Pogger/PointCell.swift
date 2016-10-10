@@ -58,7 +58,7 @@ class PointCell: UITableViewCell {
         }
 
         // 住所
-        self.setAddress(point)
+        setAddress(point)
 
         // 時間ラベル
         self.dateLabel.text = Utils.getStayDateStr(point)
