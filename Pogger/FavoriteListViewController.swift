@@ -191,6 +191,16 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
     }
 
     func didTapShareButton(_ pointCell: PointCell) {
+        let point = try! Realm().objects(Point.self).filter("id == \"\(pointCell.id!)\"")[0]
+        let name = point.name ?? ""
+        let locality = point.locality ?? ""
+
+        let shareText = "\(name),\(locality)"
+        let activityItems = [shareText]
+
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+
+        present(activityVC, animated: true, completion: nil)
     }
 
     func didTapOptionButton(_ pointCell: PointCell) {
