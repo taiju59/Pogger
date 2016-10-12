@@ -206,6 +206,16 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
     }
 
     func didTapOptionButton(_ pointCell: PointCell) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = Prefix.themaColor
+        //TODO: 「この場所を今後無視する」のアクションを追加
+        let deleteAction = UIAlertAction(title: "この記録を削除", style: .destructive, handler: {
+            action in self.deleteRecord(pointCell)
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        actionSheet.addAction(deleteAction)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
     }
 
     @IBAction func didLongSelect(_ sender: UILongPressGestureRecognizer) {
@@ -229,6 +239,24 @@ class ListViewController: ViewController, UITabBarControllerDelegate, UITableVie
             actionSheet.addAction(cancelAction)
             self.present(actionSheet, animated: true, completion: nil)
         }
+    }
+
+    private func deleteRecord(_ pointCell: PointCell) {
+        // Realm から削除
+        let realm = try! Realm()
+        let point = realm.objects(Point.self).filter("id == \"\(pointCell.id!)\"")[0]
+        try! realm.write {
+            realm.delete(point)
+        }
+        let indexPath = tableView.indexPath(for: pointCell)!
+
+        // VC が保持しているデータから削除
+        pointsData![indexPath.section].remove(at: indexPath.row)
+
+        // tableView の見た目として削除
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
     }
 
     private func copyAddress(_ point: FixedPoint) {
