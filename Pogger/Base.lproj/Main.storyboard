@@ -83,12 +83,13 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PointCell" rowHeight="272" id="1Ey-Om-ks0" customClass="PointCell" customModule="Pogger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="272"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PointCell" rowHeight="262" id="1Ey-Om-ks0" customClass="PointCell" customModule="Pogger" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="262"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ey-Om-ks0" id="vey-m3-ce4">
-                                            <frame key="frameInset" width="375" height="271"/>
+                                            <frame key="frameInset" width="375" height="261"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="fc6-bg-GUC">
@@ -100,46 +101,46 @@
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF9-AJ-E1D">
-                                                            <frame key="frameInset" minX="16" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="16" minY="3" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-O8-tnN">
-                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="-7" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36m-YZ-Q4v">
-                                                            <frame key="frameInset" minX="91" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="91" minY="3" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-FL-G4q">
-                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="-7" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDb-Ha-Vgk">
-                                                            <frame key="frameInset" minX="152" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="152" minY="3" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-2e-Tmv">
-                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="-7" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIn-G3-fkn">
-                                                            <frame key="frameInset" minX="232" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="232" minY="3" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -181,10 +182,6 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QdR-yc-DEa">
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-ae-KS8" userLabel="Favorite Button">
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="26" id="03b-vd-907"/>
-                                                                <constraint firstAttribute="width" constant="26" id="0wA-Nf-tH0"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="a">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,20 +215,21 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QdR-yc-DEa" firstAttribute="top" secondItem="fc6-bg-GUC" secondAttribute="bottom" constant="4" id="BUV-vb-tcu"/>
                                                 <constraint firstItem="euF-5X-xBC" firstAttribute="top" secondItem="xlw-Ef-ct8" secondAttribute="bottom" constant="8" id="Ebi-bb-A45"/>
-                                                <constraint firstAttribute="trailing" secondItem="fc6-bg-GUC" secondAttribute="trailing" constant="15" id="Neg-Uh-aMz"/>
+                                                <constraint firstItem="QdR-yc-DEa" firstAttribute="top" secondItem="fc6-bg-GUC" secondAttribute="bottom" constant="4" id="N1K-Qv-5aO"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fc6-bg-GUC" secondAttribute="trailing" constant="15" id="Neg-Uh-aMz"/>
                                                 <constraint firstItem="xlw-Ef-ct8" firstAttribute="leading" secondItem="vey-m3-ce4" secondAttribute="leading" constant="15" id="P98-1R-GZv"/>
                                                 <constraint firstItem="euF-5X-xBC" firstAttribute="leading" secondItem="vey-m3-ce4" secondAttribute="leading" id="TZx-99-UhM"/>
                                                 <constraint firstItem="QdR-yc-DEa" firstAttribute="leading" secondItem="vey-m3-ce4" secondAttribute="leading" constant="15" id="UX8-4g-qFJ"/>
                                                 <constraint firstItem="fc6-bg-GUC" firstAttribute="leading" secondItem="vey-m3-ce4" secondAttribute="leading" constant="15" id="Zv2-YN-tdd"/>
-                                                <constraint firstItem="fc6-bg-GUC" firstAttribute="top" secondItem="euF-5X-xBC" secondAttribute="bottom" constant="4" id="bjg-eH-F0B"/>
                                                 <constraint firstItem="xlw-Ef-ct8" firstAttribute="top" secondItem="vey-m3-ce4" secondAttribute="top" constant="8" id="l9B-xr-ttH"/>
+                                                <constraint firstItem="fc6-bg-GUC" firstAttribute="top" secondItem="euF-5X-xBC" secondAttribute="bottom" constant="4" id="tqW-cx-LJx"/>
                                                 <constraint firstAttribute="trailing" secondItem="euF-5X-xBC" secondAttribute="trailing" id="zGW-rl-kf2"/>
                                                 <constraint firstAttribute="bottom" secondItem="QdR-yc-DEa" secondAttribute="bottom" constant="8" id="zlg-J3-1Zl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="administrativeAreaButton" destination="VO9-Nl-gub" id="5Q8-Sy-W2U"/>
                                             <outlet property="comma1" destination="YF9-AJ-E1D" id="EOh-ac-Xzz"/>
@@ -336,12 +334,13 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PointCell" rowHeight="272" id="kQf-KH-S9b" customClass="PointCell" customModule="Pogger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="272"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PointCell" rowHeight="258" id="kQf-KH-S9b" customClass="PointCell" customModule="Pogger" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="258"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kQf-KH-S9b" id="nFc-We-5WZ">
-                                            <frame key="frameInset" width="375" height="271"/>
+                                            <frame key="frameInset" width="375" height="257"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="0kg-1i-1Ka">
@@ -353,46 +352,46 @@
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnX-Ia-hEf">
-                                                            <frame key="frameInset" minX="16" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="16" minY="4" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-mV-0ZA">
-                                                            <frame key="frameInset" minX="26" minY="11" width="65" height="33"/>
+                                                            <frame key="frameInset" minX="26" minY="-6" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-m0-Du5">
-                                                            <frame key="frameInset" minX="91" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="91" minY="4" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20j-oj-Vhf">
-                                                            <frame key="frameInset" minX="100" minY="11" width="52" height="33"/>
+                                                            <frame key="frameInset" minX="100" minY="-6" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXn-6h-X6q">
-                                                            <frame key="frameInset" minX="152" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="152" minY="4" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-wh-elh">
-                                                            <frame key="frameInset" minX="162" minY="11" width="70" height="33"/>
+                                                            <frame key="frameInset" minX="162" minY="-6" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbK-hP-mca">
-                                                            <frame key="frameInset" minX="232" minY="17" width="10" height="21"/>
+                                                            <frame key="frameInset" minX="232" minY="4" width="10" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -434,10 +433,6 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="stl-zM-8JG">
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1D-kh-knT" userLabel="Favorite Button">
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="26" id="IgA-7a-Hdf"/>
-                                                                <constraint firstAttribute="height" constant="26" id="V7b-Zv-t9M"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="a">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -475,20 +470,18 @@
                                                 <constraint firstItem="Ghb-z1-xfx" firstAttribute="top" secondItem="nFc-We-5WZ" secondAttribute="top" constant="8" id="0gL-uK-k5U"/>
                                                 <constraint firstItem="bGd-Sj-klR" firstAttribute="top" secondItem="Ghb-z1-xfx" secondAttribute="bottom" constant="8" id="MDH-Ft-wpB"/>
                                                 <constraint firstItem="Ghb-z1-xfx" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="Rhf-QV-b4g"/>
+                                                <constraint firstItem="0kg-1i-1Ka" firstAttribute="top" secondItem="bGd-Sj-klR" secondAttribute="bottom" id="Uw5-Tv-ocH"/>
                                                 <constraint firstAttribute="bottom" secondItem="stl-zM-8JG" secondAttribute="bottom" constant="8" id="Xdi-W8-H07"/>
                                                 <constraint firstItem="stl-zM-8JG" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="Y3Q-cs-GI9"/>
                                                 <constraint firstAttribute="trailing" secondItem="bGd-Sj-klR" secondAttribute="trailing" id="c01-08-z9A"/>
-                                                <constraint firstItem="stl-zM-8JG" firstAttribute="top" secondItem="0kg-1i-1Ka" secondAttribute="bottom" constant="4" id="hEt-89-rpg"/>
-                                                <constraint firstItem="0kg-1i-1Ka" firstAttribute="top" secondItem="bGd-Sj-klR" secondAttribute="bottom" constant="4" id="iWH-OB-z1m"/>
-                                                <constraint firstAttribute="trailing" secondItem="0kg-1i-1Ka" secondAttribute="trailing" constant="15" id="pka-dg-l1e"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0kg-1i-1Ka" secondAttribute="trailing" constant="15" id="pka-dg-l1e"/>
+                                                <constraint firstItem="stl-zM-8JG" firstAttribute="top" secondItem="0kg-1i-1Ka" secondAttribute="bottom" constant="4" id="rwv-WW-xoL"/>
                                                 <constraint firstItem="bGd-Sj-klR" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" id="ujs-h8-i2m"/>
                                                 <constraint firstItem="0kg-1i-1Ka" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="v5u-bT-a26"/>
                                             </constraints>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="48e-eQ-8vm" appends="YES" id="PfA-K8-ewv"/>
-                                            </connections>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="administrativeAreaButton" destination="vwZ-h3-ux1" id="9Q1-BR-Mya"/>
                                             <outlet property="comma1" destination="OnX-Ia-hEf" id="QsQ-uo-px8"/>
@@ -516,7 +509,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="Dh1-0t-NmE" id="P1w-lG-rLR"/>
                                     <outlet property="delegate" destination="Dh1-0t-NmE" id="gJo-La-37T"/>
-                                    <outletCollection property="gestureRecognizers" destination="48e-eQ-8vm" appends="YES" id="Ou5-vU-AWu"/>
+                                    <outletCollection property="gestureRecognizers" destination="48e-eQ-8vm" appends="YES" id="wns-KW-tUb"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -564,7 +557,7 @@
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="48e-eQ-8vm">
                     <connections>
                         <action selector="didLongSelect:" destination="Dh1-0t-NmE" id="p30-Vb-xoX"/>
-                        <outlet property="delegate" destination="obU-7g-Klc" id="AUo-Mp-Mdo"/>
+                        <outlet property="delegate" destination="obU-7g-Klc" id="hTL-VD-ibK"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
@@ -615,7 +608,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Rn-Bv-yl9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="Favorites" image="t_heart" id="6i1-fe-q6t"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bgN-iq-bfr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgN-iq-bfr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -636,7 +629,7 @@
         <image name="t_map" width="30" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CZv-kV-kDd"/>
-        <segue reference="HA4-cN-1A4"/>
+        <segue reference="Hbc-fs-yeF"/>
+        <segue reference="pmn-6n-2fE"/>
     </inferredMetricsTieBreakers>
 </document>
