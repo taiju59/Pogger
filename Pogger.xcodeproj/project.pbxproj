@@ -36,8 +36,6 @@
 		F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438E1D0867C2000CC24F /* SettingViewController.swift */; };
 		F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438F1D0867C2000CC24F /* StreetViewController.swift */; };
 		F61943D11D086CC4000CC24F /* headerShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943AE1D086CC4000CC24F /* headerShadow.png */; };
-		F61943D41D086CC4000CC24F /* pug_g.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B11D086CC4000CC24F /* pug_g.png */; };
-		F61943D61D086CC4000CC24F /* pug_w.png in Resources */ = {isa = PBXBuildFile; fileRef = F61943B31D086CC4000CC24F /* pug_w.png */; };
 		F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F61943BC1D086CC4000CC24F /* LICENSE.txt */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
@@ -45,7 +43,6 @@
 		F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2C1D7B0C0700255790 /* Point.swift */; };
 		F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
-		F6F3332F1D167C8F007DBC19 /* pug_r.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6F3332E1D167C8F007DBC19 /* pug_r.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,8 +78,6 @@
 		F619438E1D0867C2000CC24F /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Pogger/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619438F1D0867C2000CC24F /* StreetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreetViewController.swift; path = Pogger/StreetViewController.swift; sourceTree = SOURCE_ROOT; };
 		F61943AE1D086CC4000CC24F /* headerShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerShadow.png; sourceTree = "<group>"; };
-		F61943B11D086CC4000CC24F /* pug_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_g.png; sourceTree = "<group>"; };
-		F61943B31D086CC4000CC24F /* pug_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pug_w.png; sourceTree = "<group>"; };
 		F61943BC1D086CC4000CC24F /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F64BA51C1CC3698A007FD321 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		F66EECB51D0B1DF8003F4056 /* Pogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +87,6 @@
 		F6CDBC2C1D7B0C0700255790 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Pogger/Point.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedPoint.swift; path = Pogger/FixedPoint.swift; sourceTree = SOURCE_ROOT; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
-		F6F3332E1D167C8F007DBC19 /* pug_r.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pug_r.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,9 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				F61943AE1D086CC4000CC24F /* headerShadow.png */,
-				F61943B11D086CC4000CC24F /* pug_g.png */,
-				F6F3332E1D167C8F007DBC19 /* pug_r.pdf */,
-				F61943B31D086CC4000CC24F /* pug_w.png */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -353,7 +344,6 @@
 				F61943DC1D086CC4000CC24F /* LICENSE.txt in Resources */,
 				ED82EE991DA8CDC600EBC2CD /* terms.plist in Resources */,
 				F61943741D08673E000CC24F /* Main.storyboard in Resources */,
-				F61943D61D086CC4000CC24F /* pug_w.png in Resources */,
 				ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */,
 				F61943D11D086CC4000CC24F /* headerShadow.png in Resources */,
 				F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */,
@@ -361,8 +351,6 @@
 				ED82EE971DA80E5F00EBC2CD /* Setting.storyboard in Resources */,
 				F61943731D08673E000CC24F /* LaunchScreen.storyboard in Resources */,
 				F619437B1D08676E000CC24F /* FavoriteEmptyState.xib in Resources */,
-				F6F3332F1D167C8F007DBC19 /* pug_r.pdf in Resources */,
-				F61943D41D086CC4000CC24F /* pug_g.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
