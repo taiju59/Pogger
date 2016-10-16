@@ -255,7 +255,7 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.endUpdates()
     }
-    
+
     private func copyAddress(_ point: FixedPoint) {
         let name = point.name ?? ""
         let locality = point.locality ?? ""
