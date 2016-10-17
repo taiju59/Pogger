@@ -295,9 +295,6 @@ class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "toStreetView" {
-            let vc = segue.destination as! StreetViewController
-            vc.panoramaID = (sender! as AnyObject).panorama?!.panoramaID
-        } else if segue.identifier == "Cell2StreetView" && selectedPoint != nil {
             let vc: StreetViewController = segue.destination as! StreetViewController
             let coordinater = CLLocationCoordinate2D(latitude: selectedPoint!.latitude, longitude: selectedPoint!.longitude)
             vc.coordinater = coordinater
