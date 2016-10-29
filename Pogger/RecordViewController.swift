@@ -13,7 +13,6 @@ import DZNEmptyDataSet
 
 class RecordViewController: ListViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
-    @IBOutlet weak var configButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
     private let dispMinuteMin = 10

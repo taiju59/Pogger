@@ -14,7 +14,6 @@ import DZNEmptyDataSet
 class FavoriteListViewController: ListViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var configButton: UIButton!
 
     private let dispMinuteMin = 10
     private let comeBackLimit = 60
