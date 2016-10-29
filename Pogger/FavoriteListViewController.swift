@@ -24,16 +24,11 @@ class FavoriteListViewController: ListViewController, UITabBarControllerDelegate
     private var selectedPoint: FixedPoint?
     private var pointCellType: PointCellType = .streetView
 
-    private var refreshControl = UIRefreshControl()
-
     private var token: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.addSubview(refreshControl)
-        tableView.sendSubview(toBack: refreshControl)
         tableView.tableFooterView = UIView()
         tableView.emptyDataSetSource = self
 
@@ -102,7 +97,6 @@ class FavoriteListViewController: ListViewController, UITabBarControllerDelegate
         private_queue.async {
             defer {
                 DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
             }
