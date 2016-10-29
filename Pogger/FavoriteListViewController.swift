@@ -11,7 +11,7 @@ import RealmSwift
 import GoogleMaps
 import DZNEmptyDataSet
 
-class FavoriteListViewController: ViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
+class FavoriteListViewController: ListViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var configButton: UIButton!

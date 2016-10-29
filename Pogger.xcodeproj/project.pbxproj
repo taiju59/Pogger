@@ -19,7 +19,7 @@
 		ED82EE991DA8CDC600EBC2CD /* terms.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED82EE981DA8CDC600EBC2CD /* terms.plist */; };
 		F619436A1D0866F4000CC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943671D0866F4000CC24F /* AppDelegate.swift */; };
 		F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61943681D0866F4000CC24F /* Assets.xcassets */; };
-		F619436C1D0866F4000CC24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ViewController.swift */; };
+		F619436C1D0866F4000CC24F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943691D0866F4000CC24F /* ListViewController.swift */; };
 		F61943731D08673E000CC24F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F619436F1D08673E000CC24F /* LaunchScreen.storyboard */; };
 		F61943741D08673E000CC24F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61943711D08673E000CC24F /* Main.storyboard */; };
 		F619437A1D08676E000CC24F /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61943751D08676E000CC24F /* EmptyState.xib */; };
@@ -31,7 +31,7 @@
 		F61943861D0867AA000CC24F /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943801D0867AA000CC24F /* Prefix.swift */; };
 		F619438A1D0867AA000CC24F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61943841D0867AA000CC24F /* Utils.swift */; };
 		F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438B1D0867C2000CC24F /* LicenseViewController.swift */; };
-		F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */; };
+		F61943911D0867C2000CC24F /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438C1D0867C2000CC24F /* RecordViewController.swift */; };
 		F61943921D0867C2000CC24F /* LocateQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438D1D0867C2000CC24F /* LocateQualityViewController.swift */; };
 		F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438E1D0867C2000CC24F /* SettingViewController.swift */; };
 		F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619438F1D0867C2000CC24F /* StreetViewController.swift */; };
@@ -60,7 +60,7 @@
 		EF2431C1464DC74D14C7EEBA /* Pods-Pogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pogger/Pods-Pogger.release.xcconfig"; sourceTree = "<group>"; };
 		F61943671D0866F4000CC24F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Pogger/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F61943681D0866F4000CC24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pogger/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		F61943691D0866F4000CC24F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Pogger/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		F61943691D0866F4000CC24F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Pogger/ListViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619436D1D086714000CC24F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Pogger/Info.plist; sourceTree = SOURCE_ROOT; };
 		F61943701D08673E000CC24F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Pogger/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		F61943721D08673E000CC24F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Pogger/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
@@ -73,7 +73,7 @@
 		F61943801D0867AA000CC24F /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefix.swift; path = Pogger/Prefix.swift; sourceTree = SOURCE_ROOT; };
 		F61943841D0867AA000CC24F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Pogger/Utils.swift; sourceTree = SOURCE_ROOT; };
 		F619438B1D0867C2000CC24F /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseViewController.swift; path = Pogger/LicenseViewController.swift; sourceTree = SOURCE_ROOT; };
-		F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewContrtoller.swift; path = Pogger/ListViewContrtoller.swift; sourceTree = SOURCE_ROOT; };
+		F619438C1D0867C2000CC24F /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordViewController.swift; path = Pogger/RecordViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619438D1D0867C2000CC24F /* LocateQualityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocateQualityViewController.swift; path = Pogger/LocateQualityViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619438E1D0867C2000CC24F /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Pogger/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		F619438F1D0867C2000CC24F /* StreetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreetViewController.swift; path = Pogger/StreetViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -188,7 +188,7 @@
 			children = (
 				F6215A931D7AA6A400308567 /* setting */,
 				F619438B1D0867C2000CC24F /* LicenseViewController.swift */,
-				F619438C1D0867C2000CC24F /* ListViewContrtoller.swift */,
+				F619438C1D0867C2000CC24F /* RecordViewController.swift */,
 				F619438F1D0867C2000CC24F /* StreetViewController.swift */,
 				ED2497BA1DA7ED9700660AFC /* FavoriteListViewController.swift */,
 				ED2497BB1DA7ED9700660AFC /* MapViewController.swift */,
@@ -237,7 +237,7 @@
 				F64BA5251CC38D13007FD321 /* model */,
 				F64BA5221CC376BB007FD321 /* controller */,
 				F61943671D0866F4000CC24F /* AppDelegate.swift */,
-				F61943691D0866F4000CC24F /* ViewController.swift */,
+				F61943691D0866F4000CC24F /* ListViewController.swift */,
 				F61943801D0867AA000CC24F /* Prefix.swift */,
 				F619436F1D08673E000CC24F /* LaunchScreen.storyboard */,
 				F61943711D08673E000CC24F /* Main.storyboard */,
@@ -435,10 +435,10 @@
 				F61943921D0867C2000CC24F /* LocateQualityViewController.swift in Sources */,
 				ED2497BD1DA7ED9700660AFC /* FavoriteListViewController.swift in Sources */,
 				F61943861D0867AA000CC24F /* Prefix.swift in Sources */,
-				F619436C1D0866F4000CC24F /* ViewController.swift in Sources */,
+				F619436C1D0866F4000CC24F /* ListViewController.swift in Sources */,
 				F61943851D0867AA000CC24F /* LocationService.swift in Sources */,
 				F61943941D0867C2000CC24F /* StreetViewController.swift in Sources */,
-				F61943911D0867C2000CC24F /* ListViewContrtoller.swift in Sources */,
+				F61943911D0867C2000CC24F /* RecordViewController.swift in Sources */,
 				F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */,
 				F61943901D0867C2000CC24F /* LicenseViewController.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,

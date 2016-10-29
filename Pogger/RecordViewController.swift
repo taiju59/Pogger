@@ -1,5 +1,5 @@
 //
-//  ListViewContrtoller.swift
+//  RecordViewController.swift
 //  Pogger
 //
 //  Created by Taiju Aoki on 2016/04/17.
@@ -11,7 +11,7 @@ import RealmSwift
 import GoogleMaps
 import DZNEmptyDataSet
 
-class ListViewController: ViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
+class RecordViewController: ListViewController, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, PointCellDelegate {
 
     @IBOutlet weak var configButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
