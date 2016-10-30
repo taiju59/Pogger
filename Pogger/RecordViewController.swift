@@ -24,8 +24,4 @@ class RecordViewController: ListViewController {
     @IBAction override func didLongSelect(_ sender: UILongPressGestureRecognizer) {
         super.didLongSelect(sender)
     }
-
-    @IBAction func didTapLogo(_ sender: UIButton) {
-        scrollToTop()
-    }
 }

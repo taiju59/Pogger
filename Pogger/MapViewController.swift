@@ -97,7 +97,7 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex == 2 {
+        if tabBarController.selectedIndex == 1 {
             setMap()
         }
     }
