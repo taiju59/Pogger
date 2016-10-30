@@ -619,10 +619,10 @@
                                 <state key="normal" title="k">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="W9M-Ov-Dxe" kind="presentation" id="0ZW-Es-6qt"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="W9M-Ov-Dxe" kind="presentation" id="rvb-GP-pf7"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </pageViewController>
