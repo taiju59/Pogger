@@ -12,9 +12,20 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setViewControllers([getListViewController(.records)], direction: .forward, animated: true, completion: nil)
+        changeViewController(.records)
         self.dataSource = self
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+
+    private func changeViewController(_ listType: ListType) {
+        let direction: UIPageViewControllerNavigationDirection
+        switch listType {
+        case .records:
+            direction = .reverse
+        case .favorites:
+            direction = .forward
+        }
+        self.setViewControllers([getListViewController(listType)], direction: direction, animated: true, completion: nil)
     }
 
     private func getListViewController(_ listType: ListType) -> UIViewController {
@@ -40,6 +51,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return getListViewController(.records)
         } else {
             return nil
+        }
+    }
+
+    @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            changeViewController(.records)
+        case 1:
+            changeViewController(.favorites)
+        default:
+            break
         }
     }
 }
