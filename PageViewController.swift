@@ -8,12 +8,12 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class PageViewController: UIPageViewController/*, UIPageViewControllerDataSource*/ {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         changeViewController(.records)
-        self.dataSource = self
+//        self.dataSource = self
         self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
 
@@ -25,7 +25,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         case .favorites:
             direction = .forward
         }
-        self.setViewControllers([getListViewController(listType)], direction: direction, animated: true, completion: nil)
+        self.setViewControllers([getListViewController(listType)], direction: direction, animated: false, completion: nil)
     }
 
     private func getListViewController(_ listType: ListType) -> UIViewController {
@@ -38,21 +38,21 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: RecordViewController.self) {
-            return getListViewController(.favorites)
-        } else {
-            return nil
-        }
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if viewController.isKind(of: FavoriteListViewController.self) {
-            return getListViewController(.records)
-        } else {
-            return nil
-        }
-    }
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        if viewController.isKind(of: RecordViewController.self) {
+//            return getListViewController(.favorites)
+//        } else {
+//            return nil
+//        }
+//    }
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        if viewController.isKind(of: FavoriteListViewController.self) {
+//            return getListViewController(.records)
+//        } else {
+//            return nil
+//        }
+//    }
 
     @IBAction func didSelectSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
