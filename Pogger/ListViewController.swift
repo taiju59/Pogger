@@ -43,16 +43,13 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
         viaTableView.emptyDataSetSource = self
 
         self.token = try! Realm().addNotificationBlock { note, realm in
-            if self.pointsData == nil || self.pointsData!.isEmpty {
-                self.refreshData()
-            }
+            self.refreshData(completion: self.viaTableView.reloadData)
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController!.delegate = self
-        refreshData()
     }
 
     //MARK: - TableView
@@ -102,12 +99,12 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
         return cell
     }
 
-    func refreshData() {
+    func refreshData(completion: (() -> Swift.Void)?) {
         let private_queue = DispatchQueue(label: "refreshData", attributes: [])
         private_queue.async {
             defer {
                 DispatchQueue.main.async {
-                    self.viaTableView.reloadData()
+                    completion?()
                 }
             }
             self.pointsData = []
