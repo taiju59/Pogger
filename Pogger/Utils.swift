@@ -67,6 +67,11 @@ class Utils {
             return dateText
         }
     }
+    static func getAnnotationDateStr(_ point: Point) -> String {
+        let date = point.startDate!
+        let fixed = FixedPoint(rlm: point)
+        return Utils.getDateString(for: date) + String(" ") + Utils.getStayDateStr(fixed)
+    }
 }
 
 extension Date {
