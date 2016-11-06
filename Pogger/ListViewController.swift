@@ -50,6 +50,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController!.delegate = self
+        refreshData(completion: viaTableView.reloadData)
     }
 
     //MARK: - TableView
