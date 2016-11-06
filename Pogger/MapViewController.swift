@@ -78,8 +78,8 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
             let pinPoint = CLLocation(latitude: point.latitude, longitude: point.longitude)
             let distance = centerPoint.distance(from: pinPoint)
             let annotation = MKPointAnnotation()
-            annotation.title = Utils.getAnnotationDateStr(point)
-            annotation.subtitle = Utils.getAddress(point)
+            annotation.title = Utils.getAddress(point)
+            annotation.subtitle = Utils.getAnnotationDateStr(point)
             if radius > distance {
                 annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
                 mapView.addAnnotation(annotation)
