@@ -212,9 +212,10 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
         let shareText = "\(address) \(dateStr)\n[iOS Map] \(iosMapUrlStr)\n[GoogleMap] \(googleMapUrlStr)"
 
         let activityItems = [shareText]
-        //TODO: 「マップで開く」を追加
+        let activityItems = [shareText, point] as [Any]
 
-        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let applicationActivities = [OpenMapAppActivity()]
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
 
         present(activityVC, animated: true, completion: nil)
     }

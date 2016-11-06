@@ -38,6 +38,7 @@
 		F672FA3B1DC588D500CC9F56 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672FA3A1DC588D500CC9F56 /* PageViewController.swift */; };
 		F6770A9D1CFE673800B4B10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6770A9A1CFD41F400B4B10E /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F6770A9E1CFE673800B4B10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64BA51C1CC3698A007FD321 /* RealmSwift.framework */; };
+		F6AEC30E1DCCC9BE0057361A /* OpenMapAppActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEC30D1DCCC9BE0057361A /* OpenMapAppActivity.swift */; };
 		F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */; };
 		F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2C1D7B0C0700255790 /* Point.swift */; };
 		F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */; };
@@ -81,6 +82,7 @@
 		F672FA3A1DC588D500CC9F56 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = SOURCE_ROOT; };
 		F6770A9A1CFD41F400B4B10E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		F6A4BA791D0843BA001ACBE4 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		F6AEC30D1DCCC9BE0057361A /* OpenMapAppActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenMapAppActivity.swift; path = Pogger/OpenMapAppActivity.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = Pogger/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2C1D7B0C0700255790 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Pogger/Point.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedPoint.swift; path = Pogger/FixedPoint.swift; sourceTree = SOURCE_ROOT; };
@@ -193,6 +195,7 @@
 				F619437F1D0867AA000CC24F /* LocationService.swift */,
 				F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */,
 				F61943841D0867AA000CC24F /* Utils.swift */,
+				F6AEC30D1DCCC9BE0057361A /* OpenMapAppActivity.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				F61943911D0867C2000CC24F /* RecordViewController.swift in Sources */,
 				F672FA3B1DC588D500CC9F56 /* PageViewController.swift in Sources */,
 				F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */,
+				F6AEC30E1DCCC9BE0057361A /* OpenMapAppActivity.swift in Sources */,
 				F619437C1D08676E000CC24F /* ListViewHeader.swift in Sources */,
 				F619438A1D0867AA000CC24F /* Utils.swift in Sources */,
 			);
