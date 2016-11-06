@@ -137,7 +137,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
                 // 通らないはず
                 continue
             }
-            if fPoint.startDate.isInSameDayAsDate(lastPoint.startDate!) {
+            if fPoint.startDate.isInSameDayAsDate(lastPoint.startDate) {
                 // 同じ日
                 self.pointsData![self.pointsData!.count - 1].append(fPoint)
             } else {
@@ -169,7 +169,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
                 // 通らないはず
                 continue
             }
-            if fPoint.startDate.isInSameDayAsDate(lastPoint.startDate!) {
+            if fPoint.startDate.isInSameDayAsDate(lastPoint.startDate) {
                 // 同じ日
                 self.pointsData![self.pointsData!.count - 1].append(fPoint)
             } else {
