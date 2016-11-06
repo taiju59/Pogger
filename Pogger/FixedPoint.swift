@@ -11,22 +11,22 @@ import RealmSwift
 
 //TODO: struct か class か検討
 class FixedPoint {
-    var id: String!
-    var startDate: Date!
-    var endDate: Date!
-    var stayMin: Int =  0
-    var longitude = 0.0
-    var latitude = 0.0
-    var name: String?
-    var thoroughfare: String?
-    var subThoroughfare: String?
-    var locality: String?
-    var subLocality: String?
-    var postalCode: String?
-    var administrativeArea: String?
-    var country: String?
-    var favorite = false
-    var changed = false
+    let id: String
+    let startDate: Date
+    let endDate: Date
+    let stayMin: Int
+    let longitude: Double
+    let latitude: Double
+    let name: String?
+    let thoroughfare: String?
+    let subThoroughfare: String?
+    let locality: String?
+    let subLocality: String?
+    let postalCode: String?
+    let administrativeArea: String?
+    let country: String?
+    let favorite: Bool
+    let changed: Bool
 
     init(rlm: Point) {
         id = rlm.id
@@ -49,6 +49,6 @@ class FixedPoint {
 
     func toRlmPoint() -> Point {
         let realm = try! Realm()
-        return realm.objects(Point.self).filter("id == \"\(self.id!)\"")[0]
+        return realm.objects(Point.self).filter("id == \"\(self.id)\"")[0]
     }
 }

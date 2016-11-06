@@ -67,9 +67,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
         if pd.isEmpty {
             return nil
         }
-        guard let date = pd[section][0].startDate else {
-            return nil
-        }
+        let date = pd[section][0].startDate
         let days = Utils.getDayCnt(to: date)
         var sectionTitle: String?
         switch days {
@@ -139,7 +137,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
                 // 通らないはず
                 continue
             }
-            if fPoint.startDate!.isInSameDayAsDate(lastPoint.startDate!) {
+            if fPoint.startDate.isInSameDayAsDate(lastPoint.startDate!) {
                 // 同じ日
                 self.pointsData![self.pointsData!.count - 1].append(fPoint)
             } else {
@@ -171,7 +169,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
                 // 通らないはず
                 continue
             }
-            if fPoint.startDate!.isInSameDayAsDate(lastPoint.startDate!) {
+            if fPoint.startDate.isInSameDayAsDate(lastPoint.startDate!) {
                 // 同じ日
                 self.pointsData![self.pointsData!.count - 1].append(fPoint)
             } else {
