@@ -44,7 +44,6 @@ class Utils {
     static func getStayDateStr(_ point: FixedPoint) -> String {
 
         let startDate = point.startDate!
-        let endDate = point.endDate!
         var dateText = ""
 
         let dateFormatter = DateFormatter()
@@ -53,24 +52,57 @@ class Utils {
         let startDateStr = dateFormatter.string(from: startDate)
         dateText += startDateStr
 
-        if startDate.isEqual(to: endDate) {
-            return dateText
-        }
-
-        if endDate.isInSameDayAsDate(startDate) {
-            let endDateStr = String(format: "%02d:%02d", endDate.hour, endDate.minute)
-            dateText += " - \(endDateStr)"
-            return dateText
-        } else {
-            let endDateStr = dateFormatter.string(from: endDate)
-            dateText += " - \(endDateStr)"
-            return dateText
-        }
+        return dateText
     }
+
     static func getAnnotationDateStr(_ point: Point) -> String {
         let date = point.startDate!
         let fixed = FixedPoint(rlm: point)
         return Utils.getDateString(for: date) + String(" ") + Utils.getStayDateStr(fixed)
+    }
+
+    static func getShareDateStr(_ point: Point) -> String {
+        return getAnnotationDateStr(point)
+    }
+
+    static func getAddress(_ point: Point) -> String {
+        return getAddressText(FixedPoint(rlm: point))
+    }
+
+    static func getAddress(_ point: FixedPoint) -> String {
+        return getAddressText(point)
+    }
+
+    private static func getAddressText(_ point: FixedPoint) -> String {
+        let name = point.name ?? ""
+        let subThoroughfare = point.subThoroughfare ?? ""
+        let thoroughfare = point.thoroughfare ?? ""
+        let subLocality = point.subLocality ?? ""
+        let locality = point.locality ?? ""
+        let administrativeArea = point.administrativeArea ?? ""
+
+        var strArray = [String]()
+
+        // 今のところ name と locality のみ表示
+        if true && !name.isEmpty {
+            strArray.append(name)
+        }
+        if false && !subThoroughfare.isEmpty {
+            strArray.append(subThoroughfare)
+        }
+        if false && !thoroughfare.isEmpty {
+            strArray.append(thoroughfare)
+        }
+        if false && !subLocality.isEmpty {
+            strArray.append(subLocality)
+        }
+        if true && !locality.isEmpty {
+            strArray.append(locality)
+        }
+        if false && !administrativeArea.isEmpty {
+            strArray.append(administrativeArea)
+        }
+        return strArray.joined(separator: ",")
     }
 }
 

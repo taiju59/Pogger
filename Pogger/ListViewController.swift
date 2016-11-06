@@ -199,14 +199,21 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
 
     func didTapShareButton(_ pointCell: PointCell) {
         let point = try! Realm().objects(Point.self).filter("id == \"\(pointCell.id!)\"")[0]
-        let name = point.name ?? ""
-        let locality = point.locality ?? ""
 
-        let shareText = "\(name),\(locality)"
+        let dateStr = Utils.getShareDateStr(point)
+        let address = Utils.getAddress(point)
+        let encodeAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        let ll = String(format: "%f,%f", point.latitude, point.longitude)
+
+        let iosMapUrlStr = "http://maps.apple.com/?ll=\(ll)&q=\(encodeAddress)"
+        let googleMapUrlStr = "comgooglemaps://?center=\(ll)&q=\(encodeAddress)"
+
+        let shareText = "\(address) \(dateStr)\n[iOS Map] \(iosMapUrlStr)\n[GoogleMap] \(googleMapUrlStr)"
+
         let activityItems = [shareText]
-        //TODO: 「コピー」ではなく「住所をコピー」にする
-        //TODO: 「住所をコピー」完了時に「✅」を表示
         //TODO: 「マップで開く」を追加
+
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
 
         present(activityVC, animated: true, completion: nil)
@@ -267,18 +274,14 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
     }
 
     private func copyAddress(_ point: FixedPoint) {
-        let name = point.name ?? ""
-        let locality = point.locality ?? ""
-        let address = "\(name),\(locality)"
+        let address = Utils.getAddress(point)
         let board = UIPasteboard.general
         board.setValue(address, forPasteboardType: "public.text")
     }
 
     private func shouldOpenMap(_ point: FixedPoint) {
         let ll = String(format: "%f,%f", point.latitude, point.longitude)
-        let name = point.name ?? ""
-        let locality = point.locality ?? ""
-        let q = "\(name),\(locality)"
+        let q = Utils.getAddress(point).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
         let urlString: String
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
