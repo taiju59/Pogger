@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 //TODO: struct か class か検討
 class FixedPoint {
@@ -44,5 +45,10 @@ class FixedPoint {
         country = rlm.country
         favorite = rlm.favorite
         changed = rlm.changed
+    }
+
+    func toRlmPoint() -> Point {
+        let realm = try! Realm()
+        return realm.objects(Point.self).filter("id == \"\(self.id!)\"")[0]
     }
 }

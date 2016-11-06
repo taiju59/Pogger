@@ -41,7 +41,7 @@ class Utils {
         return dateStr + "(" + weekDayStr + ")"
     }
 
-    static func getStayDateStr(_ point: FixedPoint) -> String {
+    static func getStayDateStr(_ point: Point) -> String {
 
         let startDate = point.startDate!
         var dateText = ""
@@ -57,23 +57,27 @@ class Utils {
 
     static func getAnnotationDateStr(_ point: Point) -> String {
         let date = point.startDate!
-        let fixed = FixedPoint(rlm: point)
-        return Utils.getDateString(for: date) + String(" ") + Utils.getStayDateStr(fixed)
+        return Utils.getDateString(for: date) + String(" ") + Utils.getStayDateStr(point)
     }
 
-    static func getShareDateStr(_ point: Point) -> String {
+    static func getShareText(_ point: Point) -> String {
+        let dateStr = Utils.getShareDateStr(point)
+        let address = Utils.getAddress(point)
+        let encodeAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        let ll = String(format: "%f,%f", point.latitude, point.longitude)
+
+        let iosMapUrlStr = "http://maps.apple.com/?ll=\(ll)&q=\(encodeAddress)"
+        let googleMapUrlStr = "comgooglemaps://?center=\(ll)&q=\(encodeAddress)"
+
+        return "\(address) \(dateStr)\n[iOS Map] \(iosMapUrlStr)\n[GoogleMap] \(googleMapUrlStr)"
+    }
+
+    private static func getShareDateStr(_ point: Point) -> String {
         return getAnnotationDateStr(point)
     }
 
     static func getAddress(_ point: Point) -> String {
-        return getAddressText(FixedPoint(rlm: point))
-    }
-
-    static func getAddress(_ point: FixedPoint) -> String {
-        return getAddressText(point)
-    }
-
-    private static func getAddressText(_ point: FixedPoint) -> String {
         let name = point.name ?? ""
         let subThoroughfare = point.subThoroughfare ?? ""
         let thoroughfare = point.thoroughfare ?? ""

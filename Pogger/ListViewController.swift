@@ -89,8 +89,8 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let section = (indexPath as IndexPath).section
+        let row = (indexPath as IndexPath).row
         let point = pointsData![section][row]
 
         let cell: PointCell = tableView.dequeueReusableCell(withIdentifier: "PointCell") as! PointCell
@@ -188,7 +188,7 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
     //MARK: - Action
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let points = pointsData {
-            selectedPoint = points[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+            selectedPoint = points[(indexPath as IndexPath).section][(indexPath as IndexPath).row]
         }
         return indexPath
     }
@@ -199,23 +199,17 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
 
     func didTapShareButton(_ pointCell: PointCell) {
         let point = try! Realm().objects(Point.self).filter("id == \"\(pointCell.id!)\"")[0]
+        shouldOpenShare(point)
+    }
 
-        let dateStr = Utils.getShareDateStr(point)
-        let address = Utils.getAddress(point)
-        let encodeAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    private func shouldOpenShare(_ point: Point) {
 
-        let ll = String(format: "%f,%f", point.latitude, point.longitude)
-
-        let iosMapUrlStr = "http://maps.apple.com/?ll=\(ll)&q=\(encodeAddress)"
-        let googleMapUrlStr = "comgooglemaps://?center=\(ll)&q=\(encodeAddress)"
-
-        let shareText = "\(address) \(dateStr)\n[iOS Map] \(iosMapUrlStr)\n[GoogleMap] \(googleMapUrlStr)"
-
-        let activityItems = [shareText]
+        let shareText = Utils.getShareText(point)
         let activityItems = [shareText, point] as [Any]
 
         let applicationActivities = [OpenMapAppActivity()]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        activityVC.view.tintColor = Prefix.themaColor
 
         present(activityVC, animated: true, completion: nil)
     }
@@ -238,19 +232,30 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
         let indexPath = viaTableView.indexPathForRow(at: point)!
 
         if sender.state == .began {
-            let point = pointsData![(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+            let point = pointsData![(indexPath as IndexPath).section][(indexPath as IndexPath).row]
 
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             actionSheet.view.tintColor = Prefix.themaColor
             let copyAction = UIAlertAction(title: "住所をコピー", style: .default, handler: {
-                action in self.copyAddress(point)
+                action in
+                let board = UIPasteboard.general
+                let address = Utils.getAddress(point.toRlmPoint())
+                board.setValue(address, forPasteboardType: "public.text")
             })
             let mapOpenAction = UIAlertAction(title: "マップで見る", style: .default, handler: {
-                action in self.shouldOpenMap(point)
+                action in //TODO: マップ画面を開く
+            })
+            let shareAction = UIAlertAction(title: "この記録を共有", style: .default, handler: {
+                action in self.shouldOpenShare(point.toRlmPoint())
+            })
+            let deleteAction = UIAlertAction(title: "この記録を削除", style: .destructive, handler: {
+                action in self.deleteRecord(self.viaTableView.cellForRow(at: indexPath) as! PointCell)
             })
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             actionSheet.addAction(copyAction)
             actionSheet.addAction(mapOpenAction)
+            actionSheet.addAction(shareAction)
+            actionSheet.addAction(deleteAction)
             actionSheet.addAction(cancelAction)
             self.present(actionSheet, animated: true, completion: nil)
         }
@@ -272,27 +277,6 @@ class ListViewController: UIViewController, UITabBarControllerDelegate, UITableV
         viaTableView.beginUpdates()
         viaTableView.deleteRows(at: [indexPath], with: .automatic)
         viaTableView.endUpdates()
-    }
-
-    private func copyAddress(_ point: FixedPoint) {
-        let address = Utils.getAddress(point)
-        let board = UIPasteboard.general
-        board.setValue(address, forPasteboardType: "public.text")
-    }
-
-    private func shouldOpenMap(_ point: FixedPoint) {
-        let ll = String(format: "%f,%f", point.latitude, point.longitude)
-        let q = Utils.getAddress(point).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-
-        let urlString: String
-        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
-            urlString = "comgooglemaps://?center=\(ll)&q=\(q)"
-        } else {
-            urlString = "http://maps.apple.com/?ll=\(ll)&q=\(q)"
-        }
-        let encodedUrl = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let url = URL(string: encodedUrl)!
-        UIApplication.shared.openURL(url)
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

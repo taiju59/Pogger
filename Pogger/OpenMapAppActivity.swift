@@ -18,7 +18,7 @@ class OpenMapAppActivity: UIActivity {
 
     override var activityTitle: String? {
         get {
-            return "地図アプリで開く"
+            return "地図アプリで見る"
         }
     }
 

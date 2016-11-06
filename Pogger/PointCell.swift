@@ -61,7 +61,7 @@ class PointCell: UITableViewCell {
         setAddress(point)
 
         // 時間ラベル
-        self.dateLabel.text = Utils.getStayDateStr(point)
+        self.dateLabel.text = Utils.getStayDateStr(point.toRlmPoint())
 
         // お気に入り
         self.id = point.id

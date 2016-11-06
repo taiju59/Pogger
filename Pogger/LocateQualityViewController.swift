@@ -32,7 +32,7 @@ class LocateQualityViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let locationQuality: LocationQuality
-        switch (indexPath as NSIndexPath).row {
+        switch (indexPath as IndexPath).row {
         case 0:
             locationQuality = .high
         case 1:
