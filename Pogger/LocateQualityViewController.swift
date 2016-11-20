@@ -46,7 +46,7 @@ class LocateQualityViewController: UITableViewController {
         userDefaults.set(locationQuality.rawValue, forKey: Prefix.keyLocateQuality)
         userDefaults.synchronize()
 
-        LocationService.sharedInstance.setAccuracy(locationQuality)
+        StandardLocation.sharedInstance.setAccuracy(locationQuality)
     }
 
 }

@@ -10,12 +10,12 @@ import Foundation
 import CoreLocation
 import RealmSwift
 
+// Model
 class Point: Object {
 
     dynamic var id: String = UUID().uuidString
     dynamic var startDate = Date()
     dynamic var endDate: Date!
-    dynamic var stayMin = 0
     dynamic var longitude = 0.0
     dynamic var latitude = 0.0
     dynamic var name: String?
@@ -27,113 +27,96 @@ class Point: Object {
     dynamic var administrativeArea: String?
     dynamic var country: String?
     dynamic var favorite = false
-    dynamic var changed = false
 
     override static func primaryKey() -> String? {
         return "id"
     }
+}
 
-    static private let pastLimitMin = 300
+// Calculate
+extension Point {
 
-    static private let minUpdateMin = 5
-    static private let distanceBoundary = 10.0
-
-    static private let semaphore: DispatchSemaphore = DispatchSemaphore(value: 1)
-
-    static func addPoint(_ placemark: CLPlacemark) {
-        semaphore.wait()
-        let private_queue = DispatchQueue(label: "inputPoint", attributes: [])
-        private_queue.async {
-            let allPoints = try! Realm().objects(self).sorted(byProperty: "startDate", ascending: false)
-            let allPointsCnt = allPoints.count
-
-            if allPointsCnt > 0 {
-                let lastPoint = allPoints[0]
-                let coordinate = placemark.location!.coordinate
-                if isSamePlace(lastPoint, newLat: coordinate.latitude, newLon: coordinate.longitude) {
-                    updatePoint(placemark, allPoints: allPoints)
-                } else {
-                    addPoint(placemark, allPoints: allPoints)
-                }
-            } else {
-                addPoint(placemark, allPoints: allPoints)
-            }
-            semaphore.signal()
-        }
+    var stayMin: Int {
+        let start = Int(startDate.timeIntervalSince1970)
+        let end = Int(endDate.timeIntervalSince1970)
+        return (end - start) / 60
     }
 
-    class func isSamePlace(_ oldPlace: Point, newLat: CLLocationDegrees, newLon: CLLocationDegrees, name: String? = nil) -> Bool {
-        let isMoved = calcDistance(oldPlace, newLat: newLat, newLon: newLon) > distanceBoundary
-        let isSameName = oldPlace.name == name
+    static private let distanceBoundary = 50.0 // 同じ場所と判定する最大距離
+
+    class func validateInsert(_ point: Point) -> Bool {
+        let allPoints = try! Realm().objects(self).sorted(byProperty: "startDate", ascending: false)
+        if allPoints.isEmpty {
+            return true
+        }
+        return !isSamePlace(allPoints[0], and: point)
+    }
+
+    class func isSamePlace(_ oldPlace: Point, and newPlace: Point) -> Bool {
+        let isMoved = calcDistance(from: oldPlace, to: newPlace) > distanceBoundary
+        let isSameName = oldPlace.name == newPlace.name
         return !isMoved || isSameName
     }
 
-    class func calcDistance(_ oldPlace: Point, newLat: CLLocationDegrees, newLon: CLLocationDegrees) -> CLLocationDistance {
-
-        let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
-        let newLocation = CLLocation(latitude: newLat, longitude: newLon)
-        let distance = newLocation.distance(from: oldLocation)
-
-        return distance
-    }
-
-    class func calcDistance(_ oldPlace: Point, to newPlace: Point) -> CLLocationDistance {
+    class func calcDistance(from oldPlace: Point, to newPlace: Point) -> Double {
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = CLLocation(latitude: newPlace.latitude, longitude: newPlace.longitude)
         let distance = newLocation.distance(from: oldLocation)
 
         return distance
     }
+}
 
-     static private func updatePoint(_ placemark: CLPlacemark, allPoints: Results<(Point)>) {
-        let lastPoint = allPoints[0]
+// Write
+extension Point {
 
-        let isSameMinute = lastPoint.endDate?.minute == Date().minute
-        let isPast = lastPoint.endDate!.minute + pastLimitMin < Date().minute
+    static private let semaphore: DispatchSemaphore = DispatchSemaphore(value: 1)
 
-        if !isSameMinute && !isPast {
-            try! Realm().write {
-                let now = Date()
-                let stayMin = now.minute - lastPoint.startDate.minute
-                lastPoint.endDate = now
-                lastPoint.stayMin = stayMin
+    // モデル更新はこの関数を通して行う
+    private static func packRlmAccess(function: @escaping () -> Swift.Void) {
+        semaphore.wait()
+        DispatchQueue(label: "rlmWrite").async {
+            defer {
+                semaphore.signal()
             }
+            function()
         }
-        NotificationCenter.default.post(name: NotificationNames.updatePoint, object: nil)
     }
 
-    static private func addPoint(_ placemark: CLPlacemark, allPoints: Results<(Point)>) {
-
-        let point = Point()
-        let now = Date()
-        point.startDate = now
-        point.endDate = now
-        if let location = placemark.location {
-            point.longitude = location.coordinate.longitude
-            point.latitude = location.coordinate.latitude
+    class func updatePoint(_ point: Point) {
+        packRlmAccess {
+            let realm = try! Realm()
+            let allPoints = realm.objects(self).sorted(byProperty: "startDate", ascending: false)
+            if !allPoints.isEmpty {
+                let lastPoint = allPoints[0]
+                try! realm.write {
+                    lastPoint.latitude = point.latitude
+                    lastPoint.longitude = point.longitude
+                    lastPoint.endDate = point.endDate
+                }
+                NotificationCenter.default.post(name: NotificationNames.updatePoint, object: nil)
+            }
         }
-        point.name = placemark.name
-        point.thoroughfare = placemark.thoroughfare
-        point.subThoroughfare = placemark.subThoroughfare
-        point.locality = placemark.locality
-        point.subLocality = placemark.subLocality
-        point.postalCode = placemark.postalCode
-        point.administrativeArea = placemark.administrativeArea
-        point.country = placemark.country
+    }
 
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(point)
+    class func addPoint(_ point: Point) {
+        packRlmAccess {
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(point)
+            }
+            NotificationCenter.default.post(name: NotificationNames.addPoint, object: nil)
         }
-        NotificationCenter.default.post(name: NotificationNames.addPoint, object: nil)
     }
 
     class func switchFavorite(_ id: String, select: Bool) {
-        let realm = try! Realm()
-        let point = realm.objects(self).filter("id == \"\(id)\"")[0]
-        try! realm.write {
-            point.favorite = select
+        packRlmAccess {
+            let realm = try! Realm()
+            let point = realm.objects(self).filter("id == \"\(id)\"")[0]
+            try! realm.write {
+                point.favorite = select
+            }
+            NotificationCenter.default.post(name: NotificationNames.switchFavorite, object: nil)
         }
-        NotificationCenter.default.post(name: NotificationNames.switchFavorite, object: nil)
     }
 }

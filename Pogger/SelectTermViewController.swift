@@ -17,12 +17,10 @@ class SelectTermViewController: UIViewController, UIPickerViewDelegate, UIPicker
     weak var delegate: SelectTermViewControllerDelegate?
 
     private var selectedRow = 0
-    private var termsArray = [[String: AnyObject!]]()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private var termsArray: [[String: AnyObject]] {
         let filePath = Bundle.main.path(forResource: "terms", ofType: "plist")!
-        termsArray = NSArray(contentsOfFile: filePath) as! [[String: AnyObject]]
+        return NSArray(contentsOfFile: filePath) as! [[String: AnyObject]]
     }
 
     func position(for bar: UIBarPositioning) -> UIBarPosition {

@@ -45,18 +45,16 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
     }
 
     private func setPins() {
-        let dispMinuteMin = 10 //TODO: 設定値として他画面と共通して管理する
-        let predicate: NSPredicate
+        let points: Results<Point>
         if termValue == 0 {
             // 表示期間「すべて」の場合
-            predicate = NSPredicate(format: "stayMin >= %d", dispMinuteMin)
+            points = try! Realm().objects(Point.self)
         } else {
             let timeInterval = -60 * 60 * 24  * termValue
             let term = Date(timeInterval: TimeInterval(timeInterval), since: Date())
-            predicate = NSPredicate(format: "stayMin >= %d AND startDate >= %@", dispMinuteMin, term as CVarArg)
+            let predicate = NSPredicate(format: "startDate >= %@", term as CVarArg)
+            points = try! Realm().objects(Point.self).filter(predicate)
         }
-        let points = try! Realm().objects(Point.self).filter(predicate)
-
         let mRect = mapView.visibleMapRect
         //Map画面上の中心座標
         let topMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect))
@@ -64,10 +62,11 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
         let bottomMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect))
         let radius = MKMetersBetweenMapPoints(topMapPoint, bottomMapPoint) / 2
 
-        updatePins(for: points, radius: radius)
+        let dispMinuteMin = 10 //TODO: 設定値として他画面と共通して管理する
+        updatePins(for: points.filter {$0.stayMin > dispMinuteMin}, radius: radius)
     }
 
-    private func updatePins(for points: RealmSwift.Results<Point>, radius: CLLocationDistance) {
+    private func updatePins(for points: [Point], radius: CLLocationDistance) {
         //地図上のピンを削除
         mapView.removeAnnotations(mapView.annotations)
         //地図にピンを立てる。

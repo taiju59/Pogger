@@ -8,94 +8,89 @@
 
 import CoreLocation
 
-class LocationService: NSObject, CLLocationManagerDelegate {
+class LocationService: NSObject, StandardLocationDelegate, VisitMonitoringDelegate {
 
-    private var locationManager: CLLocationManager! = nil
     static let sharedInstance = LocationService()
 
-    var newestLocation = CLLocation()
+    private(set) var newestLocation = CLLocation()
 
     override private init() {
         super.init()
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-
-        //位置情報取得の可否。バックグラウンドで実行中の場合にもアプリが位置情報を利用することを許可する
-        locationManager.requestAlwaysAuthorization()
-        //位置情報の精度
-        let userDefaults = UserDefaults.standard
-        if let lq = LocationQuality(rawValue: userDefaults.integer(forKey: Prefix.keyLocateQuality)) {
-            setAccuracy(lq)
-        } else {
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        }
-        locationManager.requestAlwaysAuthorization()
-        locationManager.allowsBackgroundLocationUpdates = true
-        // これを入れないと停止した場合に15分ぐらいで勝手に止まる
-        locationManager.pausesLocationUpdatesAutomatically = false
+        StandardLocation.sharedInstance.delegate = self
+        VisitMonitoring.sharedInstance.delegate = self
     }
 
-    func setAccuracy(_ locateQuality: LocationQuality) {
-        switch locateQuality {
-        case .high:
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        case .normal:
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        case .low:
-            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        }
+    func requestLocation() {
+        StandardLocation.sharedInstance.request()
     }
 
-    func startUpdatingLocation() {
-        locationManager.startUpdatingLocation()
+    func startVisitMonitoring() {
+        VisitMonitoring.sharedInstance.start()
     }
 
-    func stopGetLocation() {
-        locationManager.stopUpdatingLocation()
-    }
-
-    /** 位置情報取得成功時 */
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        // 情報の有用性を検証
-        if !filteringLocation(manager.location!) {
-            return
-        }
-
-        //最新の位置情報を保持
-        newestLocation = manager.location!
-
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
-            if error != nil {
-                print("Reverse geocoder failed with error" + error!.localizedDescription)
-                return
-            }
-            if !placemarks!.isEmpty {
-                let pm = placemarks![0] as CLPlacemark
-                Point.addPoint(pm)
+    func standardLocation(_ standardLocation: StandardLocation, manager: CLLocationManager, didUpdateLocation location: CLLocation) {
+        newestLocation = location
+        getAddress(for: location, completion: {
+            placeMark in
+            let now = Date()
+            let point = placeMark.toPoint(startDate: now, endDate: now)
+            if Point.validateInsert(point) {
+                Point.addPoint(point)
             } else {
-                print("Problem with the data received from geocoder")
+                Point.updatePoint(point)
             }
         })
     }
 
-    /** 位置情報取得失敗時 */
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("didFailWithError: " + error.localizedDescription)
+    func standardLocation(_ standardLocation: StandardLocation, manager: CLLocationManager, didFailWithError error: Error) {
+        //TODO: エラー処理
     }
 
-    private func filteringLocation(_ location: CLLocation) -> Bool {
+    func visitMonitoring(_ visitMonitoring: VisitMonitoring, manager: CLLocationManager, didVisit visit: CLVisit) {
+        let location = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
+        newestLocation = location
+        getAddress(for: location, completion: {
+            placeMark in
+            let point = placeMark.toPoint(startDate: visit.arrivalDate, endDate: visit.departureDate)
+            if Point.validateInsert(point) {
+                Point.addPoint(point)
+            } else {
+                Point.updatePoint(point)
+            }
+        })
+    }
 
-        let age = -location.timestamp.timeIntervalSinceNow
-        if age > 10 {
-            return false
-        }
-        if location.horizontalAccuracy < 0 {
-            return false
-        }
-        if location.horizontalAccuracy > 100 {
-            return false
-        }
-        return true
+    private func getAddress(for location: CLLocation, completion: @escaping (CLPlacemark) -> Swift.Void) {
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            if let error = error {
+                print("住所取得失敗(1): " + error.localizedDescription)
+                return
+            }
+            if !placemarks!.isEmpty {
+                let placemark = placemarks![0] as CLPlacemark
+                completion(placemark)
+            } else {
+                print("住所取得失敗(2): Problem with the data received from geocoder")
+            }
+        })
+    }
+}
+
+fileprivate extension CLPlacemark {
+    func toPoint(startDate: Date, endDate: Date) -> Point {
+        let point = Point()
+        point.startDate = startDate
+        point.endDate = endDate
+        point.longitude = location!.coordinate.longitude
+        point.latitude = location!.coordinate.latitude
+        point.name = self.name
+        point.thoroughfare = self.thoroughfare
+        point.subThoroughfare = self.subThoroughfare
+        point.locality = self.locality
+        point.subLocality = self.subLocality
+        point.postalCode = self.postalCode
+        point.administrativeArea = self.administrativeArea
+        point.country = self.country
+        return point
     }
 }

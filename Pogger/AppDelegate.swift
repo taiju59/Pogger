@@ -18,13 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("xxx") // set your Google Map API Key
-        LocationService.sharedInstance.startUpdatingLocation()
 
         // 位置情報計測精度初期設定
         let userDefaults = UserDefaults.standard
         let locateQuality = userDefaults.integer(forKey: Prefix.keyLocateQuality)
         userDefaults.set(locateQuality, forKey: Prefix.keyLocateQuality)
         userDefaults.synchronize()
+
+        LocationService.sharedInstance.requestLocation()
+        LocationService.sharedInstance.startVisitMonitoring()
 
         return true
     }
