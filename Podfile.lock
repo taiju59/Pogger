@@ -1,15 +1,15 @@
 PODS:
-  - GoogleMaps (2.0.1):
-    - GoogleMaps/Maps (= 2.0.1)
-  - GoogleMaps/Base (2.0.1)
-  - GoogleMaps/Maps (2.0.1):
-    - GoogleMaps/Base (= 2.0.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
 
 DEPENDENCIES:
   - GoogleMaps
 
 SPEC CHECKSUMS:
-  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
 
 PODFILE CHECKSUM: 77caa0f4f1f5f186dfceaffc06694307e9e7e8d4
 
