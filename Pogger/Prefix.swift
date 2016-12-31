@@ -18,3 +18,9 @@ class Prefix {
     static let strLocateQualityNormal = "普通"
     static let strLocateQualityLow = "省電力"
 }
+
+class NotificationNames {
+    static let addPoint = Notification.Name(rawValue: "addPoint")
+    static let updatePoint = Notification.Name(rawValue: "updatePoint")
+    static let switchFavorite = Notification.Name(rawValue: "switchFavorite")
+}

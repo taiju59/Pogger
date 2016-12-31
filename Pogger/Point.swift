@@ -13,7 +13,7 @@ import RealmSwift
 class Point: Object {
 
     dynamic var id: String = UUID().uuidString
-    dynamic var startDate: Date!
+    dynamic var startDate = Date()
     dynamic var endDate: Date!
     dynamic var stayMin = 0
     dynamic var longitude = 0.0
@@ -40,7 +40,7 @@ class Point: Object {
 
     static private let semaphore: DispatchSemaphore = DispatchSemaphore(value: 1)
 
-    static func inputPoint(_ placemark: CLPlacemark) {
+    static func addPoint(_ placemark: CLPlacemark) {
         semaphore.wait()
         let private_queue = DispatchQueue(label: "inputPoint", attributes: [])
         private_queue.async {
@@ -49,7 +49,8 @@ class Point: Object {
 
             if allPointsCnt > 0 {
                 let lastPoint = allPoints[0]
-                if isSamePlace(lastPoint, newPlace: placemark) {
+                let coordinate = placemark.location!.coordinate
+                if isSamePlace(lastPoint, newLat: coordinate.latitude, newLon: coordinate.longitude) {
                     updatePoint(placemark, allPoints: allPoints)
                 } else {
                     addPoint(placemark, allPoints: allPoints)
@@ -61,29 +62,22 @@ class Point: Object {
         }
     }
 
-    class func isSamePlace(_ oldPlace: Point, newPlace: CLPlacemark) -> Bool {
-        let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
-        let isSameName = oldPlace.name == newPlace.name
+    class func isSamePlace(_ oldPlace: Point, newLat: CLLocationDegrees, newLon: CLLocationDegrees, name: String? = nil) -> Bool {
+        let isMoved = calcDistance(oldPlace, newLat: newLat, newLon: newLon) > distanceBoundary
+        let isSameName = oldPlace.name == name
         return !isMoved || isSameName
     }
 
-    class func isSamePlace(_ oldPlace: Point, newPlace: FixedPoint) -> Bool {
-        let isMoved = calcDistance(oldPlace, to: newPlace) > distanceBoundary
-        let isSameName = oldPlace.name == newPlace.name
-        return !isMoved || isSameName
-    }
-
-    class func calcDistance(_ oldPlace: Point, to newPlace: CLPlacemark) -> CLLocationDistance {
+    class func calcDistance(_ oldPlace: Point, newLat: CLLocationDegrees, newLon: CLLocationDegrees) -> CLLocationDistance {
 
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
-        let newLocation = newPlace.location!
+        let newLocation = CLLocation(latitude: newLat, longitude: newLon)
         let distance = newLocation.distance(from: oldLocation)
 
         return distance
     }
 
-    class func calcDistance(_ oldPlace: Point, to newPlace: FixedPoint) -> CLLocationDistance {
-
+    class func calcDistance(_ oldPlace: Point, to newPlace: Point) -> CLLocationDistance {
         let oldLocation = CLLocation(latitude: oldPlace.latitude, longitude: oldPlace.longitude)
         let newLocation = CLLocation(latitude: newPlace.latitude, longitude: newPlace.longitude)
         let distance = newLocation.distance(from: oldLocation)
@@ -100,15 +94,15 @@ class Point: Object {
         if !isSameMinute && !isPast {
             try! Realm().write {
                 let now = Date()
-                let stayMin = now.minute - lastPoint.startDate!.minute
+                let stayMin = now.minute - lastPoint.startDate.minute
                 lastPoint.endDate = now
                 lastPoint.stayMin = stayMin
             }
         }
+        NotificationCenter.default.post(name: NotificationNames.updatePoint, object: nil)
     }
 
     static private func addPoint(_ placemark: CLPlacemark, allPoints: Results<(Point)>) {
-        let realm = try! Realm()
 
         let point = Point()
         let now = Date()
@@ -127,24 +121,19 @@ class Point: Object {
         point.administrativeArea = placemark.administrativeArea
         point.country = placemark.country
 
-        do {
-            try realm.write {
-                realm.add(point)
-            }
-        } catch {
-            print("RLM ERROR!!")
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(point)
         }
+        NotificationCenter.default.post(name: NotificationNames.addPoint, object: nil)
     }
 
     class func switchFavorite(_ id: String, select: Bool) {
         let realm = try! Realm()
-        do {
-            try realm.write {
-                let point = realm.objects(self).filter("id == \"\(id)\"")[0]
-                point.favorite = select
-            }
-        } catch {
-            print("RLM ERROR!!")
+        let point = realm.objects(self).filter("id == \"\(id)\"")[0]
+        try! realm.write {
+            point.favorite = select
         }
+        NotificationCenter.default.post(name: NotificationNames.switchFavorite, object: nil)
     }
 }

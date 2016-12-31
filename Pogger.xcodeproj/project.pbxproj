@@ -14,6 +14,7 @@
 		ED2497BD1DA7ED9700660AFC /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BA1DA7ED9700660AFC /* FavoriteListViewController.swift */; };
 		ED2497BE1DA7ED9700660AFC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BB1DA7ED9700660AFC /* MapViewController.swift */; };
 		ED2497BF1DA7ED9700660AFC /* SelectTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */; };
+		ED4D8EDC1E1D096C00D0998E /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED4D8EDB1E1D096C00D0998E /* IndicatorView.xib */; };
 		ED7AF3901DA76B5500373E73 /* pogger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED7AF38F1DA76B5500373E73 /* pogger.ttf */; };
 		ED82EE971DA80E5F00EBC2CD /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED82EE961DA80E5F00EBC2CD /* Setting.storyboard */; };
 		ED82EE991DA8CDC600EBC2CD /* terms.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED82EE981DA8CDC600EBC2CD /* terms.plist */; };
@@ -41,7 +42,6 @@
 		F6AEC30E1DCCC9BE0057361A /* OpenMapAppActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AEC30D1DCCC9BE0057361A /* OpenMapAppActivity.swift */; };
 		F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */; };
 		F6CDBC2E1D7B0C0700255790 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2C1D7B0C0700255790 /* Point.swift */; };
-		F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */; };
 		F6ED4C771CF969F100DCA80E /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +54,7 @@
 		ED2497BA1DA7ED9700660AFC /* FavoriteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteListViewController.swift; path = Pogger/FavoriteListViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED2497BB1DA7ED9700660AFC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Pogger/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		ED2497BC1DA7ED9700660AFC /* SelectTermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectTermViewController.swift; path = Pogger/SelectTermViewController.swift; sourceTree = SOURCE_ROOT; };
+		ED4D8EDB1E1D096C00D0998E /* IndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = SOURCE_ROOT; };
 		ED7AF38F1DA76B5500373E73 /* pogger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pogger.ttf; sourceTree = "<group>"; };
 		ED82EE961DA80E5F00EBC2CD /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = Pogger/Setting.storyboard; sourceTree = SOURCE_ROOT; };
 		ED82EE981DA8CDC600EBC2CD /* terms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = terms.plist; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		F6AEC30D1DCCC9BE0057361A /* OpenMapAppActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenMapAppActivity.swift; path = Pogger/OpenMapAppActivity.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2B1D7B0C0700255790 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationInfo.swift; path = Pogger/LocationInfo.swift; sourceTree = SOURCE_ROOT; };
 		F6CDBC2C1D7B0C0700255790 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Pogger/Point.swift; sourceTree = SOURCE_ROOT; };
-		F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FixedPoint.swift; path = Pogger/FixedPoint.swift; sourceTree = SOURCE_ROOT; };
 		F6ED4C761CF969F100DCA80E /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 			children = (
 				F6DCAA461D2D47A100F9F77C /* Realm */,
 				F619437F1D0867AA000CC24F /* LocationService.swift */,
-				F6CDBC2F1D7B0C5100255790 /* FixedPoint.swift */,
 				F61943841D0867AA000CC24F /* Utils.swift */,
 				F6AEC30D1DCCC9BE0057361A /* OpenMapAppActivity.swift */,
 			);
@@ -208,6 +207,7 @@
 				F61943771D08676E000CC24F /* ListViewHeader.swift */,
 				F61943781D08676E000CC24F /* ListViewHeader.xib */,
 				F61943791D08676E000CC24F /* PointCell.swift */,
+				ED4D8EDB1E1D096C00D0998E /* IndicatorView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -341,6 +341,7 @@
 				F619436B1D0866F4000CC24F /* Assets.xcassets in Resources */,
 				F619437D1D08676E000CC24F /* ListViewHeader.xib in Resources */,
 				ED82EE971DA80E5F00EBC2CD /* Setting.storyboard in Resources */,
+				ED4D8EDC1E1D096C00D0998E /* IndicatorView.xib in Resources */,
 				F61943731D08673E000CC24F /* LaunchScreen.storyboard in Resources */,
 				F619437B1D08676E000CC24F /* FavoriteEmptyState.xib in Resources */,
 			);
@@ -417,7 +418,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6CDBC301D7B0C5100255790 /* FixedPoint.swift in Sources */,
 				F6CDBC2D1D7B0C0700255790 /* LocationInfo.swift in Sources */,
 				F61943931D0867C2000CC24F /* SettingViewController.swift in Sources */,
 				ED2497BE1DA7ED9700660AFC /* MapViewController.swift in Sources */,

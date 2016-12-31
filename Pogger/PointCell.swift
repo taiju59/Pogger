@@ -44,7 +44,7 @@ class PointCell: UITableViewCell {
     @IBOutlet weak var comma4: UILabel!
     @IBOutlet weak var comma5: UILabel!
 
-    func setPoint(_ point: FixedPoint, dispMinuteMin: Int, type: PointCellType) {
+    func setPoint(_ point: Point, dispMinuteMin: Int, type: PointCellType) {
 
         for subview in self.mainContentsView.subviews {
             subview.removeFromSuperview()
@@ -61,7 +61,7 @@ class PointCell: UITableViewCell {
         setAddress(point)
 
         // 時間ラベル
-        self.dateLabel.text = Utils.getStayDateStr(point.toRlmPoint())
+        self.dateLabel.text = Utils.getStayDateStr(point)
 
         // お気に入り
         self.id = point.id
@@ -78,7 +78,7 @@ class PointCell: UITableViewCell {
         }
     }
 
-    private func setAddress(_ point: FixedPoint) {
+    private func setAddress(_ point: Point) {
 
         let name = point.name ?? ""
         let subThoroughfare = point.subThoroughfare ?? ""
@@ -130,7 +130,7 @@ class PointCell: UITableViewCell {
         delegate?.didTapOptionButton(self)
     }
 
-    private func getPanoView(_ point: FixedPoint) -> GMSPanoramaView {
+    private func getPanoView(_ point: Point) -> GMSPanoramaView {
 
         //TODO: auto layout で作成
         let deviceWidth = UIScreen.main.bounds.width
@@ -145,7 +145,7 @@ class PointCell: UITableViewCell {
         return panoView
     }
 
-    private func getMapView(_ point: FixedPoint) -> MKMapView {
+    private func getMapView(_ point: Point) -> MKMapView {
 
         let deviceWidth = UIScreen.main.bounds.width
         let rect = CGRect(x: 0, y: 0, width: deviceWidth - 16, height: 100)

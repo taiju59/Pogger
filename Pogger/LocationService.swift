@@ -72,7 +72,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             }
             if !placemarks!.isEmpty {
                 let pm = placemarks![0] as CLPlacemark
-                Point.inputPoint(pm)
+                Point.addPoint(pm)
             } else {
                 print("Problem with the data received from geocoder")
             }

@@ -43,7 +43,7 @@ class Utils {
 
     static func getStayDateStr(_ point: Point) -> String {
 
-        let startDate = point.startDate!
+        let startDate = point.startDate
         var dateText = ""
 
         let dateFormatter = DateFormatter()
@@ -56,7 +56,7 @@ class Utils {
     }
 
     static func getAnnotationDateStr(_ point: Point) -> String {
-        let date = point.startDate!
+        let date = point.startDate
         return Utils.getDateString(for: date) + String(" ") + Utils.getStayDateStr(point)
     }
 

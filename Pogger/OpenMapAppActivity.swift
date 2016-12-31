@@ -36,7 +36,7 @@ class OpenMapAppActivity: UIActivity {
 
         let point = activityItems.filter({$0 is Point})[0] as! Point
         let ll = String(format: "%f,%f", point.latitude, point.longitude)
-        let q = Utils.getAddress(point).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let q = Utils.getAddress(point)
 
         let urlString: String
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
