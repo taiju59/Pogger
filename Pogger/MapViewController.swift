@@ -46,7 +46,6 @@ class MapViewController: UIViewController {
         if let location = LocationService.sharedInstance.newestLocation {
             setMap(for: location)
         } else {
-            //TODO: 待ち受け状態にする
             indicator.startAnimating()
         }
     }
