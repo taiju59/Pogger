@@ -44,6 +44,10 @@ class ListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController!.delegate = self
+        // 選択状態のセルを解除
+        if let selectedRow = viaTableView.indexPathForSelectedRow {
+            viaTableView.deselectRow(at: selectedRow, animated: true)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
