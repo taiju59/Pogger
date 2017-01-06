@@ -12,7 +12,7 @@ class LocationService: NSObject, StandardLocationDelegate, VisitMonitoringDelega
 
     static let sharedInstance = LocationService()
 
-    private(set) var newestLocation = CLLocation()
+    private(set) var newestLocation: CLLocation?
 
     override private init() {
         super.init()
@@ -30,10 +30,12 @@ class LocationService: NSObject, StandardLocationDelegate, VisitMonitoringDelega
 
     func standardLocation(_ standardLocation: StandardLocation, manager: CLLocationManager, didUpdateLocation location: CLLocation) {
         newestLocation = location
+        //TODO: newestLocation の setter に記述するとなぜか落ちるためここに記載
+        NotificationCenter.default.post(name: NotificationNames.updateNewestLocation, object: nil)
         getAddress(for: location, completion: {
             placeMark in
-            let now = Date()
-            let point = placeMark.toPoint(startDate: now, endDate: now)
+            let timestamp = location.timestamp
+            let point = placeMark.toPoint(startDate: timestamp, endDate: timestamp)
             if Point.validateInsert(point) {
                 Point.addPoint(point)
             } else {
@@ -49,6 +51,8 @@ class LocationService: NSObject, StandardLocationDelegate, VisitMonitoringDelega
     func visitMonitoring(_ visitMonitoring: VisitMonitoring, manager: CLLocationManager, didVisit visit: CLVisit) {
         let location = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
         newestLocation = location
+        //TODO: newestLocation の setter に記述するとなぜか落ちるためここに記載
+        NotificationCenter.default.post(name: NotificationNames.updateNewestLocation, object: nil)
         getAddress(for: location, completion: {
             placeMark in
             let point = placeMark.toPoint(startDate: visit.arrivalDate, endDate: visit.departureDate)

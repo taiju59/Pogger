@@ -23,4 +23,5 @@ class NotificationNames {
     static let addPoint = Notification.Name(rawValue: "addPoint")
     static let updatePoint = Notification.Name(rawValue: "updatePoint")
     static let switchFavorite = Notification.Name(rawValue: "switchFavorite")
+    static let updateNewestLocation = Notification.Name(rawValue: "updateNewestLocation")
 }

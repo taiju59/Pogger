@@ -11,15 +11,24 @@ import MapKit
 import RealmSwift
 import CoreLocation
 
-class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTermViewControllerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController {
+
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectTermButton: UIBarButtonItem!
 
-    private var termValue = 7
+    fileprivate var termValue = 7
+
+    fileprivate let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMap()
+        indicator.stopAnimating()
+        indicator.frame = self.view.frame
+        indicator.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3)
+        self.view.addSubview(indicator)
+
+        addNotificationObserver()
+        trySetMap()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,10 +37,23 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
         setPins()
     }
 
-    private func setMap() {
-        //sharedInstanceによる値渡し(経度緯度)
-        let latitude = LocationService.sharedInstance.newestLocation.coordinate.latitude
-        let longitude = LocationService.sharedInstance.newestLocation.coordinate.longitude
+    /**
+     * 最新の位置情報を地図の中心にする.
+     * なければローディング表示.
+     */
+    fileprivate func trySetMap() {
+        // 最新の位置情報を地図の中心にする
+        if let location = LocationService.sharedInstance.newestLocation {
+            setMap(for: location)
+        } else {
+            //TODO: 待ち受け状態にする
+            indicator.startAnimating()
+        }
+    }
+
+    fileprivate func setMap(for location: CLLocation) {
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
 
         //中心座標
         let center = CLLocationCoordinate2DMake(latitude, longitude)
@@ -44,7 +66,18 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
         mapView.setRegion(region, animated: true)
     }
 
-    private func setPins() {
+    /**
+     * ピンを刺す
+     */
+    fileprivate func setPins() {
+        let points = getTargetPoints()
+        updatePins(for: points)
+    }
+
+    /**
+     * 対象地点情報を取得
+     */
+    private func getTargetPoints() -> [Point] {
         let points: Results<Point>
         if termValue == 0 {
             // 表示期間「すべて」の場合
@@ -55,6 +88,18 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
             let predicate = NSPredicate(format: "startDate >= %@", term as CVarArg)
             points = try! Realm().objects(Point.self).filter(predicate)
         }
+
+        let dispMinuteMin = 10 //TODO: 設定値として他画面と共通して管理する
+        return points.filter {$0.stayMin > dispMinuteMin}
+    }
+
+    /**
+     * 指定地点且つ地図表示範囲にピンを刺す
+     */
+    private func updatePins(for points: [Point]) {
+        //地図上のピンを削除
+        mapView.removeAnnotations(mapView.annotations)
+
         let mRect = mapView.visibleMapRect
         //Map画面上の中心座標
         let topMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect))
@@ -62,13 +107,6 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
         let bottomMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect))
         let radius = MKMetersBetweenMapPoints(topMapPoint, bottomMapPoint) / 2
 
-        let dispMinuteMin = 10 //TODO: 設定値として他画面と共通して管理する
-        updatePins(for: points.filter {$0.stayMin > dispMinuteMin}, radius: radius)
-    }
-
-    private func updatePins(for points: [Point], radius: CLLocationDistance) {
-        //地図上のピンを削除
-        mapView.removeAnnotations(mapView.annotations)
         //地図にピンを立てる。
         for point in points {
             //中心座標取得
@@ -86,7 +124,25 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
         }
     }
 
-    //MARK: - Action
+    //MARK: - Transition
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "toSelectTermView" {
+            let vc = segue.destination as! SelectTermViewController
+            vc.delegate = self
+        }
+    }
+}
+
+//MARK: - Delegate
+extension MapViewController: UITabBarControllerDelegate, SelectTermViewControllerDelegate, MKMapViewDelegate {
+
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 1 {
+            trySetMap()
+        }
+    }
+
     //Mapが更新されるたびに呼び出される
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         setPins()
@@ -96,19 +152,23 @@ class MapViewController: UIViewController, UITabBarControllerDelegate, SelectTer
         termValue = value
         selectTermButton.title = title
     }
+}
 
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex == 1 {
-            setMap()
-        }
+//MARK: - Notification
+extension MapViewController {
+
+    fileprivate func addNotificationObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updateNewestLocation),
+            name: NotificationNames.updateNewestLocation,
+            object: nil)
     }
 
-    //MARK: - Transition
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "toSelectTermView" {
-            let vc = segue.destination as! SelectTermViewController
-            vc.delegate = self
-        }
+    func updateNewestLocation(notification: Notification?) {
+        let location = LocationService.sharedInstance.newestLocation!
+        setMap(for: location)
+        indicator.stopAnimating()
     }
+
 }
