@@ -94,82 +94,82 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PointCell" rowHeight="262" id="1Ey-Om-ks0" customClass="PointCell" customModule="Pogger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="262"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="262"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ey-Om-ks0" id="vey-m3-ce4">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="261.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="261"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="fc6-bg-GUC">
-                                                    <rect key="frame" x="15" y="190.5" width="240.5" height="27"/>
+                                                    <rect key="frame" x="15" y="190.5" width="345" height="27"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-T5-qNQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="179" height="27"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="27"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町2丁目26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF9-AJ-E1D">
-                                                            <rect key="frame" x="179" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="16" y="3.5" width="9.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-O8-tnN">
-                                                            <rect key="frame" x="179" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="25.5" y="-6" width="65" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36m-YZ-Q4v">
-                                                            <rect key="frame" x="179" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="90.5" y="3.5" width="9.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-FL-G4q">
-                                                            <rect key="frame" x="179" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="100" y="-6" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDb-Ha-Vgk">
-                                                            <rect key="frame" x="179" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="152" y="3.5" width="9.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Re-2e-Tmv">
-                                                            <rect key="frame" x="179" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="161.5" y="-6" width="70" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIn-G3-fkn">
-                                                            <rect key="frame" x="179" y="3.5" width="9.5" height="20.5"/>
+                                                            <rect key="frame" x="231.5" y="3.5" width="9.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRv-oG-IDm">
-                                                            <rect key="frame" x="188.5" y="-6" width="52" height="33"/>
+                                                            <rect key="frame" x="241" y="-6" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awv-hr-JeU">
-                                                            <rect key="frame" x="240.5" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="293" y="3.5" width="0.0" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VO9-Nl-gub">
-                                                            <rect key="frame" x="240.5" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="293" y="-6" width="52" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="東京都">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -356,79 +356,86 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="258"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kQf-KH-S9b" id="nFc-We-5WZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="257.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="257"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGd-Sj-klR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                    <color key="backgroundColor" red="0.89999997620000005" green="0.89999997620000005" blue="0.89999997620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="6VE-gd-X46"/>
+                                                    </constraints>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="0kg-1i-1Ka">
-                                                    <rect key="frame" x="15" y="186.5" width="240.5" height="27"/>
+                                                    <rect key="frame" x="15" y="158" width="508" height="16"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-iX-xeN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="179" height="27"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="179" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町2丁目26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnX-Ia-hEf">
-                                                            <rect key="frame" x="179" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="179" y="0.0" width="9.5" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSJ-mV-0ZA">
-                                                            <rect key="frame" x="179" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="188.5" y="-16" width="65" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="26番7号">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-m0-Du5">
-                                                            <rect key="frame" x="179" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="253.5" y="0.0" width="9.5" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20j-oj-Vhf">
-                                                            <rect key="frame" x="179" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="263" y="-16" width="52" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXn-6h-X6q">
-                                                            <rect key="frame" x="179" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="315" y="0.0" width="9.5" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-wh-elh">
-                                                            <rect key="frame" x="179" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="324.5" y="-16" width="70" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="歌舞伎町">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbK-hP-mca">
-                                                            <rect key="frame" x="179" y="3.5" width="9.5" height="20.5"/>
+                                                            <rect key="frame" x="394.5" y="0.0" width="9.5" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eq-pS-sgE">
-                                                            <rect key="frame" x="188.5" y="-6" width="52" height="33"/>
+                                                            <rect key="frame" x="404" y="-16" width="52" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="新宿区">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfi-J9-cS1">
-                                                            <rect key="frame" x="240.5" y="3.5" width="0.0" height="20.5"/>
+                                                            <rect key="frame" x="456" y="0.0" width="0.0" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwZ-h3-ux1">
-                                                            <rect key="frame" x="240.5" y="-3" width="0.0" height="33"/>
+                                                            <rect key="frame" x="456" y="-16" width="52" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="東京都">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -441,23 +448,27 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ghb-z1-xfx">
-                                                    <rect key="frame" x="15" y="8" width="42" height="20.5"/>
+                                                    <rect key="frame" x="15" y="174" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGd-Sj-klR">
-                                                    <rect key="frame" x="0.0" y="36.5" width="375" height="150"/>
-                                                    <color key="backgroundColor" red="0.89999997620000005" green="0.89999997620000005" blue="0.89999997620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnW-mz-Tmf" userLabel="separate view">
+                                                    <rect key="frame" x="8" y="202.5" width="367" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="6VE-gd-X46"/>
+                                                        <constraint firstAttribute="height" constant="0.5" id="b5n-E7-OC2"/>
                                                     </constraints>
                                                 </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="stl-zM-8JG">
-                                                    <rect key="frame" x="15" y="217.5" width="130" height="32"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="stl-zM-8JG">
+                                                    <rect key="frame" x="0.0" y="203.5" width="180" height="42"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1D-kh-knT" userLabel="Favorite Button">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="42"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="42" id="C1G-Hw-yVe"/>
+                                                                <constraint firstAttribute="width" constant="60" id="qYf-Rj-zcs"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="a">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -470,7 +481,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qL-sj-zEa" userLabel="ShareButton">
-                                                            <rect key="frame" x="50" y="0.0" width="30" height="32"/>
+                                                            <rect key="frame" x="60" y="0.0" width="60" height="42"/>
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="b">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -480,7 +491,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xic-lg-Oi6" userLabel="Option Button">
-                                                            <rect key="frame" x="100" y="0.0" width="30" height="32"/>
+                                                            <rect key="frame" x="120" y="0.0" width="60" height="42"/>
                                                             <fontDescription key="fontDescription" name="pogger" family="pogger" pointSize="20"/>
                                                             <state key="normal" title="c">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -494,17 +505,19 @@
                                             </subviews>
                                             <gestureRecognizers/>
                                             <constraints>
-                                                <constraint firstItem="Ghb-z1-xfx" firstAttribute="top" secondItem="nFc-We-5WZ" secondAttribute="top" constant="8" id="0gL-uK-k5U"/>
-                                                <constraint firstItem="bGd-Sj-klR" firstAttribute="top" secondItem="Ghb-z1-xfx" secondAttribute="bottom" constant="8" id="MDH-Ft-wpB"/>
-                                                <constraint firstItem="Ghb-z1-xfx" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="Rhf-QV-b4g"/>
-                                                <constraint firstItem="0kg-1i-1Ka" firstAttribute="top" secondItem="bGd-Sj-klR" secondAttribute="bottom" id="Uw5-Tv-ocH"/>
-                                                <constraint firstAttribute="bottom" secondItem="stl-zM-8JG" secondAttribute="bottom" constant="8" id="Xdi-W8-H07"/>
-                                                <constraint firstItem="stl-zM-8JG" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="Y3Q-cs-GI9"/>
-                                                <constraint firstAttribute="trailing" secondItem="bGd-Sj-klR" secondAttribute="trailing" id="c01-08-z9A"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0kg-1i-1Ka" secondAttribute="trailing" constant="15" id="pka-dg-l1e"/>
-                                                <constraint firstItem="stl-zM-8JG" firstAttribute="top" secondItem="0kg-1i-1Ka" secondAttribute="bottom" constant="4" id="rwv-WW-xoL"/>
-                                                <constraint firstItem="bGd-Sj-klR" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" id="ujs-h8-i2m"/>
-                                                <constraint firstItem="0kg-1i-1Ka" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="v5u-bT-a26"/>
+                                                <constraint firstItem="stl-zM-8JG" firstAttribute="top" secondItem="cnW-mz-Tmf" secondAttribute="bottom" id="9u5-dl-qfU"/>
+                                                <constraint firstItem="bGd-Sj-klR" firstAttribute="top" secondItem="nFc-We-5WZ" secondAttribute="top" id="Es6-w1-S4S"/>
+                                                <constraint firstItem="cnW-mz-Tmf" firstAttribute="top" secondItem="Ghb-z1-xfx" secondAttribute="bottom" constant="8" id="HpG-WY-r3J"/>
+                                                <constraint firstItem="Ghb-z1-xfx" firstAttribute="leading" secondItem="0kg-1i-1Ka" secondAttribute="leading" id="LoA-Nd-Y3s"/>
+                                                <constraint firstItem="0kg-1i-1Ka" firstAttribute="top" secondItem="bGd-Sj-klR" secondAttribute="bottom" constant="8" id="NlA-qo-149"/>
+                                                <constraint firstItem="stl-zM-8JG" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" id="V7a-of-qBS"/>
+                                                <constraint firstItem="0kg-1i-1Ka" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="15" id="aCh-SV-TcP"/>
+                                                <constraint firstAttribute="trailing" secondItem="bGd-Sj-klR" secondAttribute="trailing" id="dVw-oz-1mr"/>
+                                                <constraint firstAttribute="trailing" secondItem="cnW-mz-Tmf" secondAttribute="trailing" id="ecG-tG-LSL"/>
+                                                <constraint firstItem="bGd-Sj-klR" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" id="qgj-i9-Vq9"/>
+                                                <constraint firstItem="cnW-mz-Tmf" firstAttribute="leading" secondItem="nFc-We-5WZ" secondAttribute="leading" constant="8" id="t6H-aa-fcI"/>
+                                                <constraint firstAttribute="bottom" secondItem="stl-zM-8JG" secondAttribute="bottom" constant="12" id="xhK-O4-Hlk"/>
+                                                <constraint firstItem="Ghb-z1-xfx" firstAttribute="top" secondItem="0kg-1i-1Ka" secondAttribute="bottom" id="z3d-0v-xB7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
@@ -611,7 +624,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AGx-hw-3SV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Home" image="t_home" id="ueN-N3-Rbb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vvq-We-1Sl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vvq-We-1Sl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -631,7 +644,7 @@
                     <navigationItem key="navigationItem" id="tJ0-rG-co1">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="QEo-vK-iKO">
-                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Records"/>
@@ -642,7 +655,7 @@
                                 <action selector="didSelectSegmentedControl:" destination="ybv-yL-uAk" eventType="valueChanged" id="vDb-qT-jdI"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="K3O-Ej-mgH">
+                        <barButtonItem key="rightBarButtonItem" id="K3O-Ej-mgH">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="APP-BJ-OJV">
                                 <rect key="frame" x="319" y="7" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
